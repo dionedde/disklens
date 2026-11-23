@@ -1,0 +1,8 @@
+# ambiente e dados locais
+.venv/
+data/
+config.json
+__pycache__/
+*.pyc
+*.log
+*.tmp
