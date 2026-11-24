@@ -6,3 +6,7 @@ __pycache__/
 *.pyc
 *.log
 *.tmp
+
+# installer build
+build/
+dist/

@@ -219,6 +219,18 @@ Follows the Windows theme automatically.
 
 ## Installation
 
+### Installer (recommended)
+
+1. Download **`DiskLens-Setup-<version>.exe`** from the [latest release](https://github.com/dionedde/disklens/releases/latest).
+2. Run it. It installs for your user only (no administrator password) and brings everything it needs, Python included: there is nothing else to install.
+3. Open **DiskLens** from the Start menu. Use **DiskLens (administrator)** to also read protected folders.
+
+The installer is not digitally signed yet, so Windows may show **"Windows protected your PC"** (SmartScreen). Click **More info → Run anyway**.
+
+To remove it: **Settings → Apps → DiskLens → Uninstall**. It asks whether to also delete the history and settings.
+
+### From the source code (developers)
+
 **Requirements:** Windows 10 or 11 and **Python 3.12 or newer** ([python.org](https://www.python.org/downloads/)). The window uses Edge WebView2, which already ships with Windows.
 
 1. Install Python, checking **"Add python.exe to PATH"**.
@@ -236,8 +248,8 @@ On first run, `config.json` is created and picks where to keep the data: by defa
 
 | To… | Do |
 |---|---|
-| Open it | double-click **`DiskLens.bat`** |
-| See everything, including protected folders (**recommended**) | **`DiskLens (administrador).bat`** |
+| Open it | Start menu → **DiskLens** (from the source code: **`DiskLens.bat`**) |
+| See everything, including protected folders (**recommended**) | Start menu → **DiskLens (administrator)** (from the source code: **`DiskLens (administrador).bat`**) |
 | First scan | **Scan C: now** button: about 1 minute for ~740 thousand files |
 | Free space right away | **Free up space** tab, check the selected items, **Review and confirm** |
 | Find out why space disappeared | **Timeline** tab, **Turn on automatic collection**. After a few days, use **Compare** and the **File by file** card |
@@ -323,6 +335,14 @@ disklens/
 - Junctions and symbolic links are never followed.
 
 **Translations:** the source strings are Portuguese, and `disklens/locales.json` maps each one to English and Spanish. `python tools/i18n_keys.py` lists every translatable string and reports anything missing; a test fails if the catalog is incomplete.
+
+## Building the installer
+
+```bash
+.venv\Scripts\python.exe tools\build_installer.py
+```
+
+It needs [Inno Setup 6](https://jrsoftware.org/isinfo.php) and the official *Windows embeddable package (64-bit)* of Python, same 3.x as `.venv`, saved in `build\cache\` (check its SHA-256 on the python.org release page). The result is `dist\DiskLens-Setup-<version>.exe`: the app with its own Python in `runtime\`, installed per user in `%LOCALAPPDATA%\Programs\DiskLens`.
 
 ## Tests
 

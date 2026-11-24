@@ -182,6 +182,18 @@ Sigue el tema de Windows automáticamente.
 
 ## Instalación
 
+### Instalador (recomendado)
+
+1. Descarga **`DiskLens-Setup-<versión>.exe`** de la [última versión](https://github.com/dionedde/disklens/releases/latest).
+2. Ejecútalo. Se instala solo para tu usuario (sin contraseña de administrador) e incluye todo lo que necesita, Python incluido: no hay nada más que instalar.
+3. Abre **DiskLens** desde el menú Inicio. Usa **DiskLens (administrador)** para leer también las carpetas protegidas.
+
+El instalador aún no tiene firma digital, así que Windows puede mostrar **"Windows protegió su PC"** (SmartScreen). Haz clic en **Más información → Ejecutar de todas formas**.
+
+Para quitarlo: **Configuración → Aplicaciones → DiskLens → Desinstalar**. Pregunta si también debe borrar el historial y la configuración.
+
+### Desde el código fuente (desarrolladores)
+
 **Requisitos:** Windows 10 u 11 y **Python 3.12 o más reciente** ([python.org](https://www.python.org/downloads/)). La ventana usa Edge WebView2, que ya viene con Windows.
 
 1. Instala Python marcando **"Add python.exe to PATH"**.
@@ -197,8 +209,8 @@ En la primera ejecución se crea `config.json`, que elige dónde guardar los dat
 
 | Para… | Haz |
 |---|---|
-| Abrirlo | doble clic en **`DiskLens.bat`** |
-| Ver todo, incluso carpetas protegidas (**recomendado**) | **`DiskLens (administrador).bat`** |
+| Abrirlo | menú Inicio → **DiskLens** (desde el código fuente: **`DiskLens.bat`**) |
+| Ver todo, incluso carpetas protegidas (**recomendado**) | menú Inicio → **DiskLens (administrador)** (desde el código fuente: **`DiskLens (administrador).bat`**) |
 | Primer escaneo | botón **Escanear C: ahora**: cerca de 1 minuto para ~740 mil archivos |
 | Liberar espacio ya | pestaña **Liberar espacio**, revisa los elementos marcados, **Revisar y confirmar** |
 | Descubrir por qué desapareció el espacio | pestaña **Línea de tiempo**, **Activar recopilación automática**. Tras unos días, usa **Comparar** y la tarjeta **Archivo por archivo** |
