@@ -16,6 +16,7 @@ import time
 import uuid
 
 from . import cleaner, winapi
+from .i18n import tr
 from .config import data_dir
 
 ACTIONS = {"esvaziar", "lixeira", "desinstalar", "ferramenta"}
@@ -26,7 +27,7 @@ def validate(item):
     a = str(item.get("action", "")).lower()
     it = {"action": a, "reason": str(item.get("reason", ""))[:500]}
     if a not in ACTIONS:
-        return it, "ação desconhecida"
+        return it, tr("ação desconhecida")
     if a in ("esvaziar", "lixeira"):
         p = str(item.get("path") or "")
         it["path"] = os.path.normpath(p) if p else ""
@@ -37,9 +38,9 @@ def validate(item):
             idx, _ = cleaner.effective_rule(it["path"])
             info = cleaner.rules().info(idx)
             if not info or info["safety"] != "seguro":
-                return it, "só pastas de cache/temporários marcadas como seguras podem ser esvaziadas"
+                return it, tr("só pastas de cache/temporários marcadas como seguras podem ser esvaziadas")
             if not os.path.isdir(it["path"]):
-                return it, "não é uma pasta"
+                return it, tr("não é uma pasta")
         try:
             it["size"] = cleaner.path_size(it["path"]) if a == "lixeira" or os.path.isdir(it["path"]) else 0
         except OSError:
@@ -56,13 +57,13 @@ def validate(item):
         it["program_id"] = pid
         prog = next((p for p in installed_programs() if p["id"] == pid), None)
         if not prog:
-            return it, "programa não encontrado"
+            return it, tr("programa não encontrado")
         it["name"] = prog["name"]
         it["size"] = prog["size"]
         if prog["dependency"]:
             it["warning"] = "outros programas podem depender deste"
         return it, None
-    return it, "inválido"
+    return it, tr("inválido")
 
 
 # ------------------------------------------------------------------ proposals storage
@@ -112,7 +113,7 @@ def start_job(items, proposal_id=None):
            "done": 0, "current": "", "results": [], "freed": 0, "recycled": 0, "proposal": proposal_id}
     with _lock:
         if any(j["state"] == "running" for j in _jobs.values()):
-            raise RuntimeError("já existe uma limpeza em andamento")
+            raise RuntimeError(tr("já existe uma limpeza em andamento"))
         _jobs[job["id"]] = job
     threading.Thread(target=_run, args=(job, items), daemon=True).start()
     return job
@@ -127,21 +128,21 @@ def _run(job, items):
     free_before = shutil.disk_usage(sysd).free
     for raw in items:
         it, why = validate(raw)                                   # check again right before acting
-        label = it.get("path") or it.get("name") or cleaner.TOOLS.get(it.get("tool", ""), {}).get("label", "")
+        label = it.get("path") or it.get("name") or tr(cleaner.TOOLS.get(it.get("tool", ""), {}).get("label", ""))
         job["current"] = label
         res = {"action": it["action"], "target": label, "ok": False, "bytes": 0, "message": ""}
         if why:
-            res["message"] = "recusado: " + why
+            res["message"] = tr("recusado: {why}", why=why)
         else:
             try:
                 if it["action"] == "esvaziar":
                     freed, n, skipped = cleaner.clean_contents(it["path"])
-                    res.update(ok=True, bytes=freed, message=f"{n} arquivos apagados" +
-                               (f", {skipped} em uso foram mantidos" if skipped else ""))
+                    res.update(ok=True, bytes=freed, message=tr("{n} arquivos apagados", n=n) +
+                               (tr(", {n} em uso foram mantidos", n=skipped) if skipped else ""))
                     job["freed"] += freed
                 elif it["action"] == "lixeira":
                     moved = cleaner.recycle(it["path"])
-                    res.update(ok=True, bytes=moved, message="enviado para a Lixeira")
+                    res.update(ok=True, bytes=moved, message=tr("enviado para a Lixeira"))
                     job["recycled"] += moved
                 elif it["action"] == "ferramenta":
                     ok, msg, freed = cleaner.run_tool(it["tool"])

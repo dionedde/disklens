@@ -12,6 +12,7 @@ import time
 import traceback
 
 from . import icon, instance, winapi
+from .i18n import gb, tr
 from .config import data_dir
 
 u32 = ctypes.WinDLL("user32", use_last_error=True)
@@ -93,8 +94,6 @@ REFRESH_MS = 60_000
 
 
 # ---- status -------------------------------------------------------------------------------
-def _gb(b):
-    return f"{b / 1024 ** 3:.1f}".replace(".", ",")
 
 
 def read_status():
@@ -123,15 +122,15 @@ def read_status():
 
 def _ago(ts):
     if not ts:
-        return "ainda não rodou"
+        return tr("ainda não rodou")
     m = (time.time() - ts) / 60
     if m < 1:
-        return "agora há pouco"
+        return tr("agora há pouco")
     if m < 60:
-        return f"há {m:.0f} min"
+        return tr("há {n} min", n=f"{m:.0f}")
     if m < 48 * 60:
-        return f"há {m / 60:.0f} h"
-    return f"há {m / 1440:.0f} dias"
+        return tr("há {n} h", n=f"{m / 60:.0f}")
+    return tr("há {n} dias", n=f"{m / 1440:.0f}")
 
 
 # ---- tray window --------------------------------------------------------------------------
@@ -201,8 +200,9 @@ class Tray:
                     u32.DestroyIcon(old)
         tip = "DiskLens"
         if sv:
-            tip += f"\n{sv['volume']} {_gb(sv['free'])} GB livres ({frac * 100:.0f}% usado)"
-        tip += f"\nÚltima medição: {_ago(self.status.get('last_run'))}"
+            tip += "\n" + tr("{drive} {free} GB livres ({pct}% usado)", drive=sv["volume"], free=gb(sv["free"]),
+                             pct=f"{frac * 100:.0f}")
+        tip += "\n" + tr("Última medição: {when}", when=_ago(self.status.get("last_run")))
         nid = self._nid()
         nid.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP
         nid.uCallbackMessage = WM_TRAY
@@ -232,24 +232,25 @@ class Tray:
     def menu(self):
         self.refresh()
         m = u32.CreatePopupMenu()
-        u32.AppendMenuW(m, MF_STRING, ID_OPEN, "Abrir painel")
+        u32.AppendMenuW(m, MF_STRING, ID_OPEN, tr("Abrir painel"))
         u32.AppendMenuW(m, MF_SEPARATOR, 0, None)
         for v in self.status["volumes"]:
             pct = v["used"] / v["total"] * 100 if v["total"] else 0
             u32.AppendMenuW(m, MF_STRING | MF_GRAYED, 0,
-                            f"{v['volume']}  {_gb(v['free'])} GB livres de {_gb(v['total'])} GB ({pct:.0f}% usado)")
+                            tr("{drive}  {free} GB livres de {total} GB ({pct}% usado)", drive=v["volume"],
+                               free=gb(v["free"]), total=gb(v["total"]), pct=f"{pct:.0f}"))
         u32.AppendMenuW(m, MF_SEPARATOR, 0, None)
         if self.agent_installed():
             u32.AppendMenuW(m, MF_STRING | MF_GRAYED, 0,
-                            f"Coleta automática ativa · última {_ago(self.status.get('last_run'))}")
-            u32.AppendMenuW(m, MF_STRING, ID_COLLECT, "Medir agora")
+                            tr("Coleta automática ativa · última {when}", when=_ago(self.status.get("last_run"))))
+            u32.AppendMenuW(m, MF_STRING, ID_COLLECT, tr("Medir agora"))
         else:
-            u32.AppendMenuW(m, MF_STRING | MF_GRAYED, 0, "Coleta automática desativada")
-            u32.AppendMenuW(m, MF_STRING, ID_ENABLE, "Ativar coleta automática…")
+            u32.AppendMenuW(m, MF_STRING | MF_GRAYED, 0, tr("Coleta automática desativada"))
+            u32.AppendMenuW(m, MF_STRING, ID_ENABLE, tr("Ativar coleta automática…"))
         u32.AppendMenuW(m, MF_SEPARATOR, 0, None)
         u32.AppendMenuW(m, MF_STRING | (MF_CHECKED if instance.autostart_enabled() else 0), ID_AUTOSTART,
-                        "Iniciar com o Windows")
-        u32.AppendMenuW(m, MF_STRING, ID_QUIT, "Sair do DiskLens")
+                        tr("Iniciar com o Windows"))
+        u32.AppendMenuW(m, MF_STRING, ID_QUIT, tr("Sair do DiskLens"))
         u32.SetMenuDefaultItem(m, ID_OPEN, False)
         pt = POINT()
         u32.GetCursorPos(ctypes.byref(pt))
@@ -264,7 +265,7 @@ class Tray:
             self.open_panel()
         elif cmd == ID_ENABLE:
             self.open_panel()
-            self.notify("DiskLens", "Ative a coleta na aba Linha do tempo → Ativar coleta automática.")
+            self.notify("DiskLens", tr("Ative a coleta na aba Linha do tempo → Ativar coleta automática."))
         elif cmd == ID_COLLECT:
             def run():
                 from . import tasks
@@ -272,14 +273,14 @@ class Tray:
                 time.sleep(15)
                 u32.PostMessageW(self.hwnd, WM_TIMER, 1, 0)
             threading.Thread(target=run, daemon=True).start()
-            self.notify("DiskLens", "Medindo o disco em segundo plano…")
+            self.notify("DiskLens", tr("Medindo o disco em segundo plano…"))
         elif cmd == ID_AUTOSTART:
             try:
                 on = instance.set_autostart(not instance.autostart_enabled())
-                self.notify("DiskLens", "O ícone vai aparecer ao entrar no Windows." if on else
-                            "O DiskLens não vai mais iniciar com o Windows. A coleta automática continua.")
+                self.notify("DiskLens", tr("O ícone vai aparecer ao entrar no Windows.") if on else
+                            tr("O DiskLens não vai mais iniciar com o Windows. A coleta automática continua."))
             except OSError as e:
-                self.notify("DiskLens", f"Não foi possível alterar: {e}")
+                self.notify("DiskLens", tr("Não foi possível alterar: {error}", error=e))
         elif cmd == ID_QUIT:
             instance.close_panel()
             u32.DestroyWindow(self.hwnd)

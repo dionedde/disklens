@@ -14,19 +14,20 @@
     <span>DiskLens</span>
   </div>
   <div class="pickers">
-    <label>Disco <select id="volSel"></select></label>
+    <label><span data-t="Disco">Disco</span> <select id="volSel"></select></label>
     <label>Snapshot <select id="snapSel"></select></label>
+    <label class="langpick" title="Language / Idioma">🌐 <select id="langSel"></select></label>
   </div>
   <div id="scanBox" class="scanbox"></div>
 </header>
 <div id="adminBar" class="adminbar" hidden></div>
 <nav class="tabs" id="tabs">
-  <button data-tab="overview" class="on">Visão geral</button>
-  <button data-tab="cleanup" class="hl">Liberar espaço</button>
-  <button data-tab="explore">Explorar pastas</button>
-  <button data-tab="files">Maiores arquivos</button>
-  <button data-tab="types">Tipos de arquivo</button>
-  <button data-tab="timeline">Linha do tempo</button>
+  <button data-tab="overview" class="on" data-t="Visão geral">Visão geral</button>
+  <button data-tab="cleanup" class="hl" data-t="Liberar espaço">Liberar espaço</button>
+  <button data-tab="explore" data-t="Explorar pastas">Explorar pastas</button>
+  <button data-tab="files" data-t="Maiores arquivos">Maiores arquivos</button>
+  <button data-tab="types" data-t="Tipos de arquivo">Tipos de arquivo</button>
+  <button data-tab="timeline" data-t="Linha do tempo">Linha do tempo</button>
 </nav>
 <main id="main"></main>
 <div id="toast" class="toast" hidden></div>

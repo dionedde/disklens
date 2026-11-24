@@ -18,6 +18,7 @@ import urllib.error
 import urllib.request
 
 from . import candidates, db
+from .i18n import language_name, tr
 from .config import data_dir, load as load_config, save as save_config
 
 PROVIDERS = {
@@ -53,7 +54,7 @@ def _crypt(data, protect):
     dst = _BLOB()
     fn = crypt32.CryptProtectData if protect else crypt32.CryptUnprotectData
     if not fn(ctypes.byref(src), None, None, None, None, 0x1, ctypes.byref(dst)):   # UI_FORBIDDEN
-        raise AIError("não foi possível (des)criptografar a chave com o Windows")
+        raise AIError(tr("não foi possível (des)criptografar a chave com o Windows"))
     try:
         return ctypes.string_at(dst.pbData, dst.cbData)
     finally:
@@ -73,7 +74,8 @@ def settings(public=True):
     cfg = load_config().get("ai") or {}
     prov = cfg.get("provider") or ""
     out = {"provider": prov, "model": cfg.get("model") or "", "base_url": cfg.get("base_url") or "",
-           "providers": {k: {kk: v[kk] for kk in ("label", "key", "model", "base")} for k, v in PROVIDERS.items()},
+           "providers": {k: {"label": tr(v["label"]), **{kk: v[kk] for kk in ("key", "model", "base")}}
+                         for k, v in PROVIDERS.items()},
            "has_key": {k: bool((cfg.get("keys") or {}).get(k)) for k in PROVIDERS},
            "consented": bool(cfg.get("consented"))}
     if not public:
@@ -108,16 +110,16 @@ def _active():
     s = settings(public=False)
     p = s["provider"]
     if not p:
-        raise AIError("Escolha um provedor de IA nas configurações do assistente.")
+        raise AIError(tr("Escolha um provedor de IA nas configurações do assistente."))
     spec = PROVIDERS[p]
     base = (s["base_url"] if p in ("custom", "ollama") and s["base_url"] else spec["base"]).rstrip("/")
     if not base:
-        raise AIError("Informe o endereço (URL) do serviço.")
+        raise AIError(tr("Informe o endereço (URL) do serviço."))
     key = None
     if s["_keys"].get(p):
         key = unprotect(s["_keys"][p])
     elif spec["key"]:
-        raise AIError(f"Informe a chave de API de {spec['label']}.")
+        raise AIError(tr("Informe a chave de API de {provider}.", provider=tr(spec["label"])))
     return p, spec, base, key, s["model"] or spec["model"]
 
 
@@ -138,11 +140,11 @@ def _http(url, payload=None, headers=None, timeout=180):
             body = msg or body
         except ValueError:
             pass
-        raise AIError(f"O serviço respondeu {e.code}: {str(body)[:300]}")
+        raise AIError(tr("O serviço respondeu {code}: {body}", code=e.code, body=str(body)[:300]))
     except urllib.error.URLError as e:
-        raise AIError(f"Não foi possível conectar a {url.split('/')[2]}: {e.reason}")
+        raise AIError(tr("Não foi possível conectar a {host}: {reason}", host=url.split("/")[2], reason=e.reason))
     except TimeoutError:
-        raise AIError("O serviço demorou demais para responder.")
+        raise AIError(tr("O serviço demorou demais para responder."))
 
 
 def _headers(spec, key):
@@ -161,7 +163,7 @@ def list_models():
 def chat(system, user, max_tokens=8000):
     p, spec, base, key, model = _active()
     if not model:
-        raise AIError("Escolha um modelo nas configurações do assistente.")
+        raise AIError(tr("Escolha um modelo nas configurações do assistente."))
     if spec["style"] == "anthropic":
         j = _http(base + "/messages", {"model": model, "max_tokens": max_tokens, "system": system,
                                        "messages": [{"role": "user", "content": user}]}, _headers(spec, key))
@@ -172,7 +174,7 @@ def chat(system, user, max_tokens=8000):
         try:
             text = j["choices"][0]["message"]["content"] or ""
         except (KeyError, IndexError, TypeError):
-            raise AIError("Resposta inesperada do serviço.")
+            raise AIError(tr("Resposta inesperada do serviço."))
     return text, {"provider": p, "model": model}
 
 
@@ -180,32 +182,34 @@ def extract_json(text):
     t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
     a, b = t.find("{"), t.rfind("}")
     if a < 0 or b <= a:
-        raise AIError("A IA não respondeu no formato esperado (JSON).")
+        raise AIError(tr("A IA não respondeu no formato esperado (JSON)."))
     try:
         return json.loads(t[a:b + 1])
     except ValueError as e:
-        raise AIError(f"A IA respondeu um JSON inválido: {e}")
+        raise AIError(tr("A IA respondeu um JSON inválido: {error}", error=e))
 
 
 # ------------------------------------------------------------------ analysis
-SYSTEM = """Você ajuda uma pessoa a liberar espaço no disco de um computador Windows, com segurança.
-Você recebe dados medidos pelo programa DiskLens: candidatos à limpeza (cada um com um "id"), programas
-instalados e pastas grandes que o DiskLens não reconhece. Você só RECOMENDA; a pessoa decide e confirma.
+SYSTEM = """You help a person free up disk space on a Windows computer, safely.
+You receive data measured by the DiskLens program: cleanup candidates (each with an "id"), installed
+programs and large folders that DiskLens does not recognize. You only RECOMMEND; the person decides and confirms.
+(Field names in the data are in Portuguese: "dias_sem_alterar" = days unchanged, "motivo_detectado" = detected
+reason, "dependencia" = dependency, "subpastas"/"arquivos" = subfolders/files.)
 
-Regras:
-1. Na dúvida, recomende "revisar". Nunca recomende apagar algo de que o Windows ou um programa em uso dependa.
-2. Itens do tipo "safe" são caches/temporários recriados automaticamente: normalmente "apagar".
-3. Programas: "desinstalar" só quando houver bons sinais de que não são usados (ex.: duplicados, versões antigas
-   de algo que tem versão nova, jogos/programas sem alterações há muito tempo). Nunca para dependências
-   (Visual C++, .NET, drivers, runtimes) nem para o próprio sistema. Considere o campo "drive": desinstalar
-   algo de outro disco não libera espaço no disco analisado, a menos que o motivo seja outro.
-4. Para pastas desconhecidas ("unknown"), diga de qual programa provavelmente são e se é seguro remover.
-5. Seja específico e curto (1–2 frases por item), em português do Brasil.
-6. Responda SOMENTE com um JSON neste formato, sem texto fora dele:
-{"summary": "visão geral em 2-4 frases, com quanto dá para liberar com segurança",
- "items": [{"id": "<id recebido>", "verdict": "apagar|desinstalar|manter|revisar",
-            "confidence": 0.0-1.0, "reason": "por quê"}]}
-Inclua no máximo 80 itens, priorizando os maiores. Use apenas ids recebidos."""
+Rules:
+1. When in doubt, recommend "revisar" (review). Never recommend deleting anything Windows or a program in use depends on.
+2. Items of type "safe" are caches/temporary files that are recreated automatically: usually "apagar" (delete).
+3. Programs: "desinstalar" (uninstall) only with good signs they are not used (e.g. duplicates, old versions of
+   something that has a newer one, games/programs unchanged for a long time). Never for dependencies
+   (Visual C++, .NET, drivers, runtimes) or the system itself. Consider the "drive" field: uninstalling
+   something from another drive frees nothing on the analyzed drive, unless the reason is a different one.
+4. For unknown folders ("unknown"), say which program they most likely belong to and whether removing them is safe.
+5. Be specific and short (1-2 sentences per item). Write "summary" and every "reason" in {language}.
+6. Reply ONLY with JSON in this format, no text outside it ("verdict" values stay exactly as written):
+{{"summary": "overview in 2-4 sentences, including how much can be freed safely",
+ "items": [{{"id": "<received id>", "verdict": "apagar|desinstalar|manter|revisar",
+            "confidence": 0.0-1.0, "reason": "why"}}]}}
+Include at most 80 items, biggest first. Use only received ids."""
 
 
 def _compact(data, volume):
@@ -238,10 +242,11 @@ def _compact(data, volume):
 def analyze(volume):
     data = candidates.build(volume)
     if not data.get("available"):
-        raise AIError("Faça um scan do disco antes de pedir a análise.")
+        raise AIError(tr("Faça um scan do disco antes de pedir a análise."))
     ctx = _compact(data, volume)
     valid = {x["id"] for k in ("safe", "tools", "review", "programs", "unknown") for x in ctx[k]}
-    text, meta = chat(SYSTEM, "Dados do DiskLens (JSON):\n" + json.dumps(ctx, ensure_ascii=False))
+    text, meta = chat(SYSTEM.format(language=language_name()),
+                      "DiskLens data (JSON):\n" + json.dumps(ctx, ensure_ascii=False))
     j = extract_json(text)
     items = []
     for it in j.get("items") or []:
@@ -268,22 +273,23 @@ def last_analysis():
 def explain(volume, path):
     s = candidates.latest_snapshot(volume)
     if not s:
-        raise AIError("Faça um scan do disco antes.")
+        raise AIError(tr("Faça um scan do disco antes."))
     con, _rules = candidates._open(s)
     try:
         r = con.execute("SELECT id, alloc, mtime FROM dirs WHERE lower(path)=lower(?)", (path,)).fetchone()
         if not r:
-            raise AIError("Pasta não encontrada no último snapshot.")
+            raise AIError(tr("Pasta não encontrada no último snapshot."))
         kids = [f"{k['name']}/ ({round(k['alloc'] / 1e6)} MB)" for k in con.execute(
             "SELECT name, alloc FROM dirs WHERE parent=? ORDER BY alloc DESC LIMIT 20", (r["id"],))]
         files = [f"{k['name']} ({round(k['alloc'] / 1e6)} MB)" for k in con.execute(
             "SELECT name, alloc FROM files WHERE dir=? ORDER BY alloc DESC LIMIT 15", (r["id"],))]
     finally:
         con.close()
-    user = (f"Pasta: {path}\nTamanho: {round(r['alloc'] / 1e6)} MB\nÚltima alteração dentro dela: "
-            f"{time.strftime('%d/%m/%Y', time.localtime(r['mtime'] or 0))}\nSubpastas: {', '.join(kids) or '-'}\n"
-            f"Arquivos: {', '.join(files) or '-'}\n\nO que é esta pasta, de qual programa provavelmente é, e é seguro "
-            "apagar? Se for de um programa, diga como removê-lo do jeito certo. Responda em até 6 frases.")
-    text, meta = chat("Você é um especialista em Windows que ajuda a liberar espaço em disco com segurança. "
-                      "Responda em português do Brasil, de forma direta.", user, max_tokens=1500)
+    user = (f"Folder: {path}\nSize: {round(r['alloc'] / 1e6)} MB\nLast change inside it: "
+            f"{time.strftime('%Y-%m-%d', time.localtime(r['mtime'] or 0))}\nSubfolders: {', '.join(kids) or '-'}\n"
+            f"Files: {', '.join(files) or '-'}\n\nWhat is this folder, which program does it most likely belong to, "
+            "and is it safe to delete? If it belongs to a program, say how to remove it the right way. "
+            "Answer in up to 6 sentences.")
+    text, meta = chat("You are a Windows expert who helps people free up disk space safely. "
+                      f"Answer in {language_name()}, directly.", user, max_tokens=1500)
     return {"text": text.strip(), **meta}

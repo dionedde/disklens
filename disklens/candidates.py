@@ -18,6 +18,7 @@ import time
 import winreg
 
 from . import cleaner, db, winapi
+from .i18n import tr
 from .rules import Rules
 
 MB = 1024 ** 2
@@ -114,8 +115,8 @@ def tool_items(con, volume, hidden):
             continue
         if tid.startswith("hiber") and not est.get(tid):
             continue
-        out.append({"id": "tool:" + tid, "kind": "tool", "action": "tool", "tool": tid, "label": t["label"],
-                    "desc": t["desc"], "size": est.get(tid), "needs_admin": t["admin"] and not admin,
+        out.append({"id": "tool:" + tid, "kind": "tool", "action": "tool", "tool": tid, "label": tr(t["label"]),
+                    "desc": tr(t["desc"]), "size": est.get(tid), "needs_admin": t["admin"] and not admin,
                     "slow": t.get("slow", False)})
     return out, rb
 
@@ -149,8 +150,8 @@ def review_items(con, rules, limit=60):
             if ext in INSTALLER_EXTS and now - r["mtime"] > 14 * DAY and re.search(r"\\users\\[^\\]+\\downloads",
                                                                                     r["path"].lower()):
                 add("downloads", r["path"].rstrip("\\") + "\\" + r["name"], r["alloc"], r["mtime"],
-                    "Instalador ou arquivo compactado em Downloads, parado há "
-                    f"{int((now - r['mtime']) / DAY)} dias. Se já foi instalado/extraído, pode ir.")
+                    tr("Instalador ou arquivo compactado em Downloads, parado há {days} dias. "
+                       "Se já foi instalado/extraído, pode ir.", days=int((now - r["mtime"]) / DAY)))
         # b) big personal files untouched for 6 months
         for r in con.execute("SELECT d.path, f.name, f.alloc, f.mtime FROM files f JOIN dirs d ON d.id=f.dir "
                              "WHERE f.alloc >= ? AND f.mtime < ? ORDER BY f.alloc DESC LIMIT 200",
@@ -159,7 +160,7 @@ def review_items(con, rules, limit=60):
             ext = r["name"].lower().rsplit(".", 1)[-1] if "." in r["name"] else ""
             if _user_area(p) and "\\downloads\\" not in p.lower() and ext not in BINARY_EXTS:
                 add("old_big", p, r["alloc"], r["mtime"],
-                    f"Arquivo grande sem alterações há {int((now - r['mtime']) / DAY)} dias.")
+                    tr("Arquivo grande sem alterações há {days} dias.", days=int((now - r["mtime"]) / DAY)))
         # d) likely duplicates: same name and size (>= 100 MB) in personal folders
         groups = {}
         for r in con.execute("SELECT d.path, f.name, f.alloc, f.mtime FROM files f JOIN dirs d ON d.id=f.dir "
@@ -174,7 +175,7 @@ def review_items(con, rules, limit=60):
             lst.sort(reverse=True)                       # keep the newest copy
             keep = lst[0][1]
             for mt, p, a in lst[1:]:
-                add("duplicate", p, a, mt, f"Mesmo nome e tamanho de outra cópia: {keep}", {"keep": keep})
+                add("duplicate", p, a, mt, tr("Mesmo nome e tamanho de outra cópia: {keep}", keep=keep), {"keep": keep})
     # c) dependency folders of projects untouched for 90 days
     names = ",".join("?" * len(DEV_DIRS))
     for r in con.execute(f"SELECT path, name, alloc, mtime FROM dirs WHERE name IN ({names}) AND alloc >= ? "
@@ -187,8 +188,8 @@ def review_items(con, rules, limit=60):
         if now - (r["mtime"] or now) < 90 * DAY:
             continue
         add("dev", r["path"], r["alloc"], r["mtime"],
-            f"{DEV_DIRS[r['name'].lower()].capitalize()} de um projeto sem alterações há "
-            f"{int((now - r['mtime']) / DAY)} dias.")
+            tr("{what} de um projeto sem alterações há {days} dias.",
+               what=tr(DEV_DIRS[r["name"].lower()]).capitalize(), days=int((now - r["mtime"]) / DAY)))
     out.sort(key=lambda x: -x["size"])
     return out[:limit * 3]
 
@@ -315,9 +316,9 @@ def launch_uninstaller(prog_id):
                 exe, args = uninstall_command(_val(k, "UninstallString"))
             rc = winapi.shell32.ShellExecuteW(None, "open", exe, args or None, None, 1)
             if rc <= 32:
-                raise OSError(rc, "não foi possível abrir o desinstalador")
+                raise OSError(rc, tr("não foi possível abrir o desinstalador"))
             return p["name"]
-    raise ValueError("programa não encontrado")
+    raise ValueError(tr("programa não encontrado"))
 
 
 # ------------------------------------------------------------------ all together
@@ -336,6 +337,6 @@ def build(volume):
         return {"available": True, "snapshot": s, "safe": safe_items(con, rules), "tools": tools,
                 "review": review_items(con, rules), "programs": progs,
                 "unknown": unknown_folders(con, rules), "recycle_bin": rb, "admin": winapi.is_admin(),
-                "safety": rules.data.get("safety", {})}
+                "safety": rules.safety}
     finally:
         con.close()

@@ -18,6 +18,7 @@ import subprocess
 import time
 
 from . import db, winapi
+from .i18n import tr
 from .config import APP_DIR, data_dir
 from .rules import Rules
 
@@ -100,24 +101,24 @@ def protection_reason(path, for_contents=False):
     p = os.path.normpath(os.path.abspath(path))
     low = os.path.normcase(p)
     if len(p) <= 3:
-        return "é a raiz de um disco"
+        return tr("é a raiz de um disco")
     if not os.path.lexists(p):
-        return "não existe mais"
+        return tr("não existe mais")
     try:
         st = os.lstat(p)
     except OSError as e:
-        return f"inacessível ({e.strerror})"
+        return tr("inacessível ({error})", error=e.strerror)
     attrs = getattr(st, "st_file_attributes", 0)
     if attrs & winapi.FILE_ATTRIBUTE_REPARSE_POINT and os.path.isdir(p):
-        return "é um atalho do sistema (junction/link), não uma pasta real"
+        return tr("é um atalho do sistema (junction/link), não uma pasta real")
     if attrs & 0x4 and not for_contents:                      # FILE_ATTRIBUTE_SYSTEM
-        return "é um arquivo de sistema"
+        return tr("é um arquivo de sistema")
     for own in (os.path.normcase(str(APP_DIR)), os.path.normcase(str(data_dir()))):
         if low == own or low.startswith(own + "\\"):
-            return "faz parte do próprio DiskLens"
+            return tr("faz parte do próprio DiskLens")
     name = os.path.basename(low)
     if name in ("pagefile.sys", "hiberfil.sys", "swapfile.sys"):
-        return "é gerenciado pelo Windows: use a ferramenta indicada"
+        return tr("é gerenciado pelo Windows: use a ferramenta indicada")
 
     idx, where = effective_rule(p)
     info = rules().info(idx)
@@ -125,25 +126,27 @@ def protection_reason(path, for_contents=False):
     if safety == "seguro":
         return None                                           # caches, temp, dumps... even under Windows
     if safety == "nao":
-        return f"“{info['label']}”: necessário para o Windows"
+        return tr("“{label}”: necessário para o Windows", label=info["label"])
     if safety == "ferramenta":
-        return f"“{info['label']}”: use a ferramenta indicada em vez de apagar à mão"
+        return tr("“{label}”: use a ferramenta indicada em vez de apagar à mão", label=info["label"])
     for root, why in _system_roots().items():
         if low == root or low.startswith(root + "\\"):
-            return f"está dentro de {why}" + (": use Desinstalar" if why == "programas instalados" else "")
+            if why == "programas instalados":
+                return tr("está dentro de programas instalados: use Desinstalar")
+            return tr("está dentro de {where}", where=tr(why))
     for root, name in program_dirs().items():
         if low == root or low.startswith(root + "\\") or root.startswith(low + "\\"):
-            return f"faz parte de um programa instalado ({name}): use Desinstalar"
+            return tr("faz parte de um programa instalado ({name}): use Desinstalar", name=name)
     # whole user profile or its known folders themselves (their contents are fine)
     users = os.path.normcase(os.path.join(os.environ.get("SystemDrive", "C:") + "\\", "Users"))
     if low == users:
-        return "é a pasta de todos os usuários"
+        return tr("é a pasta de todos os usuários")
     if low.startswith(users + "\\"):
         rest = low[len(users) + 1:].split("\\")
         if len(rest) == 1:
-            return "é a pasta pessoal de um usuário inteira"
+            return tr("é a pasta pessoal de um usuário inteira")
         if len(rest) == 2 and rest[1] in KNOWN_USER_FOLDERS:
-            return "é uma pasta padrão do Windows (apague o conteúdo, não a pasta)"
+            return tr("é uma pasta padrão do Windows (apague o conteúdo, não a pasta)")
     return None
 
 
@@ -165,7 +168,7 @@ def clean_contents(folder, min_age_seconds=0):
     idx, _ = effective_rule(folder)
     info = rules().info(idx)
     if not info or info["safety"] != "seguro":
-        raise PermissionError("só pastas marcadas como “seguro de limpar” podem ser esvaziadas")
+        raise PermissionError(tr("só pastas marcadas como “seguro de limpar” podem ser esvaziadas"))
     counts = [0, 0, 0]                                       # freed, deleted, skipped
     _empty_dir(folder, time.time(), min_age_seconds, counts)
     return tuple(counts)
@@ -267,9 +270,9 @@ def recycle(path):
                          False, None, None)
     rc = winapi.shell32.SHFileOperationW(ctypes.byref(op))
     if rc != 0 or op.fAnyOperationsAborted:
-        raise OSError(rc, "não foi possível mover para a Lixeira (arquivo em uso ou operação cancelada)")
+        raise OSError(rc, tr("não foi possível mover para a Lixeira (arquivo em uso ou operação cancelada)"))
     if os.path.lexists(path):
-        raise OSError(0, "o item ainda existe (parte dele pode estar em uso)")
+        raise OSError(0, tr("o item ainda existe (parte dele pode estar em uso)"))
     return size
 
 
@@ -310,7 +313,7 @@ def _wu_cache():
     finally:
         _run(["net", "start", "bits"], 120)
         _run(["net", "start", "wuauserv"], 120)
-    return 0, f"{counts[1]} arquivos removidos de {folder}", counts[0]
+    return 0, tr("{n} arquivos removidos de {folder}", n=counts[1], folder=folder), counts[0]
 
 
 def _restore_points():
@@ -327,7 +330,7 @@ def _restore_points():
         if rc != 0:
             break
         removed += 1
-    return 0, f"{removed} ponto(s) de restauração antigo(s) removido(s); o mais recente foi mantido", None
+    return 0, tr("{n} ponto(s) de restauração antigo(s) removido(s); o mais recente foi mantido", n=removed), None
 
 
 TOOLS = {
@@ -348,14 +351,19 @@ TOOLS = {
 }
 
 
+def tools():
+    """TOOLS with label/desc in the current language."""
+    return {k: dict(v, label=tr(v["label"]), desc=tr(v["desc"])) for k, v in TOOLS.items()}
+
+
 def run_tool(tool_id):
     """Returns (ok, message, bytes_freed_or_None)."""
     if tool_id not in TOOLS:
-        raise ValueError("ferramenta desconhecida")
+        raise ValueError(tr("ferramenta desconhecida"))
     if TOOLS[tool_id]["admin"] and not winapi.is_admin():
-        raise PermissionError("precisa rodar o DiskLens como administrador")
+        raise PermissionError(tr("precisa rodar o DiskLens como administrador"))
     if tool_id == "empty_recycle":
-        return True, "Lixeira esvaziada", empty_recycle_bin()
+        return True, tr("Lixeira esvaziada"), empty_recycle_bin()
     if tool_id == "wu_cache":
         rc, msg, freed = _wu_cache()
         return True, msg, freed
@@ -364,16 +372,16 @@ def run_tool(tool_id):
         return rc == 0, out, None
     if tool_id == "delivery_opt":
         rc, out = _ps("Delete-DeliveryOptimizationCache -Force")
-        return rc == 0, out or "Cache da Otimização de Entrega apagado", None
+        return rc == 0, out or tr("Cache da Otimização de Entrega apagado"), None
     if tool_id == "restore_old":
         rc, msg, _ = _restore_points()
         return True, msg, None
     if tool_id == "hiber_reduced":
         rc, out = _run(["powercfg", "/h", "/type", "reduced"])
-        return rc == 0, out or "Hibernação reduzida", None
+        return rc == 0, out or tr("Hibernação reduzida"), None
     if tool_id == "hiber_off":
         rc, out = _run(["powercfg", "/h", "off"])
-        return rc == 0, out or "Hibernação desligada", None
+        return rc == 0, out or tr("Hibernação desligada"), None
 
 
 # ------------------------------------------------------------------ log

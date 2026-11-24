@@ -18,6 +18,7 @@ import time
 import traceback
 
 from . import db, probes, winapi
+from .i18n import tr
 from .config import data_dir, load as load_config
 from .loadguard import LoadGuard
 from .rules import Rules
@@ -357,7 +358,7 @@ class Scanner:
             ("hardlinks", "2"),
         ])
         self.con.commit()
-        self.write_status("finishing", {"step": "Criando índices"})
+        self.write_status("finishing", {"step": tr("Criando índices")})
         self.con.executescript(db.SNAP_INDEXES)
         self.con.commit()
         self.con.close()
@@ -418,7 +419,7 @@ def main(argv=None):
 
     lock = try_lock()
     if lock is None:
-        print("Outro scan já está em andamento.", file=sys.stderr)
+        print(tr("Outro scan já está em andamento."), file=sys.stderr)
         return 2
     winapi.set_background_mode()
     cfg = load_config()
@@ -441,7 +442,7 @@ def main(argv=None):
     try:
         res = scanner.run()
         du = shutil.disk_usage(volume + "\\")
-        scanner.write_status("finishing", {"step": "Medindo áreas ocultas do sistema"})
+        scanner.write_status("finishing", {"step": tr("Medindo áreas ocultas do sistema")})
         hidden = measure_hidden(volume, tmp, du.used, res)
         hidden["backup_privilege"] = backup
         con = sqlite3.connect(tmp)

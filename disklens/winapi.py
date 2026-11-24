@@ -82,7 +82,9 @@ def user_busy_reason():
             return None
     except OSError:
         return None
-    return BUSY_STATES.get(st.value)
+    from .i18n import tr
+    r = BUSY_STATES.get(st.value)
+    return tr(r) if r else r
 
 
 def set_background_mode():

@@ -13,7 +13,8 @@ import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from . import db, winapi
+from . import db, i18n, probes, winapi
+from .i18n import tr
 from .config import APP_DIR, PKG_DIR, data_dir, load as load_config, save as save_config
 from .rules import Rules, family
 from .scanner import is_scan_running
@@ -84,10 +85,10 @@ def api_state(q, body):
 def api_scan(q, body):
     volume = (body.get("volume") or winapi.system_drive()).upper()[:2]
     if volume not in {v["volume"] for v in winapi.fixed_volumes()}:
-        raise ApiError(400, "volume inválido")
+        raise ApiError(400, tr("volume inválido"))
     with _proc_lock:
         if is_scan_running():
-            raise ApiError(409, "Já existe um scan em andamento")
+            raise ApiError(409, tr("Já existe um scan em andamento"))
         args = [sys.executable, "-m", "disklens.scanner", "--volume", volume]
         if body.get("force"):
             args.append("--force")
@@ -101,7 +102,7 @@ def api_scan(q, body):
 def api_control(q, body):
     action = body.get("action")
     if action not in ("cancel", "force"):
-        raise ApiError(400, "ação inválida")
+        raise ApiError(400, tr("ação inválida"))
     (data_dir() / "scan_control.json").write_text(json.dumps({"action": action}), encoding="utf-8")
     return {"ok": True}
 
@@ -131,7 +132,7 @@ def api_overview(q, body):
             if len(lst) < 8:
                 info = rules.info(r["rule"])
                 lst.append({"kind": "dir", "id": r["id"], "path": r["path"], "alloc": r["anchor_alloc"],
-                            "label": info["label"] if info else "Outras pastas"})
+                            "label": info["label"] if info else tr("Outras pastas")})
         for r in con.execute("SELECT f.rowid AS fid, f.name, f.alloc, f.rule, d.path, d.id AS did "
                              "FROM files f JOIN dirs d ON d.id=f.dir WHERE f.rule IS NOT NULL "
                              "ORDER BY f.alloc DESC LIMIT 40"):
@@ -158,7 +159,7 @@ def api_overview(q, body):
                     reclaim.append({"id": r["id"], "path": r["path"], "alloc": r["anchor_alloc"],
                                     "label": info["label"]})
     return {"snapshot": s, "categories": _cat_meta(rules), "cat_stats": cats, "tops": tops,
-            "denied": denied, "safety": rules.data.get("safety", {}), "hidden": hidden,
+            "denied": denied, "safety": rules.safety, "hidden": probes.localize(hidden),
             "reclaim": {"total": total, "items": reclaim}}
 
 
@@ -188,11 +189,11 @@ def _children(con, rules, dir_row, levels, limit, min_frac, root_value):
         top = con.execute("SELECT name, alloc, rule FROM files WHERE dir=? ORDER BY alloc DESC LIMIT 3",
                           (dir_row["id"],)).fetchall()
         rule = top[0]["rule"] if top and top[0]["rule"] is not None else dir_row["rule"]
-        out.append({"id": dir_row["id"], "name": "(arquivos soltos nesta pasta)", "value": files_value,
+        out.append({"id": dir_row["id"], "name": tr("(arquivos soltos nesta pasta)"), "value": files_value,
                     "kind": "files", "cat": rules.category(rule), "mtime": dir_row["mtime"],
                     "top": [{"name": t["name"], "alloc": t["alloc"]} for t in top]})
     if rest > 0:
-        out.append({"id": dir_row["id"], "name": "(pastas menores)", "value": rest, "kind": "rest",
+        out.append({"id": dir_row["id"], "name": tr("(pastas menores)"), "value": rest, "kind": "rest",
                     "cat": rules.category(dir_row["rule"]), "mtime": dir_row["mtime"]})
     return out
 
@@ -208,7 +209,7 @@ def api_tree(q, body):
         levels = max(1, min(4, qint(q, "levels", 2)))
         r = con.execute("SELECT * FROM dirs WHERE id=?", (dir_id,)).fetchone()
         if not r:
-            raise ApiError(404, "pasta não encontrada")
+            raise ApiError(404, tr("pasta não encontrada"))
         node = _node(r, rules)
         node["children"] = _children(con, rules, r, levels, 60, 0.002, max(r["alloc"], 1))
     return {"tree": node, "categories": _cat_meta(rules)}
@@ -231,7 +232,7 @@ def api_dir(q, body):
         dir_id = qint(q, "dir", 1)
         r = con.execute("SELECT * FROM dirs WHERE id=?", (dir_id,)).fetchone()
         if not r:
-            raise ApiError(404, "pasta não encontrada")
+            raise ApiError(404, tr("pasta não encontrada"))
         crumbs = _crumbs(con, dir_id)
         anchor_path = None
         for c in reversed(crumbs):
@@ -313,7 +314,7 @@ def api_open(q, body):
     with con:
         r = con.execute("SELECT path FROM dirs WHERE id=?", (int(body.get("dir", 0)),)).fetchone()
         if not r:
-            raise ApiError(404, "não encontrado")
+            raise ApiError(404, tr("não encontrado"))
         path = r[0]
         fid = body.get("fid")
         if fid is not None:
@@ -420,7 +421,7 @@ def api_cleanup(q, body):
     d["ai"] = last if last and last.get("volume") == volume else None
     d["proposals"] = [p for p in proposals.load() if p["status"] == "pending"]
     d["history"] = cleaner.history(15)
-    d["tools_meta"] = cleaner.TOOLS
+    d["tools_meta"] = cleaner.tools()
     return d
 
 
@@ -428,7 +429,7 @@ def api_cleanup_run(q, body):
     from . import proposals
     items = body.get("items") or []
     if not isinstance(items, list) or not items:
-        raise ApiError(400, "nada selecionado")
+        raise ApiError(400, tr("nada selecionado"))
     try:
         job = proposals.start_job(items, body.get("proposal"))
     except RuntimeError as e:
@@ -440,7 +441,7 @@ def api_cleanup_job(q, body):
     from . import proposals
     j = proposals.get_job(qstr(q, "id"))
     if not j:
-        raise ApiError(404, "tarefa não encontrada")
+        raise ApiError(404, tr("tarefa não encontrada"))
     return j
 
 
@@ -454,7 +455,7 @@ def api_open_path(q, body):
     import os
     path = os.path.normpath(str(body.get("path") or ""))
     if not path or not os.path.lexists(path):
-        raise ApiError(404, "não existe mais")
+        raise ApiError(404, tr("não existe mais"))
     winapi.reveal_in_explorer(path, select=True)
     return {"ok": True}
 
@@ -543,8 +544,18 @@ def api_agent_status(q, body):
     return _agent_status()
 
 
+def api_i18n(q, body):
+    """Language, the list of languages and the translation table for the UI."""
+    code = i18n.lang()
+    return {"lang": code, "locale": i18n.LOCALES[code], "langs": i18n.LANGS, "table": i18n.table(code)}
+
+
 def api_settings(q, body):
     cfg = load_config()
+    if "lang" in body:
+        cfg["lang"] = body["lang"] if body["lang"] in i18n.LANGS else None
+        save_config(cfg)
+        return api_i18n(q, {})
     if "cpu_limit" in body:
         cfg["cpu_limit"] = max(20, min(95, int(body["cpu_limit"])))
     if "mem_limit" in body:
@@ -579,6 +590,8 @@ ROUTES = {
     ("POST", "/api/agent"): api_agent,
     ("GET", "/api/agent"): api_agent_status,
     ("POST", "/api/settings"): api_settings,
+    ("GET", "/api/i18n"): api_i18n,
+
     ("POST", "/api/tray"): api_tray,
     ("GET", "/api/state"): api_state,
     ("POST", "/api/scan"): api_scan,
@@ -612,10 +625,10 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         if u.path.startswith("/api/"):
             if self.headers.get("X-DiskLens-Token") != TOKEN:
-                return self._send(403, {"error": "token inválido"})
+                return self._send(403, {"error": tr("token inválido")})
             fn = ROUTES.get((method, u.path))
             if not fn:
-                return self._send(404, {"error": "rota desconhecida"})
+                return self._send(404, {"error": tr("rota desconhecida")})
             body = {}
             if method == "POST":
                 n = int(self.headers.get("Content-Length") or 0)
@@ -623,7 +636,7 @@ class Handler(BaseHTTPRequestHandler):
                     try:
                         body = json.loads(self.rfile.read(n))
                     except ValueError:
-                        return self._send(400, {"error": "json inválido"})
+                        return self._send(400, {"error": tr("json inválido")})
             try:
                 return self._send(200, fn(parse_qs(u.query), body))
             except ApiError as e:
@@ -633,7 +646,7 @@ class Handler(BaseHTTPRequestHandler):
                 traceback.print_exc()
                 return self._send(500, {"error": f"{type(e).__name__}: {e}"})
         if method != "GET":
-            return self._send(405, {"error": "método não permitido"})
+            return self._send(405, {"error": tr("método não permitido")})
         rel = u.path.lstrip("/") or "index.html"
         f = (WEB_DIR / rel).resolve()
         if WEB_DIR.resolve() not in f.parents or not f.is_file():

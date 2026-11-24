@@ -16,6 +16,7 @@ import subprocess
 import winreg
 
 from . import winapi
+from .i18n import num, tr
 
 GB = 1024 ** 3
 MB = 1024 ** 2
@@ -124,14 +125,50 @@ def collect(volume):
     }
 
 
-def _br(x, nd=1):
-    """Number with Brazilian decimal comma."""
-    return f"{x:.{nd}f}".replace(".", ",")
+
+
+# ---- texts ---------------------------------------------------------------------------------
+# Every text is stored with its Portuguese template and parameters ("src"), so that
+# localize() can show a snapshot taken in one language in another. Float parameters are
+# formatted with the decimal separator of the language (2 decimals when the name ends in 2).
+def _fmt(params):
+    return {k: (num(v, 2 if k.endswith("2") else 1) if isinstance(v, float) else
+                _text(v) if isinstance(v, (list, tuple)) else v) for k, v in params.items()}
+
+
+def _text(src):
+    if not src:
+        return ""
+    tmpl, params = src
+    return tr(tmpl, **_fmt(params)) if params else tr(tmpl)
 
 
 def _item(key, label, size, exact, desc, action="", safety="", in_scan=False):
-    return {"key": key, "label": label, "bytes": int(max(0, size)), "exact": exact, "desc": desc,
-            "action": action, "safety": safety, "in_scan": in_scan}
+    """label/desc/action: (template, params) pairs."""
+    src = {"label": label, "desc": desc, "action": action or None}
+    return {"key": key, "label": _text(label), "bytes": int(max(0, size)), "exact": exact, "desc": _text(desc),
+            "action": _text(action), "safety": safety, "in_scan": in_scan, "src": src}
+
+
+def localize(hidden):
+    """Re-render the stored texts in the current language (no-op for old snapshots without "src")."""
+    if not hidden:
+        return hidden
+    out = dict(hidden)
+    items = []
+    for it in hidden.get("items", []):
+        it = dict(it)
+        src = it.get("src")
+        if src:
+            for k in ("label", "desc", "action"):
+                it[k] = _text(src.get(k))
+        else:
+            for k in ("label", "desc", "action"):
+                it[k] = tr(it.get(k) or "")
+        items.append(it)
+    out["items"] = items
+    out["notes"] = [_text(n) if isinstance(n, list) else tr(n) for n in hidden.get("notes_src") or hidden.get("notes", [])]
+    return out
 
 
 def _ntfs(raw, nfiles, ndirs, take):
@@ -141,12 +178,15 @@ def _ntfs(raw, nfiles, ndirs, take):
     else:
         mft, exact = (nfiles + ndirs) * 1024 * 1.05, False
     meta = mft + nt.get("usn_bytes", 32 * MB) + 64 * MB    # + $LogFile (~64 MB)
-    take(_item("ntfs", "Metadados do NTFS ($MFT, journal, $LogFile)", meta, exact and "usn_bytes" in nt,
-               f"A 'tabela de conteúdo' do disco: cerca de 1 KB para cada arquivo ou pasta que já existiu "
-               f"({_br((nfiles + ndirs) / 1e6, 2)} milhões hoje). A $MFT cresce quando muitos arquivos são criados "
-               "(node_modules, caches, pacotes Python) e nunca encolhe, mesmo depois de apagá-los."
-               + ("" if exact else " Valor estimado: o tamanho exato só pode ser lido como administrador."),
-               "Não há o que limpar: é a estrutura do sistema de arquivos.", "nao"))
+    full = exact and "usn_bytes" in nt
+    desc = ("A 'tabela de conteúdo' do disco: cerca de 1 KB para cada arquivo ou pasta que já existiu "
+            "({millions2} milhões hoje). A $MFT cresce quando muitos arquivos são criados "
+            "(node_modules, caches, pacotes Python) e nunca encolhe, mesmo depois de apagá-los.")
+    if not exact:
+        desc = desc[:-1] + ". Valor estimado: o tamanho exato só pode ser lido como administrador."
+    take(_item("ntfs", ("Metadados do NTFS ($MFT, journal, $LogFile)", None), meta, full,
+               (desc, {"millions2": (nfiles + ndirs) / 1e6}),
+               ("Não há o que limpar: é a estrutura do sistema de arquivos.", None), "nao"))
 
 
 def reconcile(raw, used, scanned, nfiles, ndirs, svi_bytes, denied_dirs, is_system):
@@ -156,8 +196,8 @@ def reconcile(raw, used, scanned, nfiles, ndirs, svi_bytes, denied_dirs, is_syst
     items = []
     notes = []
     if scanned > used * 1.002:
-        notes.append(f"A soma dos arquivos passou do espaço usado em {_br((scanned - used) / GB, 2)} GB: algum "
-                     "arquivo foi contado mais de uma vez ou cresceu durante o scan.")
+        notes.append(["A soma dos arquivos passou do espaço usado em {over2} GB: algum arquivo foi contado "
+                      "mais de uma vez ou cresceu durante o scan.", {"over2": (scanned - used) / GB}])
     vol = raw["volume"]
     ps = raw.get("ps") or {}
     admin = raw.get("admin")
@@ -175,24 +215,29 @@ def reconcile(raw, used, scanned, nfiles, ndirs, svi_bytes, denied_dirs, is_syst
     rps = ps.get("restore_points") or []
     shadow = {"available": bool(ss) or "shadow_error" not in ps, "copies": len(copies),
               "restore_points": rps if is_system else [], "storage": ss[0] if ss else None}
+    label = ("Pontos de restauração (cópias de sombra)", None)
     if ss:
         s = ss[0]
         in_scan = svi_bytes >= s["used"] * 0.8      # admin + backup privilege read the files themselves
         cap = s.get("capacity") or 0
-        maxtxt = "sem limite" if not s.get("max") or s["max"] > 10 ** 15 else \
-            f"{_br(s['max'] / GB)} GB" + (f" ({s['max'] / cap * 100:.0f}% do disco)" if cap else "")
-        take(_item("shadow", "Pontos de restauração (cópias de sombra)", s["used"], True,
-                   f"{len(copies)} cópia(s) de sombra guardadas. Limite configurado: {maxtxt}. O Windows cria pontos "
-                   "automaticamente antes de atualizações e instalações de drivers, e cada um guarda as versões "
-                   "antigas dos blocos que mudaram desde então. Esse espaço cresce sem que nenhum arquivo novo apareça.",
-                   "Painel de Controle → Sistema → Proteção do Sistema → Configurar: reduza o limite ou exclua os "
-                   "pontos antigos. Limpeza de Disco → 'Mais opções' remove todos menos o mais recente.",
+        if not s.get("max") or s["max"] > 10 ** 15:
+            limit = ("sem limite", None)
+        elif cap:
+            limit = ("{gb} GB ({pct}% do disco)", {"gb": s["max"] / GB, "pct": round(s["max"] / cap * 100)})
+        else:
+            limit = ("{gb} GB", {"gb": s["max"] / GB})
+        take(_item("shadow", label, s["used"], True,
+                   ("{copies} cópia(s) de sombra guardadas. Limite configurado: {limit}. O Windows cria pontos "
+                    "automaticamente antes de atualizações e instalações de drivers, e cada um guarda as versões "
+                    "antigas dos blocos que mudaram desde então. Esse espaço cresce sem que nenhum arquivo novo apareça.",
+                    {"copies": len(copies), "limit": limit}),
+                   ("Painel de Controle → Sistema → Proteção do Sistema → Configurar: reduza o limite ou exclua os "
+                    "pontos antigos. Limpeza de Disco → 'Mais opções' remove todos menos o mais recente.", None),
                    "ferramenta", in_scan))
     elif not admin:
-        notes.append("Pontos de restauração só podem ser medidos como administrador.")
+        notes.append(["Pontos de restauração só podem ser medidos como administrador.", None])
     elif ps.get("shadow_error") is None:
-        take(_item("shadow", "Pontos de restauração (cópias de sombra)", 0, True,
-                   "Nenhuma cópia de sombra neste disco.", "", "", False))
+        take(_item("shadow", label, 0, True, ("Nenhuma cópia de sombra neste disco.", None)))
 
     _ntfs(raw, nfiles, ndirs, take)
 
@@ -200,23 +245,23 @@ def reconcile(raw, used, scanned, nfiles, ndirs, svi_bytes, denied_dirs, is_syst
     r = raw.get("reserve") or {}
     if is_system and r.get("ShippedWithReserves") and r.get("PassedPolicy", 1) and r.get("BaseHardReserveSize"):
         hard = r["BaseHardReserveSize"] + r.get("HardReserveAdjustment", 0)
-        take(_item("reserve", "Armazenamento reservado do Windows", hard, False,
-                   f"Desde 2019 o Windows reserva cerca de {_br(hard / GB)} GB para que atualizações, apps e arquivos "
-                   "temporários sempre tenham espaço. A parte da reserva que não está em uso conta como 'usada', "
-                   "mas não aparece como arquivo nenhum. O valor mostrado é a reserva configurada, limitado ao "
-                   "espaço que sobrou sem explicação.",
-                   "Dá para desligar como administrador: 'DISM /Online /Set-ReservedStorageState /State:Disabled' "
-                   "(só funciona quando não há atualização em andamento). Não é recomendado com disco quase cheio, "
-                   "porque as atualizações podem falhar.", "cuidado"))
+        take(_item("reserve", ("Armazenamento reservado do Windows", None), hard, False,
+                   ("Desde 2019 o Windows reserva cerca de {gb} GB para que atualizações, apps e arquivos "
+                    "temporários sempre tenham espaço. A parte da reserva que não está em uso conta como 'usada', "
+                    "mas não aparece como arquivo nenhum. O valor mostrado é a reserva configurada, limitado ao "
+                    "espaço que sobrou sem explicação.", {"gb": hard / GB}),
+                   ("Dá para desligar como administrador: 'DISM /Online /Set-ReservedStorageState /State:Disabled' "
+                    "(só funciona quando não há atualização em andamento). Não é recomendado com disco quase cheio, "
+                    "porque as atualizações podem falhar.", None), "cuidado"))
 
     # 4. Whatever is left -----------------------------------------------------------------
-    rest = remaining
-    items.append(_item("unknown", "Não identificado", rest, False,
-                       (f"{denied_dirs} pastas não puderam ser lidas"
-                        + ("" if admin else " (rode como administrador para ler quase todas)")
-                        + ". Também entram aqui arquivos que estavam sendo gravados durante o scan e "
-                          "diferenças de arredondamento."),
-                       "Rode o scan como administrador." if not admin else "", ""))
+    items.append(_item("unknown", ("Não identificado", None), remaining, False,
+                       ("{n} pastas não puderam ser lidas (rode como administrador para ler quase todas). Também "
+                        "entram aqui arquivos que estavam sendo gravados durante o scan e diferenças de arredondamento."
+                        if not admin else
+                        "{n} pastas não puderam ser lidas. Também entram aqui arquivos que estavam sendo gravados "
+                        "durante o scan e diferenças de arredondamento.", {"n": denied_dirs}),
+                       ("Rode o scan como administrador.", None) if not admin else "", ""))
 
     # Context about visible system files --------------------------------------------------
     pf = [p for p in ps.get("pagefile") or [] if (p.get("name") or "")[:2].upper() == vol]
@@ -229,5 +274,5 @@ def reconcile(raw, used, scanned, nfiles, ndirs, svi_bytes, denied_dirs, is_syst
     hib = {"enabled": bool(power.get("HibernateEnabled", 1)), "type": power.get("HiberFileType"),
            "ram": raw.get("ram")}
 
-    return {"gap": gap, "items": items, "notes": notes, "admin": admin, "shadow": shadow,
-            "pagefile": pagefile, "hibernation": hib, "ntfs_exact": bool(raw.get("ntfs"))}
+    return {"gap": gap, "items": items, "notes": [_text(n) for n in notes], "notes_src": notes, "admin": admin,
+            "shadow": shadow, "pagefile": pagefile, "hibernation": hib, "ntfs_exact": bool(raw.get("ntfs"))}

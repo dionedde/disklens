@@ -9,6 +9,7 @@ import json
 import sqlite3
 
 from . import db
+from .i18n import num, tr
 from .rules import Rules
 
 MB = 1024 ** 2
@@ -35,7 +36,8 @@ def _rules(con):
 
 def _hidden(con):
     row = con.execute("SELECT value FROM meta WHERE key='hidden'").fetchone()
-    return json.loads(row[0]) if row else None
+    from .probes import localize
+    return localize(json.loads(row[0])) if row else None
 
 
 def _hardlink_method(con):
@@ -114,9 +116,9 @@ def _big_files(con):
 def compare(a_id, b_id):
     sa, sb = db.get_snapshot(a_id), db.get_snapshot(b_id)
     if not sa or not sb or sa["status"] != "done" or sb["status"] != "done":
-        raise ValueError("snapshot inválido")
+        raise ValueError(tr("snapshot inválido"))
     if sa["volume"] != sb["volume"]:
-        raise ValueError("os snapshots são de discos diferentes")
+        raise ValueError(tr("os snapshots são de discos diferentes"))
     if sa["finished"] > sb["finished"]:
         sa, sb = sb, sa
     ca, cb = _load(sa["id"]), _load(sb["id"])
@@ -198,22 +200,23 @@ def compare(a_id, b_id):
     return {"a": sa, "b": sb, "activity": activity, "used_delta": used_delta, "free_delta": sb["free"] - sa["free"],
             "scanned_delta": sb["scanned"] - sa["scanned"], "items": items, "cat_delta": cat_delta,
             "hidden_delta": hidden_delta, "files": files, "events": events, "jumps": jumps[:8],
-            "categories": rules_b.categories, "method_note": METHOD_NOTE if method_changed else None,
+            "categories": rules_b.categories, "method_note": tr(METHOD_NOTE) if method_changed else None,
             "summary": summarize(sa, sb, used_delta, items, hidden_delta)
-            + (" " + METHOD_NOTE if method_changed else "")}
+            + (" " + tr(METHOD_NOTE) if method_changed else "")}
 
 
 def _fmt(b):
     v = abs(b)
-    s = f"{v / GB:.1f} GB" if v >= GB else f"{v / MB:.0f} MB"
-    return s.replace(".", ",")
+    return f"{num(v / GB)} GB" if v >= GB else f"{v / MB:.0f} MB"
 
 
 def summarize(sa, sb, used_delta, items, hidden_delta):
     if abs(used_delta) < 64 * MB:
-        head = "O espaço usado ficou praticamente igual"
+        head = tr("O espaço usado ficou praticamente igual")
+    elif used_delta > 0:
+        head = tr("O espaço usado aumentou {size}", size=_fmt(used_delta))
     else:
-        head = (f"O espaço usado {'aumentou' if used_delta > 0 else 'diminuiu'} {_fmt(used_delta)}")
+        head = tr("O espaço usado diminuiu {size}", size=_fmt(used_delta))
     parts = []
     sign = 1 if used_delta >= 0 else -1
     movers = [i for i in items if i["delta"] * sign > 0][:3]
@@ -226,5 +229,5 @@ def summarize(sa, sb, used_delta, items, hidden_delta):
         if abs(h["delta"]) >= 256 * MB and h["delta"] * sign > 0:
             parts.append(f"{h['label'].lower()} ({'+' if h['delta'] > 0 else '−'}{_fmt(h['delta'])})")
     if parts:
-        return f"{head}. Principais responsáveis: " + "; ".join(parts) + "."
+        return tr("{head}. Principais responsáveis: {parts}.", head=head, parts="; ".join(parts))
     return head + "."

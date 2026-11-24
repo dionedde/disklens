@@ -17,6 +17,7 @@ import struct
 import time
 
 from . import db, winapi
+from .i18n import tr
 from .config import data_dir
 
 FSCTL_QUERY_USN_JOURNAL = 0x000900F4
@@ -246,7 +247,7 @@ def collect(volume, max_records=3_000_000, vol=None):
             start = first                      # first run: the whole journal
         elif st["journal_id"] != jid or st["next_usn"] < first:
             start = first                      # journal recreated or wrapped while we were away
-            gap = "O journal do NTFS foi reiniciado ou sobrescrito: alterações anteriores a este ponto não estão no histórico."
+            gap = tr("O journal do NTFS foi reiniciado ou sobrescrito: alterações anteriores a este ponto não estão no histórico.")
         else:
             start = st["next_usn"]
 
@@ -341,7 +342,7 @@ def collect(volume, max_records=3_000_000, vol=None):
             con.execute("DELETE FROM usn_files WHERE volume=? AND last_seen < ?", (volume, run_ts - 60 * 86400))
             con.execute("DELETE FROM usn_changes WHERE volume=? AND ts < ?", (volume, run_ts - 180 * 86400))
         if gap:
-            db.add_event(run_ts, volume, "usn_gap", "Lacuna no journal do NTFS", gap)
+            db.add_event(run_ts, volume, "usn_gap", tr("Lacuna no journal do NTFS"), gap)
         return {"volume": volume, "records": n, "files": len(files), "changes": len(rows), "churn": churn,
                 "seconds": round(time.time() - started, 2), "first_run": st is None,
                 "since": since, "gap": bool(gap)}

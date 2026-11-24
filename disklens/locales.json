@@ -1,0 +1,3877 @@
+[
+[
+"há {n} dias",
+"{n} days ago",
+"hace {n} días"
+],
+[
+"{free} livres de {total}",
+"{free} free of {total}",
+"{free} libres de {total}"
+],
+[
+"nenhum ainda",
+"none yet",
+"ninguno todavía"
+],
+[
+"{size} usados",
+"{size} used",
+"{size} usados"
+],
+[
+"(só pastas)",
+"(folders only)",
+"(solo carpetas)"
+],
+[
+"Rodando <b>sem permissão de administrador</b>: pastas protegidas (outros usuários, partes do Windows) não são lidas e o espaço delas aparece como “Não contabilizado”.",
+"Running <b>without administrator rights</b>: protected folders (other users, parts of Windows) are not read, and their space shows up as “Unaccounted”.",
+"Ejecutando <b>sin permisos de administrador</b>: las carpetas protegidas (otros usuarios, partes de Windows) no se leen y su espacio aparece como “No contabilizado”."
+],
+[
+"Reabrir como administrador",
+"Reopen as administrator",
+"Reabrir como administrador"
+],
+[
+"Abrindo como administrador…",
+"Opening as administrator…",
+"Abriendo como administrador…"
+],
+[
+"Permissão não concedida.",
+"Permission not granted.",
+"Permiso no concedido."
+],
+[
+"Pausado",
+"Paused",
+"En pausa"
+],
+[
+"Escaneando",
+"Scanning",
+"Escaneando"
+],
+[
+"{n} arquivos",
+"{n} files",
+"{n} archivos"
+],
+[
+"CPU de outros programas: {pct}%",
+"CPU used by other programs: {pct}%",
+"CPU de otros programas: {pct}%"
+],
+[
+"Computador ocupado",
+"Computer busy",
+"Equipo ocupado"
+],
+[
+"Retoma sozinho quando o PC estiver livre.",
+"It resumes on its own when the PC is free.",
+"Se reanuda solo cuando el PC esté libre."
+],
+[
+"Continuar mesmo assim",
+"Continue anyway",
+"Continuar de todos modos"
+],
+[
+"Cancelar",
+"Cancel",
+"Cancelar"
+],
+[
+"Cancelando…",
+"Cancelling…",
+"Cancelando…"
+],
+[
+"Continuando com prioridade baixa.",
+"Continuing at low priority.",
+"Continuando con prioridad baja."
+],
+[
+"Último scan: {when}",
+"Last scan: {when}",
+"Último escaneo: {when}"
+],
+[
+"Escanear {drive} agora",
+"Scan {drive} now",
+"Escanear {drive} ahora"
+],
+[
+"Scan concluído!",
+"Scan finished!",
+"¡Escaneo terminado!"
+],
+[
+"Scan cancelado.",
+"Scan cancelled.",
+"Escaneo cancelado."
+],
+[
+"Erro no scan: {error}",
+"Scan error: {error}",
+"Error en el escaneo: {error}"
+],
+[
+"Algo deu errado",
+"Something went wrong",
+"Algo salió mal"
+],
+[
+"Primeiro scan em andamento…",
+"First scan in progress…",
+"Primer escaneo en curso…"
+],
+[
+"Ainda não há um retrato do disco {drive}",
+"There is no snapshot of drive {drive} yet",
+"Todavía no hay una instantánea del disco {drive}"
+],
+[
+"O DiskLens lê todas as pastas do disco e monta um mapa do que ocupa espaço, do nível macro (categorias) até cada arquivo.",
+"DiskLens reads every folder on the drive and builds a map of what takes up space, from the big picture (categories) down to each file.",
+"DiskLens lee todas las carpetas del disco y arma un mapa de lo que ocupa espacio, desde lo general (categorías) hasta cada archivo."
+],
+[
+"Leva de 1 a 5 minutos e roda com <b>prioridade mínima</b>.",
+"It takes 1 to 5 minutes and runs at <b>the lowest priority</b>.",
+"Tarda de 1 a 5 minutos y se ejecuta con <b>prioridad mínima</b>."
+],
+[
+"Se você abrir um jogo ou o processador ficar ocupado, o scan <b>pausa sozinho</b> e continua depois.",
+"If you open a game or the processor gets busy, the scan <b>pauses on its own</b> and continues later.",
+"Si abres un juego o el procesador se ocupa, el escaneo <b>se pausa solo</b> y continúa después."
+],
+[
+"Nada é apagado ou alterado: o DiskLens só lê.",
+"Nothing is deleted or changed: DiskLens only reads.",
+"No se borra ni se cambia nada: DiskLens solo lee."
+],
+[
+"Não contabilizado",
+"Unaccounted",
+"No contabilizado"
+],
+[
+"Livre",
+"Free",
+"Libre"
+],
+[
+"Não contabilizado: {size} ({pct} do usado)",
+"Unaccounted: {size} ({pct} of used)",
+"No contabilizado: {size} ({pct} de lo usado)"
+],
+[
+"Este snapshot é anterior à medição de áreas ocultas. Faça um novo scan para ver o detalhamento.",
+"This snapshot predates the hidden-space measurement. Run a new scan to see the breakdown.",
+"Esta instantánea es anterior a la medición de áreas ocultas. Haz un nuevo escaneo para ver el desglose."
+],
+[
+"Sobre este snapshot",
+"About this snapshot",
+"Sobre esta instantánea"
+],
+[
+"{files} arquivos em {dirs} pastas · escaneado em {time}",
+"{files} files in {dirs} folders · scanned in {time}",
+"{files} archivos en {dirs} carpetas · escaneado en {time}"
+],
+[
+"(pausado por {time} para não atrapalhar você)",
+"(paused for {time} so as not to disturb you)",
+"(en pausa durante {time} para no molestarte)"
+],
+[
+"Os tamanhos mostram o <b>espaço real ocupado</b>: arquivos “somente online” do OneDrive contam zero, arquivos comprimidos contam o tamanho comprimido e hard links do Windows contam uma vez só. Por isso os números podem diferir do Explorer.",
+"Sizes show the <b>space actually used</b>: OneDrive “online-only” files count as zero, compressed files count their compressed size and Windows hard links are counted once. That is why the numbers can differ from Explorer.",
+"Los tamaños muestran el <b>espacio realmente ocupado</b>: los archivos “solo en línea” de OneDrive cuentan cero, los comprimidos cuentan su tamaño comprimido y los vínculos físicos (hard links) de Windows se cuentan una sola vez. Por eso los números pueden diferir del Explorador."
+],
+[
+"{pct} do espaço usado · {n} arquivos",
+"{pct} of used space · {n} files",
+"{pct} del espacio usado · {n} archivos"
+],
+[
+"Disco {drive}",
+"Drive {drive}",
+"Disco {drive}"
+],
+[
+"{total} no total · <b>{used}</b> usados ({pct}) · <b>{free}</b> livres · retrato de {when}",
+"{total} total · <b>{used}</b> used ({pct}) · <b>{free}</b> free · snapshot from {when}",
+"{total} en total · <b>{used}</b> usados ({pct}) · <b>{free}</b> libres · instantánea del {when}"
+],
+[
+"Por categoria: onde está cada GB",
+"By category: where every GB is",
+"Por categoría: dónde está cada GB"
+],
+[
+"já contado nas pastas",
+"already counted in folders",
+"ya contado en las carpetas"
+],
+[
+"medido",
+"measured",
+"medido"
+],
+[
+"estimado",
+"estimated",
+"estimado"
+],
+[
+"Rodando como administrador, o DiskLens também mede os <b>pontos de restauração</b>, o tamanho exato da <b>$MFT</b> e lê quase todas as pastas protegidas, deixando o “Não identificado” perto de zero.",
+"Running as administrator, DiskLens also measures <b>restore points</b> and the exact size of the <b>$MFT</b>, and reads almost every protected folder, bringing “Unidentified” close to zero.",
+"Ejecutándose como administrador, DiskLens también mide los <b>puntos de restauración</b> y el tamaño exacto de la <b>$MFT</b>, y lee casi todas las carpetas protegidas, dejando lo “No identificado” cerca de cero."
+],
+[
+"Espaço que nenhuma pasta mostra: {size} ({pct} do usado)",
+"Space no folder shows: {size} ({pct} of used)",
+"Espacio que ninguna carpeta muestra: {size} ({pct} de lo usado)"
+],
+[
+"O Windows diz que {used} estão em uso, mas a soma de todos os arquivos legíveis dá {scanned}. A diferença se explica assim:",
+"Windows says {used} is in use, but all readable files add up to {scanned}. Here is where the difference comes from:",
+"Windows dice que hay {used} en uso, pero la suma de todos los archivos legibles da {scanned}. La diferencia se explica así:"
+],
+[
+"Dá para liberar com segurança: {size}",
+"Can be freed safely: {size}",
+"Se puede liberar con seguridad: {size}"
+],
+[
+"Caches, temporários, relatórios de erro e lixeira: são recriados automaticamente ou não fazem falta. O DiskLens não apaga nada; clique para ver onde estão e use a ferramenta indicada em cada item.",
+"Caches, temporary files, error reports and the Recycle Bin: they are recreated automatically or not needed. This card deletes nothing; click to see where they are and use the tool suggested for each item.",
+"Cachés, temporales, informes de errores y papelera: se recrean automáticamente o no hacen falta. Esta tarjeta no borra nada; haz clic para ver dónde están y usa la herramienta indicada en cada elemento."
+],
+[
+"pagefile.sys ocupa {size}, mas o maior uso desde que o PC foi ligado ({boot}) foi {peak}.",
+"pagefile.sys takes {size}, but the peak use since the PC was turned on ({boot}) was {peak}.",
+"pagefile.sys ocupa {size}, pero el mayor uso desde que se encendió el PC ({boot}) fue {peak}."
+],
+[
+"O tamanho é gerenciado pelo Windows, que aumenta o arquivo quando a memória aperta (jogos, muitos apps abertos) e costuma devolver o espaço só depois de reiniciar.",
+"Its size is managed by Windows, which grows the file when memory runs short (games, many open apps) and usually gives the space back only after a restart.",
+"Su tamaño lo gestiona Windows, que agranda el archivo cuando falta memoria (juegos, muchas apps abiertas) y suele devolver el espacio solo después de reiniciar."
+],
+[
+"Se precisar de espaço, reiniciar já pode ajudar. Também dá para fixar um tamanho menor (por exemplo {size}) em Sistema → Configurações avançadas → Desempenho → Memória virtual.",
+"If you need space, a restart may already help. You can also set a smaller fixed size (for example {size}) in System → Advanced system settings → Performance → Virtual memory.",
+"Si necesitas espacio, reiniciar ya puede ayudar. También puedes fijar un tamaño menor (por ejemplo {size}) en Sistema → Configuración avanzada → Rendimiento → Memoria virtual."
+],
+[
+"hiberfil.sys ocupa {size}",
+"hiberfil.sys takes {size}",
+"hiberfil.sys ocupa {size}"
+],
+[
+"(proporcional aos {ram} de RAM). Se você não usa a hibernação, rode no Prompt como administrador:",
+"(proportional to the {ram} of RAM). If you don't use hibernation, run in an administrator Command Prompt:",
+"(proporcional a los {ram} de RAM). Si no usas la hibernación, ejecuta en el Símbolo del sistema como administrador:"
+],
+[
+"(mantém a Inicialização Rápida e reduz o arquivo pela metade) ou",
+"(keeps Fast Startup and halves the file) or",
+"(mantiene el Inicio rápido y reduce el archivo a la mitad) o"
+],
+[
+"(libera tudo).",
+"(frees all of it).",
+"(lo libera todo)."
+],
+[
+"Pontos de restauração ocupam {size}",
+"Restore points take {size}",
+"Los puntos de restauración ocupan {size}"
+],
+[
+"({n} cópias).",
+"({n} copies).",
+"({n} copias)."
+],
+[
+"Mais recentes:",
+"Most recent:",
+"Más recientes:"
+],
+[
+"Dicas para este disco",
+"Tips for this drive",
+"Consejos para este disco"
+],
+[
+"Cor: categoria",
+"Color: category",
+"Color: categoría"
+],
+[
+"Cor: idade",
+"Color: age",
+"Color: antigüedad"
+],
+[
+"Níveis",
+"Levels",
+"Niveles"
+],
+[
+"Última modificação dentro da pasta:",
+"Last change inside the folder:",
+"Última modificación dentro de la carpeta:"
+],
+[
+"Clique em uma pasta para entrar nela · passe o mouse para ver detalhes",
+"Click a folder to open it · hover for details",
+"Haz clic en una carpeta para entrar · pasa el ratón para ver detalles"
+],
+[
+"{files} arquivos · {dirs} pastas",
+"{files} files · {dirs} folders",
+"{files} archivos · {dirs} carpetas"
+],
+[
+"Arquivos soltos diretamente nesta pasta. Maiores:",
+"Files directly in this folder. Largest:",
+"Archivos sueltos directamente en esta carpeta. Los mayores:"
+],
+[
+"Soma das pastas pequenas demais para desenhar",
+"Sum of folders too small to draw",
+"Suma de las carpetas demasiado pequeñas para dibujar"
+],
+[
+"{size} · {pct} de {parent}",
+"{size} · {pct} of {parent}",
+"{size} · {pct} de {parent}"
+],
+[
+"Última modificação: {when}",
+"Last modified: {when}",
+"Última modificación: {when}"
+],
+[
+"Somente online: não ocupa espaço",
+"Online-only: takes no space",
+"Solo en línea: no ocupa espacio"
+],
+[
+"Comprimido: {from} → {to}",
+"Compressed: {from} → {to}",
+"Comprimido: {from} → {to}"
+],
+[
+"Hard link: já contado em outro lugar",
+"Hard link: already counted elsewhere",
+"Vínculo físico: ya contado en otro lugar"
+],
+[
+"Hard link (contado uma vez)",
+"Hard link (counted once)",
+"Vínculo físico (contado una vez)"
+],
+[
+"Arquivo",
+"File",
+"Archivo"
+],
+[
+"tamanho lógico {size}",
+"logical size {size}",
+"tamaño lógico {size}"
+],
+[
+"modificado em {when} ({ago})",
+"modified {when} ({ago})",
+"modificado el {when} ({ago})"
+],
+[
+"Mostrar no Explorer",
+"Show in Explorer",
+"Mostrar en el Explorador"
+],
+[
+"Voltar para a pasta",
+"Back to the folder",
+"Volver a la carpeta"
+],
+[
+"Mandar para a Lixeira",
+"Send to Recycle Bin",
+"Enviar a la Papelera"
+],
+[
+"Pasta",
+"Folder",
+"Carpeta"
+],
+[
+"{files} arquivos · {dirs} subpastas · última modificação {ago}",
+"{files} files · {dirs} subfolders · last modified {ago}",
+"{files} archivos · {dirs} subcarpetas · última modificación {ago}"
+],
+[
+"Sem acesso: conteúdo não lido",
+"No access: contents not read",
+"Sin acceso: contenido no leído"
+],
+[
+"Abrir no Explorer",
+"Open in Explorer",
+"Abrir en el Explorador"
+],
+[
+"Maiores arquivos aqui dentro",
+"Largest files in here",
+"Archivos más grandes aquí dentro"
+],
+[
+"Perguntar à IA o que é",
+"Ask AI what it is",
+"Preguntar a la IA qué es"
+],
+[
+"sem acesso",
+"no access",
+"sin acceso"
+],
+[
+"Subpastas",
+"Subfolders",
+"Subcarpetas"
+],
+[
+"Nenhuma subpasta.",
+"No subfolders.",
+"Sin subcarpetas."
+],
+[
+"Arquivos nesta pasta",
+"Files in this folder",
+"Archivos en esta carpeta"
+],
+[
+"(mostrando {n} maiores)",
+"(showing the {n} largest)",
+"(mostrando los {n} mayores)"
+],
+[
+"Nenhum arquivo solto aqui.",
+"No loose files here.",
+"No hay archivos sueltos aquí."
+],
+[
+"A lista de arquivos só é guardada no snapshot mais recente.",
+"The file list is kept only in the latest snapshot.",
+"La lista de archivos solo se guarda en la instantánea más reciente."
+],
+[
+"O que é isso?",
+"What is this?",
+"¿Qué es esto?"
+],
+[
+"Não há uma regra conhecida para este local. Ele entra em <b>Outros</b>. Olhe as subpastas e os arquivos maiores para identificar o programa responsável.",
+"There is no known rule for this location, so it goes under <b>Other</b>. Look at the subfolders and the largest files to identify the program behind it.",
+"No hay una regla conocida para esta ubicación, así que entra en <b>Otros</b>. Mira las subcarpetas y los archivos más grandes para identificar el programa responsable."
+],
+[
+"(dentro de {path})",
+"(inside {path})",
+"(dentro de {path})"
+],
+[
+"Buscar pelo nome…",
+"Search by name…",
+"Buscar por nombre…"
+],
+[
+"Extensão (ex.: mp4)",
+"Extension (e.g. mp4)",
+"Extensión (ej.: mp4)"
+],
+[
+"Todas as categorias",
+"All categories",
+"Todas las categorías"
+],
+[
+"Qualquer tamanho",
+"Any size",
+"Cualquier tamaño"
+],
+[
+"Dentro de: {path}",
+"Inside: {path}",
+"Dentro de: {path}"
+],
+[
+"Buscar",
+"Search",
+"Buscar"
+],
+[
+"A lista de arquivos só é guardada no snapshot mais recente. Selecione-o no topo.",
+"The file list is kept only in the latest snapshot. Select it at the top.",
+"La lista de archivos solo se guarda en la instantánea más reciente. Selecciónala arriba."
+],
+[
+"(os 500 maiores)",
+"(the 500 largest)",
+"(los 500 mayores)"
+],
+[
+"somam {size}",
+"totaling {size}",
+"suman {size}"
+],
+[
+"Tamanho",
+"Size",
+"Tamaño"
+],
+[
+"Modificado",
+"Modified",
+"Modificado"
+],
+[
+"Categoria",
+"Category",
+"Categoría"
+],
+[
+"Espaço por tipo de arquivo",
+"Space by file type",
+"Espacio por tipo de archivo"
+],
+[
+"Extensões que mais ocupam",
+"Extensions using the most space",
+"Extensiones que más ocupan"
+],
+[
+"Extensão",
+"Extension",
+"Extensión"
+],
+[
+"Tipo",
+"Type",
+"Tipo"
+],
+[
+"Arquivos",
+"Files",
+"Archivos"
+],
+[
+"(sem extensão)",
+"(no extension)",
+"(sin extensión)"
+],
+[
+"Uso do disco {drive} ao longo do tempo",
+"Drive {drive} usage over time",
+"Uso del disco {drive} a lo largo del tiempo"
+],
+[
+"mostrar atualizações do Defender e da Store",
+"show Defender and Store updates",
+"mostrar actualizaciones de Defender y de la Store"
+],
+[
+"Áreas coloridas: retratos completos (snapshots), por categoria. Linha escura: medição do espaço usado a cada 15 min. Linha tracejada: pagefile.sys. Ícones no topo: eventos do Windows. Ctrl + roda do mouse dá zoom.",
+"Colored areas: full snapshots, by category. Dark line: used space measured every 15 min. Dashed line: pagefile.sys. Icons at the top: Windows events. Ctrl + mouse wheel zooms.",
+"Áreas de color: instantáneas completas, por categoría. Línea oscura: espacio usado medido cada 15 min. Línea discontinua: pagefile.sys. Iconos arriba: eventos de Windows. Ctrl + rueda del ratón hace zoom."
+],
+[
+"<b>Clique em um ponto de snapshot</b> para compará-lo com o anterior.",
+"<b>Click a snapshot point</b> to compare it with the previous one.",
+"<b>Haz clic en un punto de instantánea</b> para compararla con la anterior."
+],
+[
+"Este é o primeiro snapshot do período: não há anterior para comparar.",
+"This is the first snapshot in the period: there is no earlier one to compare with.",
+"Esta es la primera instantánea del período: no hay una anterior para comparar."
+],
+[
+"última medição {when}",
+"last measured {when}",
+"última medición {when}"
+],
+[
+"ainda não rodou",
+"has not run yet",
+"todavía no se ejecutó"
+],
+[
+"Coleta automática desativada.",
+"Automatic collection is off.",
+"Recopilación automática desactivada."
+],
+[
+"Ative para o DiskLens medir o disco a cada 15 minutos e fazer um retrato completo por dia, sempre esperando o computador estar livre: sem jogo ou app em tela cheia, processador abaixo de {cpu}% e fora da bateria.",
+"Turn it on so DiskLens measures the drive every 15 minutes and takes a full snapshot a day, always waiting for the computer to be free: no full-screen game or app, processor below {cpu}% and not on battery.",
+"Actívala para que DiskLens mida el disco cada 15 minutos y haga una instantánea completa al día, siempre esperando a que el equipo esté libre: sin juegos ni apps a pantalla completa, procesador por debajo del {cpu}% y sin batería."
+],
+[
+"O Windows vai pedir permissão de administrador uma vez.",
+"Windows will ask for administrator permission once.",
+"Windows pedirá permiso de administrador una vez."
+],
+[
+"Ativar coleta automática",
+"Turn on automatic collection",
+"Activar recopilación automática"
+],
+[
+"snapshot em andamento desde {when}",
+"snapshot in progress since {when}",
+"instantánea en curso desde {when}"
+],
+[
+"próximo snapshot <b>adiado {n}×</b> ({reason}). Nova tentativa às {when}",
+"next snapshot <b>postponed {n}×</b> ({reason}). Next try at {when}",
+"próxima instantánea <b>aplazada {n}×</b> ({reason}). Nuevo intento a las {when}"
+],
+[
+"próximo snapshot a partir de {when}",
+"next snapshot from {when}",
+"próxima instantánea a partir de {when}"
+],
+[
+"primeiro snapshot na próxima execução",
+"first snapshot on the next run",
+"primera instantánea en la próxima ejecución"
+],
+[
+"Coleta automática ativa",
+"Automatic collection on",
+"Recopilación automática activa"
+],
+[
+"O snapshot está pendente há {n} dias porque o computador sempre esteve ocupado. Use “Snapshot agora” quando puder.",
+"The snapshot has been pending for {n} days because the computer was always busy. Use “Snapshot now” when you can.",
+"La instantánea lleva {n} días pendiente porque el equipo siempre estuvo ocupado. Usa “Instantánea ahora” cuando puedas."
+],
+[
+"Medir agora",
+"Measure now",
+"Medir ahora"
+],
+[
+"Snapshot agora",
+"Snapshot now",
+"Instantánea ahora"
+],
+[
+"Desativar",
+"Turn off",
+"Desactivar"
+],
+[
+"ligado",
+"on",
+"activado"
+],
+[
+"ligado, mas não está rodando",
+"on, but not running",
+"activado, pero no se está ejecutando"
+],
+[
+"desligado",
+"off",
+"desactivado"
+],
+[
+"Ícone na bandeja do Windows: {state}",
+"Windows tray icon: {state}",
+"Icono en la bandeja de Windows: {state}"
+],
+[
+"A coleta automática não depende dele: é o Agendador de Tarefas do Windows que a executa, mesmo com o DiskLens fechado.",
+"Automatic collection does not depend on it: Windows Task Scheduler runs it, even with DiskLens closed.",
+"La recopilación automática no depende de él: la ejecuta el Programador de tareas de Windows, incluso con DiskLens cerrado."
+],
+[
+"O ícone mostra o espaço livre (a lupa fica laranja acima de 85% de uso e vermelha acima de 95%), abre o painel com um clique e continua lá quando você fecha esta janela. Usa cerca de 20 MB de memória.",
+"The icon shows free space (the magnifier turns orange above 85% use and red above 95%), opens the panel with a click and stays there when you close this window. It uses about 20 MB of memory.",
+"El icono muestra el espacio libre (la lupa se pone naranja por encima del 85% de uso y roja por encima del 95%), abre el panel con un clic y sigue ahí cuando cierras esta ventana. Usa unos 20 MB de memoria."
+],
+[
+"Iniciar com o Windows",
+"Start with Windows",
+"Iniciar con Windows"
+],
+[
+"Iniciar agora",
+"Start now",
+"Iniciar ahora"
+],
+[
+"Desligar",
+"Turn off",
+"Desactivar"
+],
+[
+"Ligar ícone na bandeja",
+"Turn on tray icon",
+"Activar icono en la bandeja"
+],
+[
+"Configurações da coleta",
+"Collection settings",
+"Configuración de la recopilación"
+],
+[
+"Retrato completo a cada",
+"Full snapshot every",
+"Instantánea completa cada"
+],
+[
+"7 dias",
+"7 days",
+"7 días"
+],
+[
+"{n} horas",
+"{n} hours",
+"{n} horas"
+],
+[
+"Adiar se outros programas usarem mais de",
+"Postpone if other programs use more than",
+"Aplazar si otros programas usan más del"
+],
+[
+"{n}% da CPU",
+"{n}% of CPU",
+"{n}% de la CPU"
+],
+[
+"Adiar se a memória passar de",
+"Postpone if memory goes above",
+"Aplazar si la memoria supera el"
+],
+[
+"Discos com retrato automático:",
+"Drives with automatic snapshots:",
+"Discos con instantánea automática:"
+],
+[
+"Jogos e apps em tela cheia sempre adiam o snapshot. Durante o scan, ele também pausa sozinho se o computador ficar ocupado. As medições de 15 minutos são instantâneas e não usam o disco.",
+"Full-screen games and apps always postpone the snapshot. During the scan, it also pauses on its own if the computer gets busy. The 15-minute measurements are instant and don't use the disk.",
+"Los juegos y apps a pantalla completa siempre aplazan la instantánea. Durante el escaneo, también se pausa sola si el equipo se ocupa. Las mediciones de 15 minutos son instantáneas y no usan el disco."
+],
+[
+"Confirme a permissão de administrador na janela do Windows…",
+"Confirm the administrator permission in the Windows prompt…",
+"Confirma el permiso de administrador en la ventana de Windows…"
+],
+[
+"Pronto!",
+"Done!",
+"¡Listo!"
+],
+[
+"Não foi possível alterar a tarefa agendada.",
+"Could not change the scheduled task.",
+"No se pudo cambiar la tarea programada."
+],
+[
+"Snapshot iniciado em segundo plano (prioridade mínima).",
+"Snapshot started in the background (lowest priority).",
+"Instantánea iniciada en segundo plano (prioridad mínima)."
+],
+[
+"Medindo…",
+"Measuring…",
+"Midiendo…"
+],
+[
+"Configurações salvas.",
+"Settings saved.",
+"Configuración guardada."
+],
+[
+"Pronto: o ícone está na bandeja (perto do relógio). Pode estar escondido na setinha ^.",
+"Done: the icon is in the tray (near the clock). It may be hidden under the ^ arrow.",
+"Listo: el icono está en la bandeja (junto al reloj). Puede estar oculto en la flecha ^."
+],
+[
+"Não foi possível iniciar o ícone.",
+"Could not start the icon.",
+"No se pudo iniciar el icono."
+],
+[
+"Ícone removido da bandeja.",
+"Icon removed from the tray.",
+"Icono quitado de la bandeja."
+],
+[
+"agora há pouco",
+"just now",
+"hace un momento"
+],
+[
+"há {n} min",
+"{n} min ago",
+"hace {n} min"
+],
+[
+"há {n} h",
+"{n} h ago",
+"hace {n} h"
+],
+[
+"Ainda não há medições deste disco",
+"No measurements of this drive yet",
+"Todavía no hay mediciones de este disco"
+],
+[
+"Faça um scan ou ative a coleta automática: o gráfico aparece a partir das primeiras medições.",
+"Run a scan or turn on automatic collection: the chart appears after the first measurements.",
+"Haz un escaneo o activa la recopilación automática: el gráfico aparece a partir de las primeras mediciones."
+],
+[
+"Usado (medição a cada 15 min)",
+"Used (measured every 15 min)",
+"Usado (medición cada 15 min)"
+],
+[
+"Capacidade {size}",
+"Capacity {size}",
+"Capacidad {size}"
+],
+[
+"Snapshot de {when}",
+"Snapshot from {when}",
+"Instantánea del {when}"
+],
+[
+"Usado: {used} · Livre: {free}",
+"Used: {used} · Free: {free}",
+"Usado: {used} · Libre: {free}"
+],
+[
+"Clique para comparar com o anterior",
+"Click to compare with the previous one",
+"Haz clic para comparar con la anterior"
+],
+[
+"{n} arquivos pequenos",
+"{n} small files",
+"{n} archivos pequeños"
+],
+[
+"em",
+"in",
+"en"
+],
+[
+"agora {size}",
+"now {size}",
+"ahora {size}"
+],
+[
+"{n} arquivo(s) · última alteração {when}",
+"{n} file(s) · last change {when}",
+"{n} archivo(s) · último cambio {when}"
+],
+[
+"Arquivos que mais cresceram",
+"Files that grew the most",
+"Archivos que más crecieron"
+],
+[
+"Nada cresceu 1 MB ou mais.",
+"Nothing grew by 1 MB or more.",
+"Nada creció 1 MB o más."
+],
+[
+"Pastas com mais mudança",
+"Folders with the most change",
+"Carpetas con más cambios"
+],
+[
+"Espaço liberado (apagados ou diminuídos)",
+"Space freed (deleted or shrunk)",
+"Espacio liberado (borrados o reducidos)"
+],
+[
+"Nada foi liberado.",
+"Nothing was freed.",
+"No se liberó nada."
+],
+[
+"Criados e apagados no período",
+"Created and deleted in the period",
+"Creados y borrados en el período"
+],
+[
+"(ocuparam espaço temporariamente)",
+"(took up space temporarily)",
+"(ocuparon espacio temporalmente)"
+],
+[
+"Arquivo a arquivo",
+"File by file",
+"Archivo por archivo"
+],
+[
+"(journal de alterações do NTFS)",
+"(NTFS change journal)",
+"(diario de cambios de NTFS)"
+],
+[
+"O Windows registra no <b>journal do NTFS</b> cada arquivo criado, aumentado ou apagado, com data e hora. Com ele, o DiskLens mostra exatamente <b>quais arquivos</b> consumiram espaço e <b>quando</b>, minuto a minuto, mesmo entre dois snapshots.",
+"Windows records every file created, grown or deleted in the <b>NTFS journal</b>, with date and time. With it, DiskLens shows exactly <b>which files</b> used up space and <b>when</b>, minute by minute, even between two snapshots.",
+"Windows registra en el <b>diario de NTFS</b> cada archivo creado, ampliado o borrado, con fecha y hora. Con él, DiskLens muestra exactamente <b>qué archivos</b> consumieron espacio y <b>cuándo</b>, minuto a minuto, incluso entre dos instantáneas."
+],
+[
+"Ler o journal exige administrador, por isso ele é lido pela coleta automática (que roda com privilégios elevados). Na primeira leitura, o histórico que o Windows ainda guarda (geralmente alguns dias) aparece de uma vez.",
+"Reading the journal requires administrator rights, so it is read by the automatic collection (which runs elevated). On the first read, the history Windows still keeps (usually a few days) shows up at once.",
+"Leer el diario requiere permisos de administrador, por eso lo lee la recopilación automática (que se ejecuta con privilegios elevados). En la primera lectura, el historial que Windows aún guarda (normalmente unos días) aparece de una vez."
+],
+[
+"Última tentativa falhou:",
+"Last attempt failed:",
+"El último intento falló:"
+],
+[
+"Ler o journal agora",
+"Read the journal now",
+"Leer el diario ahora"
+],
+[
+"Ative a coleta automática no topo desta aba.",
+"Turn on automatic collection at the top of this tab.",
+"Activa la recopilación automática en la parte superior de esta pestaña."
+],
+[
+"Lendo o journal em segundo plano… atualize a aba em alguns segundos.",
+"Reading the journal in the background… refresh the tab in a few seconds.",
+"Leyendo el diario en segundo plano… actualiza la pestaña en unos segundos."
+],
+[
+"Intervalo {from} – {to}",
+"Interval {from} – {to}",
+"Intervalo {from} – {to}"
+],
+[
+"dia",
+"day",
+"día"
+],
+[
+"hora",
+"hour",
+"hora"
+],
+[
+"15 minutos",
+"15 minutes",
+"15 minutos"
+],
+[
+"Histórico desde {since} · lido {when}.",
+"History since {since} · read {when}.",
+"Historial desde {since} · leído {when}."
+],
+[
+"Antes de {when} (primeira leitura do journal), só os arquivos <b>criados</b> no período têm tamanho conhecido: o Windows não registra tamanhos, e arquivos antigos que foram apagados ou alterados só podem ser medidos se estavam num snapshot. Daqui em diante, cada alteração é medida.",
+"Before {when} (first journal read), only files <b>created</b> in the period have a known size: Windows does not record sizes, and older files that were deleted or changed can only be measured if they were in a snapshot. From then on, every change is measured.",
+"Antes del {when} (primera lectura del diario), solo los archivos <b>creados</b> en el período tienen tamaño conocido: Windows no registra tamaños, y los archivos antiguos que se borraron o cambiaron solo se pueden medir si estaban en una instantánea. A partir de ahí, se mide cada cambio."
+],
+[
+"Cresceu",
+"Grew",
+"Creció"
+],
+[
+"Liberado",
+"Freed",
+"Liberado"
+],
+[
+"Saldo",
+"Net",
+"Saldo"
+],
+[
+"Arquivos criados / apagados",
+"Files created / deleted",
+"Archivos creados / borrados"
+],
+[
+"Quando o espaço foi consumido (vermelho) ou liberado (verde), a cada {step}.",
+"When space was used (red) or freed (green), per {step}.",
+"Cuándo se consumió (rojo) o liberó (verde) el espacio, cada {step}."
+],
+[
+"<b>Clique em uma barra</b> para ver só aquele intervalo.",
+"<b>Click a bar</b> to see just that interval.",
+"<b>Haz clic en una barra</b> para ver solo ese intervalo."
+],
+[
+"{created} criados · {deleted} apagados · {changes} alterações",
+"{created} created · {deleted} deleted · {changes} changes",
+"{created} creados · {deleted} borrados · {changes} cambios"
+],
+[
+"Comparar dois momentos",
+"Compare two moments",
+"Comparar dos momentos"
+],
+[
+"É preciso ter pelo menos dois snapshots deste disco no período.",
+"You need at least two snapshots of this drive in the period.",
+"Se necesitan al menos dos instantáneas de este disco en el período."
+],
+[
+"A coleta automática vai criá-los.",
+"Automatic collection will create them.",
+"La recopilación automática las creará."
+],
+[
+"Ative a coleta automática acima ou use “Escanear agora”.",
+"Turn on automatic collection above or use “Scan now”.",
+"Activa la recopilación automática arriba o usa “Escanear ahora”."
+],
+[
+"Comparar",
+"Compare",
+"Comparar"
+],
+[
+"ou clique em um ponto do gráfico",
+"or click a point on the chart",
+"o haz clic en un punto del gráfico"
+],
+[
+"Escolha dois snapshots diferentes.",
+"Pick two different snapshots.",
+"Elige dos instantáneas diferentes."
+],
+[
+"{n} dias",
+"{n} days",
+"{n} días"
+],
+[
+"{n} minutos",
+"{n} minutes",
+"{n} minutos"
+],
+[
+"Arquivos soltos em {path}",
+"Loose files in {path}",
+"Archivos sueltos en {path}"
+],
+[
+"nova",
+"new",
+"nueva"
+],
+[
+"removida",
+"removed",
+"eliminada"
+],
+[
+"demais conteúdos",
+"other contents",
+"resto del contenido"
+],
+[
+"Antes",
+"Before",
+"Antes"
+],
+[
+"Depois",
+"After",
+"Después"
+],
+[
+"Diferença",
+"Difference",
+"Diferencia"
+],
+[
+"novo",
+"new",
+"nuevo"
+],
+[
+"Nenhum arquivo de 10 MB ou mais surgiu ou cresceu 10 MB ou mais.",
+"No file of 10 MB or more appeared or grew by 10 MB or more.",
+"Ningún archivo de 10 MB o más apareció o creció 10 MB o más."
+],
+[
+"Indisponível para este par: o snapshot mais antigo foi criado antes de o DiskLens guardar os arquivos grandes dos snapshots anteriores.",
+"Not available for this pair: the older snapshot was taken before DiskLens kept the large files of previous snapshots.",
+"No disponible para este par: la instantánea más antigua se creó antes de que DiskLens guardara los archivos grandes de las instantáneas anteriores."
+],
+[
+"Nenhum evento relevante do Windows no período.",
+"No relevant Windows events in the period.",
+"Ningún evento relevante de Windows en el período."
+],
+[
+"entre {from} e {to}",
+"between {from} and {to}",
+"entre {from} y {to}"
+],
+[
+"Sem saltos de 256 MB ou mais entre medições de 15 minutos (ou ainda não há medições neste período).",
+"No jumps of 256 MB or more between 15-minute measurements (or there are no measurements in this period yet).",
+"Sin saltos de 256 MB o más entre mediciones de 15 minutos (o aún no hay mediciones en este período)."
+],
+[
+"Espaço usado",
+"Used space",
+"Espacio usado"
+],
+[
+"Espaço livre",
+"Free space",
+"Espacio libre"
+],
+[
+"Em arquivos visíveis",
+"In visible files",
+"En archivos visibles"
+],
+[
+"Em áreas ocultas",
+"In hidden areas",
+"En áreas ocultas"
+],
+[
+"Por categoria",
+"By category",
+"Por categoría"
+],
+[
+"O que mudou",
+"What changed",
+"Qué cambió"
+],
+[
+"(as pastas mais específicas que explicam a mudança; os valores não se sobrepõem)",
+"(the most specific folders that explain the change; amounts don't overlap)",
+"(las carpetas más específicas que explican el cambio; los valores no se superponen)"
+],
+[
+"Nenhuma pasta mudou 64 MB ou mais.",
+"No folder changed by 64 MB or more.",
+"Ninguna carpeta cambió 64 MB o más."
+],
+[
+"Arquivos grandes novos ou que cresceram",
+"Large files that are new or grew",
+"Archivos grandes nuevos o que crecieron"
+],
+[
+"Arquivo a arquivo no período (journal do NTFS)",
+"File by file in the period (NTFS journal)",
+"Archivo por archivo en el período (diario de NTFS)"
+],
+[
+"Eventos do Windows no período",
+"Windows events in the period",
+"Eventos de Windows en el período"
+],
+[
+"Quando aconteceu: maiores saltos entre medições",
+"When it happened: biggest jumps between measurements",
+"Cuándo pasó: mayores saltos entre mediciones"
+],
+[
+"IA: {verdict}",
+"AI: {verdict}",
+"IA: {verdict}"
+],
+[
+"precisa abrir o DiskLens como administrador",
+"requires opening DiskLens as administrator",
+"requiere abrir DiskLens como administrador"
+],
+[
+"varia",
+"varies",
+"varía"
+],
+[
+"Proposta de um app de IA (MCP): {title}",
+"Proposal from an AI app (MCP): {title}",
+"Propuesta de una app de IA (MCP): {title}"
+],
+[
+"Proposta da IA: {title}",
+"AI proposal: {title}",
+"Propuesta de la IA: {title}"
+],
+[
+"{n} item(ns) recusado(s) pelo DiskLens por segurança",
+"{n} item(s) refused by DiskLens for safety",
+"{n} elemento(s) rechazado(s) por DiskLens por seguridad"
+],
+[
+"Revisar e executar selecionados",
+"Review and run selected",
+"Revisar y ejecutar los seleccionados"
+],
+[
+"Descartar proposta",
+"Discard proposal",
+"Descartar propuesta"
+],
+[
+"disco {drive}",
+"drive {drive}",
+"disco {drive}"
+],
+[
+"instalado {ago}",
+"installed {ago}",
+"instalado {ago}"
+],
+[
+"última alteração na pasta {ago}",
+"folder last changed {ago}",
+"último cambio en la carpeta {ago}"
+],
+[
+"Outros programas costumam depender disto",
+"Other programs usually depend on this",
+"Otros programas suelen depender de esto"
+],
+[
+"dependência",
+"dependency",
+"dependencia"
+],
+[
+"Desinstalar",
+"Uninstall",
+"Desinstalar"
+],
+[
+"Contém: {list}",
+"Contains: {list}",
+"Contiene: {list}"
+],
+[
+"Perguntar à IA",
+"Ask AI",
+"Preguntar a la IA"
+],
+[
+"Ver",
+"View",
+"Ver"
+],
+[
+"falhou",
+"failed",
+"falló"
+],
+[
+"Nenhuma limpeza feita ainda.",
+"No cleanup done yet.",
+"Todavía no se hizo ninguna limpieza."
+],
+[
+"Dá para liberar no disco {drive}",
+"Can be freed on drive {drive}",
+"Se puede liberar en el disco {drive}"
+],
+[
+"{safe} com segurança, sem você precisar decidir · {review} para você revisar · mais o que você desinstalar",
+"{safe} safely, with no decision needed · {review} for you to review · plus whatever you uninstall",
+"{safe} con seguridad, sin que tengas que decidir · {review} para que revises · más lo que desinstales"
+],
+[
+"Lixeira",
+"Recycle Bin",
+"Papelera"
+],
+[
+"{n} itens",
+"{n} items",
+"{n} elementos"
+],
+[
+"Esvaziar",
+"Empty",
+"Vaciar"
+],
+[
+"Baseado no scan de {when}",
+"Based on the scan from {when}",
+"Basado en el escaneo del {when}"
+],
+[
+"faça um novo scan para números atualizados",
+"run a new scan for up-to-date numbers",
+"haz un nuevo escaneo para tener cifras actualizadas"
+],
+[
+"Limpeza segura",
+"Safe cleanup",
+"Limpieza segura"
+],
+[
+"caches e temporários: são recriados automaticamente e apagados de vez",
+"caches and temporary files: recreated automatically and deleted for good",
+"cachés y temporales: se recrean automáticamente y se borran definitivamente"
+],
+[
+"Nada a limpar aqui.",
+"Nothing to clean here.",
+"Nada que limpiar aquí."
+],
+[
+"Ferramentas do Windows",
+"Windows tools",
+"Herramientas de Windows"
+],
+[
+"limpezas oficiais do próprio Windows",
+"Windows' own official cleanups",
+"limpiezas oficiales del propio Windows"
+],
+[
+"Para revisar",
+"To review",
+"Para revisar"
+],
+[
+"arquivos seus que parecem dispensáveis: vão para a Lixeira",
+"your files that look unnecessary: they go to the Recycle Bin",
+"archivos tuyos que parecen prescindibles: van a la Papelera"
+],
+[
+"Nenhum candidato encontrado.",
+"No candidates found.",
+"No se encontraron candidatos."
+],
+[
+"Programas instalados",
+"Installed programs",
+"Programas instalados"
+],
+[
+"desinstalar abre o desinstalador oficial do programa",
+"uninstall opens the program's official uninstaller",
+"desinstalar abre el desinstalador oficial del programa"
+],
+[
+"mostrar só programas instalados no disco {drive}",
+"only show programs installed on drive {drive}",
+"mostrar solo programas instalados en el disco {drive}"
+],
+[
+"Pastas grandes desconhecidas",
+"Large unknown folders",
+"Carpetas grandes desconocidas"
+],
+[
+"o DiskLens não sabe o que são: pergunte à IA",
+"DiskLens doesn't know what they are: ask the AI",
+"DiskLens no sabe qué son: pregunta a la IA"
+],
+[
+"Nenhuma.",
+"None.",
+"Ninguna."
+],
+[
+"Histórico de limpezas",
+"Cleanup history",
+"Historial de limpiezas"
+],
+[
+"{n} selecionado(s)",
+"{n} selected",
+"{n} seleccionado(s)"
+],
+[
+"Revisar e confirmar",
+"Review and confirm",
+"Revisar y confirmar"
+],
+[
+"Assistente de IA",
+"AI assistant",
+"Asistente de IA"
+],
+[
+"Usando {provider}",
+"Using {provider}",
+"Usando {provider}"
+],
+[
+"Nenhum provedor configurado",
+"No provider set up",
+"Ningún proveedor configurado"
+],
+[
+"Configurar",
+"Set up",
+"Configurar"
+],
+[
+"Para usar o DiskLens a partir do app do Claude, Cursor, VS Code, Gemini CLI etc.",
+"To use DiskLens from the Claude app, Cursor, VS Code, Gemini CLI and others.",
+"Para usar DiskLens desde la app de Claude, Cursor, VS Code, Gemini CLI, etc."
+],
+[
+"Usar em outro app de IA (MCP)",
+"Use in another AI app (MCP)",
+"Usar en otra app de IA (MCP)"
+],
+[
+"Analisar de novo",
+"Analyze again",
+"Analizar de nuevo"
+],
+[
+"Analisar com IA",
+"Analyze with AI",
+"Analizar con IA"
+],
+[
+"Análise de {when} por {provider} / {model}. A IA só recomenda: nada é apagado sem a sua confirmação.",
+"Analysis from {when} by {provider} / {model}. The AI only recommends: nothing is deleted without your confirmation.",
+"Análisis del {when} por {provider} / {model}. La IA solo recomienda: no se borra nada sin tu confirmación."
+],
+[
+"Selecionar o que a IA recomendou apagar",
+"Select what the AI recommended deleting",
+"Seleccionar lo que la IA recomendó borrar"
+],
+[
+"A IA olha os candidatos, os programas e as pastas desconhecidas e recomenda o que apagar, desinstalar ou manter, explicando o porquê. Funciona com OpenAI, Google Gemini, DeepSeek, Anthropic ou uma IA local (Ollama).",
+"The AI looks at the candidates, programs and unknown folders and recommends what to delete, uninstall or keep, explaining why. It works with OpenAI, Google Gemini, DeepSeek, Anthropic or a local AI (Ollama).",
+"La IA revisa los candidatos, los programas y las carpetas desconocidas y recomienda qué borrar, desinstalar o conservar, explicando por qué. Funciona con OpenAI, Google Gemini, DeepSeek, Anthropic o una IA local (Ollama)."
+],
+[
+"Use “Ver” na aba Explorar.",
+"Use “View” in the Explore tab.",
+"Usa “Ver” en la pestaña Explorar."
+],
+[
+"Esvaziar a Lixeira",
+"Empty the Recycle Bin",
+"Vaciar la Papelera"
+],
+[
+"{n} item(ns) selecionado(s). Programas são desinstalados um a um, pelo botão de cada um.",
+"{n} item(s) selected. Programs are uninstalled one at a time, with each one's button.",
+"{n} elemento(s) seleccionado(s). Los programas se desinstalan uno a uno, con el botón de cada uno."
+],
+[
+"Nada selecionado.",
+"Nothing selected.",
+"Nada seleccionado."
+],
+[
+"Confirmar limpeza",
+"Confirm cleanup",
+"Confirmar limpieza"
+],
+[
+"Apagar definitivamente (caches e temporários) · {size}",
+"Delete permanently (caches and temporary files) · {size}",
+"Borrar definitivamente (cachés y temporales) · {size}"
+],
+[
+"Enviar para a Lixeira · {size}",
+"Send to the Recycle Bin · {size}",
+"Enviar a la Papelera · {size}"
+],
+[
+"Arquivos na Lixeira <b>continuam ocupando espaço</b> até você esvaziá-la. Assim dá para desfazer se algo fizer falta.",
+"Files in the Recycle Bin <b>still take up space</b> until you empty it. That way you can undo it if you miss something.",
+"Los archivos en la Papelera <b>siguen ocupando espacio</b> hasta que la vacíes. Así puedes deshacerlo si algo hace falta."
+],
+[
+"A limpeza de componentes (DISM) pode levar de 5 a 30 minutos.",
+"Component cleanup (DISM) can take 5 to 30 minutes.",
+"La limpieza de componentes (DISM) puede tardar de 5 a 30 minutos."
+],
+[
+"Abrir desinstaladores",
+"Open uninstallers",
+"Abrir desinstaladores"
+],
+[
+"Arquivos em uso são pulados. Pastas do Windows e de programas instalados são recusadas automaticamente.",
+"Files in use are skipped. Windows and installed-program folders are refused automatically.",
+"Los archivos en uso se omiten. Las carpetas de Windows y de programas instalados se rechazan automáticamente."
+],
+[
+"Confirmar",
+"Confirm",
+"Confirmar"
+],
+[
+"Limpeza concluída",
+"Cleanup finished",
+"Limpieza terminada"
+],
+[
+"<b>{size}</b> liberados agora",
+"<b>{size}</b> freed now",
+"<b>{size}</b> liberados ahora"
+],
+[
+"(espaço livre no disco aumentou {size})",
+"(free space on the drive grew by {size})",
+"(el espacio libre del disco aumentó {size})"
+],
+[
+"<b>{size} foram para a Lixeira</b> e ainda ocupam espaço no disco. É por isso que o espaço livre não aumentou com eles. Quando tiver certeza de que não vai precisar desses arquivos, esvazie a Lixeira.",
+"<b>{size} went to the Recycle Bin</b> and still take up space on the drive. That is why free space did not grow with them. Once you are sure you won't need those files, empty the Recycle Bin.",
+"<b>{size} fueron a la Papelera</b> y siguen ocupando espacio en el disco. Por eso el espacio libre no aumentó con ellos. Cuando estés seguro de que no vas a necesitar esos archivos, vacía la Papelera."
+],
+[
+"Esvaziar a Lixeira agora ({size})",
+"Empty the Recycle Bin now ({size})",
+"Vaciar la Papelera ahora ({size})"
+],
+[
+"{n} item(ns) não puderam ser concluídos",
+"{n} item(s) could not be completed",
+"{n} elemento(s) no se pudieron completar"
+],
+[
+"Os tamanhos mostrados vêm do último scan; faça um novo scan para ver os números atualizados.",
+"The sizes shown come from the last scan; run a new scan to see updated numbers.",
+"Los tamaños mostrados vienen del último escaneo; haz un nuevo escaneo para ver las cifras actualizadas."
+],
+[
+"Executando {i} de {n}:",
+"Running {i} of {n}:",
+"Ejecutando {i} de {n}:"
+],
+[
+"Executando…",
+"Running…",
+"Ejecutando…"
+],
+[
+"Fechar",
+"Close",
+"Cerrar"
+],
+[
+"Não é possível mandar para a Lixeira",
+"Cannot send to the Recycle Bin",
+"No se puede enviar a la Papelera"
+],
+[
+"O DiskLens protege pastas do Windows, de programas instalados e as pastas padrão do seu perfil. Para caches e programas, use a aba “Liberar espaço”.",
+"DiskLens protects Windows folders, installed-program folders and the standard folders of your profile. For caches and programs, use the “Free up space” tab.",
+"DiskLens protege las carpetas de Windows, de los programas instalados y las carpetas estándar de tu perfil. Para cachés y programas, usa la pestaña “Liberar espacio”."
+],
+[
+"Desinstalar {name}?",
+"Uninstall {name}?",
+"¿Desinstalar {name}?"
+],
+[
+"O DiskLens vai abrir o <b>desinstalador oficial</b> do programa. Siga as instruções na janela dele (ele pode pedir permissão de administrador).",
+"DiskLens will open the program's <b>official uninstaller</b>. Follow the instructions in its window (it may ask for administrator permission).",
+"DiskLens abrirá el <b>desinstalador oficial</b> del programa. Sigue las instrucciones en su ventana (puede pedir permiso de administrador)."
+],
+[
+"Abrir desinstalador",
+"Open uninstaller",
+"Abrir desinstalador"
+],
+[
+"Analisando… (pode levar 1 a 2 minutos)",
+"Analyzing… (may take 1 to 2 minutes)",
+"Analizando… (puede tardar de 1 a 2 minutos)"
+],
+[
+"Análise concluída.",
+"Analysis finished.",
+"Análisis terminado."
+],
+[
+"Perguntando à IA…",
+"Asking the AI…",
+"Preguntando a la IA…"
+],
+[
+"Chave de API",
+"API key",
+"Clave de API"
+],
+[
+"salva ✓",
+"saved ✓",
+"guardada ✓"
+],
+[
+"deixe em branco para manter a chave salva",
+"leave blank to keep the saved key",
+"déjalo en blanco para conservar la clave guardada"
+],
+[
+"cole aqui a chave de API",
+"paste the API key here",
+"pega aquí la clave de API"
+],
+[
+"Fica guardada criptografada pelo Windows (DPAPI): só o seu usuário consegue ler.",
+"It is stored encrypted by Windows (DPAPI): only your user account can read it.",
+"Se guarda cifrada por Windows (DPAPI): solo tu usuario puede leerla."
+],
+[
+"Endereço do serviço",
+"Service address",
+"Dirección del servicio"
+],
+[
+"Chave de API (opcional)",
+"API key (optional)",
+"Clave de API (opcional)"
+],
+[
+"Modelo",
+"Model",
+"Modelo"
+],
+[
+"ex.: nome do modelo",
+"e.g. model name",
+"ej.: nombre del modelo"
+],
+[
+"Buscar modelos",
+"Fetch models",
+"Buscar modelos"
+],
+[
+"{n} modelos encontrados: escolha no campo Modelo.",
+"{n} models found: pick one in the Model field.",
+"{n} modelos encontrados: elige uno en el campo Modelo."
+],
+[
+"Configuração salva.",
+"Settings saved.",
+"Configuración guardada."
+],
+[
+"Provedor",
+"Provider",
+"Proveedor"
+],
+[
+"Entendo que, ao usar um provedor na nuvem, o DiskLens envia <b>caminhos, nomes e tamanhos</b> de pastas e arquivos e os <b>nomes dos programas instalados</b> (nunca o conteúdo dos arquivos). Com o Ollama, nada sai do computador.",
+"I understand that with a cloud provider, DiskLens sends <b>paths, names and sizes</b> of folders and files and the <b>names of installed programs</b> (never file contents). With Ollama, nothing leaves the computer.",
+"Entiendo que, al usar un proveedor en la nube, DiskLens envía <b>rutas, nombres y tamaños</b> de carpetas y archivos y los <b>nombres de los programas instalados</b> (nunca el contenido de los archivos). Con Ollama, nada sale del equipo."
+],
+[
+"Salvar",
+"Save",
+"Guardar"
+],
+[
+"Usar o DiskLens em outro app de IA (MCP)",
+"Use DiskLens in another AI app (MCP)",
+"Usar DiskLens en otra app de IA (MCP)"
+],
+[
+"O DiskLens inclui um <b>servidor MCP</b> (Model Context Protocol), um padrão aberto suportado pelo app do Claude, Cursor, VS Code (Copilot), Gemini CLI e outros.",
+"DiskLens includes an <b>MCP server</b> (Model Context Protocol), an open standard supported by the Claude app, Cursor, VS Code (Copilot), Gemini CLI and others.",
+"DiskLens incluye un <b>servidor MCP</b> (Model Context Protocol), un estándar abierto compatible con la app de Claude, Cursor, VS Code (Copilot), Gemini CLI y otros."
+],
+[
+"Depois de configurado, você conversa com a IA no app dela (\"o que posso apagar para liberar 10 GB?\"): ela consulta os dados do disco e <b>propõe</b> uma limpeza, que aparece aqui nesta aba para você confirmar. A IA não consegue apagar nada sozinha.",
+"Once set up, you chat with the AI in its own app (\"what can I delete to free 10 GB?\"): it looks up the drive data and <b>proposes</b> a cleanup, which shows up here in this tab for you to confirm. The AI cannot delete anything by itself.",
+"Una vez configurado, conversas con la IA en su app (\"¿qué puedo borrar para liberar 10 GB?\"): consulta los datos del disco y <b>propone</b> una limpieza, que aparece aquí en esta pestaña para que la confirmes. La IA no puede borrar nada por sí sola."
+],
+[
+"Configuração",
+"Setup",
+"Configuración"
+],
+[
+"Adicione isto à configuração de servidores MCP do seu app (no app do Claude: Configurações → Desenvolvedor → Editar configuração; em geral o arquivo tem uma seção <code>mcpServers</code>):",
+"Add this to your app's MCP server settings (in the Claude app: Settings → Developer → Edit config; the file usually has an <code>mcpServers</code> section):",
+"Añade esto a la configuración de servidores MCP de tu app (en la app de Claude: Configuración → Desarrollador → Editar configuración; normalmente el archivo tiene una sección <code>mcpServers</code>):"
+],
+[
+"Copiar",
+"Copy",
+"Copiar"
+],
+[
+"Ferramentas disponíveis para a IA: resumo do disco, candidatos à limpeza, detalhes de uma pasta, busca de arquivos, mudanças recentes (journal) e propor limpeza.",
+"Tools available to the AI: drive summary, cleanup candidates, folder details, file search, recent changes (journal) and propose cleanup.",
+"Herramientas disponibles para la IA: resumen del disco, candidatos a limpieza, detalles de una carpeta, búsqueda de archivos, cambios recientes (diario) y proponer limpieza."
+],
+[
+"Copiado.",
+"Copied.",
+"Copiado."
+],
+[
+"Selecione o texto e copie com Ctrl+C.",
+"Select the text and copy it with Ctrl+C.",
+"Selecciona el texto y cópialo con Ctrl+C."
+],
+[
+"última semana",
+"last week",
+"última semana"
+],
+[
+"último mês",
+"last month",
+"último mes"
+],
+[
+"últimos 3 meses",
+"last 3 months",
+"últimos 3 meses"
+],
+[
+"último ano",
+"last year",
+"último año"
+],
+[
+"mais antigo",
+"older",
+"más antiguo"
+],
+[
+"Programa instalado",
+"Program installed",
+"Programa instalado"
+],
+[
+"Programa removido",
+"Program removed",
+"Programa eliminado"
+],
+[
+"Ponto de restauração",
+"Restore point",
+"Punto de restauración"
+],
+[
+"Travamento / desligamento",
+"Crash / shutdown",
+"Bloqueo / apagado"
+],
+[
+"Snapshot adiado",
+"Snapshot postponed",
+"Instantánea aplazada"
+],
+[
+"Definições do Defender",
+"Defender definitions",
+"Definiciones de Defender"
+],
+[
+"Atualização de app da Store",
+"Store app update",
+"Actualización de app de la Store"
+],
+[
+"Lacuna no journal do NTFS",
+"Gap in the NTFS journal",
+"Hueco en el diario de NTFS"
+],
+[
+"Metadados do NTFS",
+"NTFS metadata",
+"Metadatos de NTFS"
+],
+[
+"Reserva do Windows",
+"Windows reserve",
+"Reserva de Windows"
+],
+[
+"Pontos de restauração",
+"Restore points",
+"Puntos de restauración"
+],
+[
+"Não identificado",
+"Unidentified",
+"No identificado"
+],
+[
+"24 horas",
+"24 hours",
+"24 horas"
+],
+[
+"30 dias",
+"30 days",
+"30 días"
+],
+[
+"90 dias",
+"90 days",
+"90 días"
+],
+[
+"1 ano",
+"1 year",
+"1 año"
+],
+[
+"1 hora",
+"1 hour",
+"1 hora"
+],
+[
+"cresceu",
+"grew",
+"creció"
+],
+[
+"diminuiu",
+"shrank",
+"disminuyó"
+],
+[
+"apagado",
+"deleted",
+"borrado"
+],
+[
+"Apagar",
+"Delete",
+"Borrar"
+],
+[
+"Manter",
+"Keep",
+"Conservar"
+],
+[
+"Revisar",
+"Review",
+"Revisar"
+],
+[
+"Instalador antigo em Downloads",
+"Old installer in Downloads",
+"Instalador antiguo en Descargas"
+],
+[
+"Arquivo grande antigo",
+"Old large file",
+"Archivo grande antiguo"
+],
+[
+"Provável duplicado",
+"Likely duplicate",
+"Probable duplicado"
+],
+[
+"Dependências de projeto parado",
+"Dependencies of an idle project",
+"Dependencias de un proyecto parado"
+],
+[
+"Esvaziar (definitivo)",
+"Empty (permanent)",
+"Vaciar (definitivo)"
+],
+[
+"Enviar à Lixeira",
+"Send to Recycle Bin",
+"Enviar a la Papelera"
+],
+[
+"Ferramenta do Windows",
+"Windows tool",
+"Herramienta de Windows"
+],
+[
+"Disco",
+"Drive",
+"Disco"
+],
+[
+"Visão geral",
+"Overview",
+"Resumen"
+],
+[
+"Liberar espaço",
+"Free up space",
+"Liberar espacio"
+],
+[
+"Explorar pastas",
+"Explore folders",
+"Explorar carpetas"
+],
+[
+"Maiores arquivos",
+"Largest files",
+"Archivos más grandes"
+],
+[
+"Tipos de arquivo",
+"File types",
+"Tipos de archivo"
+],
+[
+"Linha do tempo",
+"Timeline",
+"Línea de tiempo"
+],
+[
+"Notebook funcionando na bateria",
+"Laptop running on battery",
+"Portátil funcionando con batería"
+],
+[
+"Memória quase cheia ({pct}%)",
+"Memory almost full ({pct}%)",
+"Memoria casi llena ({pct}%)"
+],
+[
+"Processador ocupado ({pct}% em média por {seconds}s)",
+"Processor busy ({pct}% on average over {seconds}s)",
+"Procesador ocupado ({pct}% de media durante {seconds}s)"
+],
+[
+"não foi possível (des)criptografar a chave com o Windows",
+"could not encrypt/decrypt the key with Windows",
+"no se pudo cifrar/descifrar la clave con Windows"
+],
+[
+"Escolha um provedor de IA nas configurações do assistente.",
+"Pick an AI provider in the assistant settings.",
+"Elige un proveedor de IA en la configuración del asistente."
+],
+[
+"Informe o endereço (URL) do serviço.",
+"Enter the service address (URL).",
+"Indica la dirección (URL) del servicio."
+],
+[
+"Escolha um modelo nas configurações do assistente.",
+"Pick a model in the assistant settings.",
+"Elige un modelo en la configuración del asistente."
+],
+[
+"A IA não respondeu no formato esperado (JSON).",
+"The AI did not reply in the expected format (JSON).",
+"La IA no respondió en el formato esperado (JSON)."
+],
+[
+"Faça um scan do disco antes de pedir a análise.",
+"Scan the drive before asking for the analysis.",
+"Escanea el disco antes de pedir el análisis."
+],
+[
+"Faça um scan do disco antes.",
+"Scan the drive first.",
+"Escanea el disco primero."
+],
+[
+"Informe a chave de API de {provider}.",
+"Enter the API key for {provider}.",
+"Indica la clave de API de {provider}."
+],
+[
+"O serviço respondeu {code}: {body}",
+"The service replied {code}: {body}",
+"El servicio respondió {code}: {body}"
+],
+[
+"Não foi possível conectar a {host}: {reason}",
+"Could not connect to {host}: {reason}",
+"No se pudo conectar a {host}: {reason}"
+],
+[
+"O serviço demorou demais para responder.",
+"The service took too long to reply.",
+"El servicio tardó demasiado en responder."
+],
+[
+"A IA respondeu um JSON inválido: {error}",
+"The AI replied with invalid JSON: {error}",
+"La IA respondió un JSON no válido: {error}"
+],
+[
+"Pasta não encontrada no último snapshot.",
+"Folder not found in the latest snapshot.",
+"Carpeta no encontrada en la última instantánea."
+],
+[
+"Resposta inesperada do serviço.",
+"Unexpected reply from the service.",
+"Respuesta inesperada del servicio."
+],
+[
+"programa não encontrado",
+"program not found",
+"programa no encontrado"
+],
+[
+"{what} de um projeto sem alterações há {days} dias.",
+"{what} of a project unchanged for {days} days.",
+"{what} de un proyecto sin cambios desde hace {days} días."
+],
+[
+"Instalador ou arquivo compactado em Downloads, parado há {days} dias. Se já foi instalado/extraído, pode ir.",
+"Installer or archive in Downloads, untouched for {days} days. If it was already installed/extracted, it can go.",
+"Instalador o archivo comprimido en Descargas, sin tocar desde hace {days} días. Si ya se instaló/extrajo, se puede borrar."
+],
+[
+"Arquivo grande sem alterações há {days} dias.",
+"Large file unchanged for {days} days.",
+"Archivo grande sin cambios desde hace {days} días."
+],
+[
+"Mesmo nome e tamanho de outra cópia: {keep}",
+"Same name and size as another copy: {keep}",
+"Mismo nombre y tamaño que otra copia: {keep}"
+],
+[
+"não foi possível abrir o desinstalador",
+"could not open the uninstaller",
+"no se pudo abrir el desinstalador"
+],
+[
+"é a raiz de um disco",
+"it is the root of a drive",
+"es la raíz de un disco"
+],
+[
+"não existe mais",
+"no longer exists",
+"ya no existe"
+],
+[
+"é um atalho do sistema (junction/link), não uma pasta real",
+"it is a system shortcut (junction/link), not a real folder",
+"es un acceso directo del sistema (junction/vínculo), no una carpeta real"
+],
+[
+"é um arquivo de sistema",
+"it is a system file",
+"es un archivo de sistema"
+],
+[
+"é gerenciado pelo Windows: use a ferramenta indicada",
+"it is managed by Windows: use the suggested tool",
+"lo gestiona Windows: usa la herramienta indicada"
+],
+[
+"“{label}”: necessário para o Windows",
+"“{label}”: needed by Windows",
+"“{label}”: necesario para Windows"
+],
+[
+"“{label}”: use a ferramenta indicada em vez de apagar à mão",
+"“{label}”: use the suggested tool instead of deleting by hand",
+"“{label}”: usa la herramienta indicada en lugar de borrar a mano"
+],
+[
+"é a pasta de todos os usuários",
+"it is the folder of all users",
+"es la carpeta de todos los usuarios"
+],
+[
+"{n} arquivos removidos de {folder}",
+"{n} files removed from {folder}",
+"{n} archivos eliminados de {folder}"
+],
+[
+"{n} ponto(s) de restauração antigo(s) removido(s); o mais recente foi mantido",
+"{n} old restore point(s) removed; the most recent one was kept",
+"{n} punto(s) de restauración antiguo(s) eliminado(s); se conservó el más reciente"
+],
+[
+"inacessível ({error})",
+"inaccessible ({error})",
+"inaccesible ({error})"
+],
+[
+"faz parte do próprio DiskLens",
+"it is part of DiskLens itself",
+"forma parte del propio DiskLens"
+],
+[
+"está dentro de {where}",
+"it is inside {where}",
+"está dentro de {where}"
+],
+[
+"faz parte de um programa instalado ({name}): use Desinstalar",
+"it is part of an installed program ({name}): use Uninstall",
+"forma parte de un programa instalado ({name}): usa Desinstalar"
+],
+[
+"é a pasta pessoal de um usuário inteira",
+"it is a user's whole personal folder",
+"es la carpeta personal completa de un usuario"
+],
+[
+"é uma pasta padrão do Windows (apague o conteúdo, não a pasta)",
+"it is a standard Windows folder (delete its contents, not the folder)",
+"es una carpeta estándar de Windows (borra el contenido, no la carpeta)"
+],
+[
+"só pastas marcadas como “seguro de limpar” podem ser esvaziadas",
+"only folders marked “safe to clean” can be emptied",
+"solo se pueden vaciar las carpetas marcadas como “seguro de limpiar”"
+],
+[
+"não foi possível mover para a Lixeira (arquivo em uso ou operação cancelada)",
+"could not move to the Recycle Bin (file in use or operation cancelled)",
+"no se pudo mover a la Papelera (archivo en uso u operación cancelada)"
+],
+[
+"o item ainda existe (parte dele pode estar em uso)",
+"the item still exists (part of it may be in use)",
+"el elemento todavía existe (parte puede estar en uso)"
+],
+[
+"ferramenta desconhecida",
+"unknown tool",
+"herramienta desconocida"
+],
+[
+"precisa rodar o DiskLens como administrador",
+"DiskLens must run as administrator",
+"hay que ejecutar DiskLens como administrador"
+],
+[
+"Lixeira esvaziada",
+"Recycle Bin emptied",
+"Papelera vaciada"
+],
+[
+"está dentro de programas instalados: use Desinstalar",
+"it is inside installed programs: use Uninstall",
+"está dentro de programas instalados: usa Desinstalar"
+],
+[
+"Cache da Otimização de Entrega apagado",
+"Delivery Optimization cache deleted",
+"Caché de Optimización de distribución borrada"
+],
+[
+"Hibernação reduzida",
+"Hibernation reduced",
+"Hibernación reducida"
+],
+[
+"Hibernação desligada",
+"Hibernation turned off",
+"Hibernación desactivada"
+],
+[
+"O espaço usado ficou praticamente igual",
+"Used space stayed about the same",
+"El espacio usado quedó prácticamente igual"
+],
+[
+"{head}. Principais responsáveis: {parts}.",
+"{head}. Main causes: {parts}.",
+"{head}. Principales responsables: {parts}."
+],
+[
+"snapshot inválido",
+"invalid snapshot",
+"instantánea no válida"
+],
+[
+"os snapshots são de discos diferentes",
+"the snapshots are from different drives",
+"las instantáneas son de discos diferentes"
+],
+[
+"O espaço usado aumentou {size}",
+"Used space grew by {size}",
+"El espacio usado aumentó {size}"
+],
+[
+"O espaço usado diminuiu {size}",
+"Used space shrank by {size}",
+"El espacio usado disminuyó {size}"
+],
+[
+"Processador ocupado ({pct}% em uso por outros programas)",
+"Processor busy ({pct}% used by other programs)",
+"Procesador ocupado ({pct}% en uso por otros programas)"
+],
+[
+"Pontos de restauração (cópias de sombra)",
+"Restore points (shadow copies)",
+"Puntos de restauración (instantáneas de volumen)"
+],
+[
+"Metadados do NTFS ($MFT, journal, $LogFile)",
+"NTFS metadata ($MFT, journal, $LogFile)",
+"Metadatos de NTFS ($MFT, diario, $LogFile)"
+],
+[
+"Não há o que limpar: é a estrutura do sistema de arquivos.",
+"Nothing to clean: it is the file system's own structure.",
+"No hay nada que limpiar: es la estructura del sistema de archivos."
+],
+[
+"A soma dos arquivos passou do espaço usado em {over2} GB: algum arquivo foi contado mais de uma vez ou cresceu durante o scan.",
+"The files add up to {over2} GB more than the used space: some file was counted more than once or grew during the scan.",
+"La suma de los archivos supera el espacio usado en {over2} GB: algún archivo se contó más de una vez o creció durante el escaneo."
+],
+[
+"sem limite",
+"no limit",
+"sin límite"
+],
+[
+"{gb} GB ({pct}% do disco)",
+"{gb} GB ({pct}% of the drive)",
+"{gb} GB ({pct}% del disco)"
+],
+[
+"{gb} GB",
+"{gb} GB",
+"{gb} GB"
+],
+[
+"{copies} cópia(s) de sombra guardadas. Limite configurado: {limit}. O Windows cria pontos automaticamente antes de atualizações e instalações de drivers, e cada um guarda as versões antigas dos blocos que mudaram desde então. Esse espaço cresce sem que nenhum arquivo novo apareça.",
+"{copies} shadow copy(ies) kept. Configured limit: {limit}. Windows creates restore points automatically before updates and driver installs, and each one keeps the old versions of the blocks that changed since. This space grows without any new file appearing.",
+"{copies} instantánea(s) de volumen guardada(s). Límite configurado: {limit}. Windows crea puntos automáticamente antes de actualizaciones e instalaciones de controladores, y cada uno guarda las versiones antiguas de los bloques que cambiaron desde entonces. Este espacio crece sin que aparezca ningún archivo nuevo."
+],
+[
+"Painel de Controle → Sistema → Proteção do Sistema → Configurar: reduza o limite ou exclua os pontos antigos. Limpeza de Disco → 'Mais opções' remove todos menos o mais recente.",
+"Control Panel → System → System Protection → Configure: lower the limit or delete old points. Disk Cleanup → 'More Options' removes all but the most recent one.",
+"Panel de control → Sistema → Protección del sistema → Configurar: reduce el límite o elimina los puntos antiguos. Liberador de espacio en disco → 'Más opciones' elimina todos menos el más reciente."
+],
+[
+"Pontos de restauração só podem ser medidos como administrador.",
+"Restore points can only be measured as administrator.",
+"Los puntos de restauración solo se pueden medir como administrador."
+],
+[
+"Armazenamento reservado do Windows",
+"Windows reserved storage",
+"Almacenamiento reservado de Windows"
+],
+[
+"Desde 2019 o Windows reserva cerca de {gb} GB para que atualizações, apps e arquivos temporários sempre tenham espaço. A parte da reserva que não está em uso conta como 'usada', mas não aparece como arquivo nenhum. O valor mostrado é a reserva configurada, limitado ao espaço que sobrou sem explicação.",
+"Since 2019 Windows reserves about {gb} GB so that updates, apps and temporary files always have room. The unused part of the reserve counts as 'used' but does not show up as any file. The value shown is the configured reserve, capped at the space left unexplained.",
+"Desde 2019 Windows reserva unos {gb} GB para que las actualizaciones, las apps y los archivos temporales siempre tengan espacio. La parte de la reserva que no está en uso cuenta como 'usada', pero no aparece como ningún archivo. El valor mostrado es la reserva configurada, limitado al espacio que quedó sin explicar."
+],
+[
+"Dá para desligar como administrador: 'DISM /Online /Set-ReservedStorageState /State:Disabled' (só funciona quando não há atualização em andamento). Não é recomendado com disco quase cheio, porque as atualizações podem falhar.",
+"It can be turned off as administrator: 'DISM /Online /Set-ReservedStorageState /State:Disabled' (works only when no update is in progress). Not recommended with an almost full drive, because updates may fail.",
+"Se puede desactivar como administrador: 'DISM /Online /Set-ReservedStorageState /State:Disabled' (solo funciona si no hay una actualización en curso). No se recomienda con el disco casi lleno, porque las actualizaciones pueden fallar."
+],
+[
+"{n} pastas não puderam ser lidas (rode como administrador para ler quase todas). Também entram aqui arquivos que estavam sendo gravados durante o scan e diferenças de arredondamento.",
+"{n} folders could not be read (run as administrator to read almost all of them). This also includes files being written during the scan and rounding differences.",
+"{n} carpetas no se pudieron leer (ejecuta como administrador para leer casi todas). También entran aquí archivos que se estaban escribiendo durante el escaneo y diferencias de redondeo."
+],
+[
+"{n} pastas não puderam ser lidas. Também entram aqui arquivos que estavam sendo gravados durante o scan e diferenças de arredondamento.",
+"{n} folders could not be read. This also includes files being written during the scan and rounding differences.",
+"{n} carpetas no se pudieron leer. También entran aquí archivos que se estaban escribiendo durante el escaneo y diferencias de redondeo."
+],
+[
+"Rode o scan como administrador.",
+"Run the scan as administrator.",
+"Ejecuta el escaneo como administrador."
+],
+[
+"Nenhuma cópia de sombra neste disco.",
+"No shadow copies on this drive.",
+"No hay instantáneas de volumen en este disco."
+],
+[
+"inválido",
+"invalid",
+"no válido"
+],
+[
+"ação desconhecida",
+"unknown action",
+"acción desconocida"
+],
+[
+"recusado: {why}",
+"refused: {why}",
+"rechazado: {why}"
+],
+[
+"já existe uma limpeza em andamento",
+"a cleanup is already running",
+"ya hay una limpieza en curso"
+],
+[
+"só pastas de cache/temporários marcadas como seguras podem ser esvaziadas",
+"only cache/temporary folders marked as safe can be emptied",
+"solo se pueden vaciar las carpetas de caché/temporales marcadas como seguras"
+],
+[
+"não é uma pasta",
+"not a folder",
+"no es una carpeta"
+],
+[
+"{n} arquivos apagados",
+"{n} files deleted",
+"{n} archivos borrados"
+],
+[
+"enviado para a Lixeira",
+"sent to the Recycle Bin",
+"enviado a la Papelera"
+],
+[
+", {n} em uso foram mantidos",
+", {n} in use were kept",
+", se conservaron {n} en uso"
+],
+[
+"Dumps e temporários",
+"Dumps and temporary files",
+"Volcados y temporales"
+],
+[
+"Memória virtual e hibernação",
+"Virtual memory and hibernation",
+"Memoria virtual e hibernación"
+],
+[
+"Outro scan já está em andamento.",
+"Another scan is already running.",
+"Ya hay otro escaneo en curso."
+],
+[
+"Criando índices",
+"Creating indexes",
+"Creando índices"
+],
+[
+"Medindo áreas ocultas do sistema",
+"Measuring hidden system areas",
+"Midiendo áreas ocultas del sistema"
+],
+[
+"volume inválido",
+"invalid drive",
+"unidad no válida"
+],
+[
+"ação inválida",
+"invalid action",
+"acción no válida"
+],
+[
+"nada selecionado",
+"nothing selected",
+"nada seleccionado"
+],
+[
+"tarefa não encontrada",
+"job not found",
+"tarea no encontrada"
+],
+[
+"Já existe um scan em andamento",
+"A scan is already running",
+"Ya hay un escaneo en curso"
+],
+[
+"(arquivos soltos nesta pasta)",
+"(loose files in this folder)",
+"(archivos sueltos en esta carpeta)"
+],
+[
+"(pastas menores)",
+"(smaller folders)",
+"(carpetas más pequeñas)"
+],
+[
+"pasta não encontrada",
+"folder not found",
+"carpeta no encontrada"
+],
+[
+"não encontrado",
+"not found",
+"no encontrado"
+],
+[
+"método não permitido",
+"method not allowed",
+"método no permitido"
+],
+[
+"token inválido",
+"invalid token",
+"token no válido"
+],
+[
+"rota desconhecida",
+"unknown route",
+"ruta desconocida"
+],
+[
+"Outras pastas",
+"Other folders",
+"Otras carpetas"
+],
+[
+"json inválido",
+"invalid json",
+"json no válido"
+],
+[
+"Última medição: {when}",
+"Last measured: {when}",
+"Última medición: {when}"
+],
+[
+"Abrir painel",
+"Open panel",
+"Abrir panel"
+],
+[
+"Sair do DiskLens",
+"Quit DiskLens",
+"Salir de DiskLens"
+],
+[
+"{drive} {free} GB livres ({pct}% usado)",
+"{drive} {free} GB free ({pct}% used)",
+"{drive} {free} GB libres ({pct}% usado)"
+],
+[
+"{drive}  {free} GB livres de {total} GB ({pct}% usado)",
+"{drive}  {free} GB free of {total} GB ({pct}% used)",
+"{drive}  {free} GB libres de {total} GB ({pct}% usado)"
+],
+[
+"Coleta automática ativa · última {when}",
+"Automatic collection on · last {when}",
+"Recopilación automática activa · última {when}"
+],
+[
+"Coleta automática desativada",
+"Automatic collection off",
+"Recopilación automática desactivada"
+],
+[
+"Ativar coleta automática…",
+"Turn on automatic collection…",
+"Activar recopilación automática…"
+],
+[
+"Ative a coleta na aba Linha do tempo → Ativar coleta automática.",
+"Turn it on in the Timeline tab → Turn on automatic collection.",
+"Actívala en la pestaña Línea de tiempo → Activar recopilación automática."
+],
+[
+"Medindo o disco em segundo plano…",
+"Measuring the drive in the background…",
+"Midiendo el disco en segundo plano…"
+],
+[
+"O ícone vai aparecer ao entrar no Windows.",
+"The icon will appear when you sign in to Windows.",
+"El icono aparecerá al iniciar sesión en Windows."
+],
+[
+"O DiskLens não vai mais iniciar com o Windows. A coleta automática continua.",
+"DiskLens will no longer start with Windows. Automatic collection continues.",
+"DiskLens ya no se iniciará con Windows. La recopilación automática continúa."
+],
+[
+"Não foi possível alterar: {error}",
+"Could not change it: {error}",
+"No se pudo cambiar: {error}"
+],
+[
+"O journal do NTFS foi reiniciado ou sobrescrito: alterações anteriores a este ponto não estão no histórico.",
+"The NTFS journal was reset or overwritten: changes before this point are not in the history.",
+"El diario de NTFS se reinició o se sobrescribió: los cambios anteriores a este punto no están en el historial."
+],
+[
+"A 'tabela de conteúdo' do disco: cerca de 1 KB para cada arquivo ou pasta que já existiu ({millions2} milhões hoje). A $MFT cresce quando muitos arquivos são criados (node_modules, caches, pacotes Python) e nunca encolhe, mesmo depois de apagá-los.",
+"The drive's 'table of contents': about 1 KB for every file or folder that ever existed ({millions2} million today). The $MFT grows when many files are created (node_modules, caches, Python packages) and never shrinks, even after they are deleted.",
+"El 'índice' del disco: cerca de 1 KB por cada archivo o carpeta que haya existido ({millions2} millones hoy). La $MFT crece cuando se crean muchos archivos (node_modules, cachés, paquetes de Python) y nunca se reduce, aunque se borren."
+],
+[
+"A 'tabela de conteúdo' do disco: cerca de 1 KB para cada arquivo ou pasta que já existiu ({millions2} milhões hoje). A $MFT cresce quando muitos arquivos são criados (node_modules, caches, pacotes Python) e nunca encolhe, mesmo depois de apagá-los. Valor estimado: o tamanho exato só pode ser lido como administrador.",
+"The drive's 'table of contents': about 1 KB for every file or folder that ever existed ({millions2} million today). The $MFT grows when many files are created (node_modules, caches, Python packages) and never shrinks, even after they are deleted. Estimated value: the exact size can only be read as administrator.",
+"El 'índice' del disco: cerca de 1 KB por cada archivo o carpeta que haya existido ({millions2} millones hoy). La $MFT crece cuando se crean muchos archivos (node_modules, cachés, paquetes de Python) y nunca se reduce, aunque se borren. Valor estimado: el tamaño exacto solo se puede leer como administrador."
+],
+[
+"OpenAI (ChatGPT)",
+"OpenAI (ChatGPT)",
+"OpenAI (ChatGPT)"
+],
+[
+"Google (Gemini)",
+"Google (Gemini)",
+"Google (Gemini)"
+],
+[
+"DeepSeek",
+"DeepSeek",
+"DeepSeek"
+],
+[
+"Anthropic (Claude)",
+"Anthropic (Claude)",
+"Anthropic (Claude)"
+],
+[
+"Ollama (IA local, nada sai do PC)",
+"Ollama (local AI, nothing leaves the PC)",
+"Ollama (IA local, nada sale del PC)"
+],
+[
+"Outro serviço compatível com OpenAI",
+"Other OpenAI-compatible service",
+"Otro servicio compatible con OpenAI"
+],
+[
+"Cache de downloads do Windows Update",
+"Windows Update download cache",
+"Caché de descargas de Windows Update"
+],
+[
+"Limpeza de componentes do Windows (DISM)",
+"Windows component cleanup (DISM)",
+"Limpieza de componentes de Windows (DISM)"
+],
+[
+"Cache da Otimização de Entrega",
+"Delivery Optimization cache",
+"Caché de Optimización de distribución"
+],
+[
+"Pontos de restauração antigos",
+"Old restore points",
+"Puntos de restauración antiguos"
+],
+[
+"Reduzir o arquivo de hibernação",
+"Shrink the hibernation file",
+"Reducir el archivo de hibernación"
+],
+[
+"Desligar a hibernação",
+"Turn off hibernation",
+"Desactivar la hibernación"
+],
+[
+"Apaga definitivamente tudo o que está na Lixeira de todos os discos.",
+"Permanently deletes everything in the Recycle Bin on all drives.",
+"Borra definitivamente todo lo que hay en la Papelera de todos los discos."
+],
+[
+"Para o serviço do Windows Update, apaga os instaladores já baixados e religa o serviço. O Windows baixa de novo só o que ainda precisar.",
+"Stops the Windows Update service, deletes the installers already downloaded and restarts the service. Windows downloads again only what it still needs.",
+"Detiene el servicio de Windows Update, borra los instaladores ya descargados y vuelve a iniciarlo. Windows descarga de nuevo solo lo que aún necesite."
+],
+[
+"Remove versões antigas de componentes substituídas por atualizações (WinSxS). Ferramenta oficial; pode levar de 5 a 30 minutos.",
+"Removes old component versions replaced by updates (WinSxS). Official tool; may take 5 to 30 minutes.",
+"Elimina versiones antiguas de componentes reemplazadas por actualizaciones (WinSxS). Herramienta oficial; puede tardar de 5 a 30 minutos."
+],
+[
+"Apaga atualizações guardadas para compartilhar com outros PCs.",
+"Deletes updates kept for sharing with other PCs.",
+"Borra las actualizaciones guardadas para compartir con otros PC."
+],
+[
+"Remove todos os pontos de restauração, menos o mais recente.",
+"Removes every restore point except the most recent one.",
+"Elimina todos los puntos de restauración, salvo el más reciente."
+],
+[
+"powercfg /h /type reduced: mantém a Inicialização Rápida e reduz o hiberfil.sys pela metade, mas desativa a hibernação completa.",
+"powercfg /h /type reduced: keeps Fast Startup and halves hiberfil.sys, but disables full hibernation.",
+"powercfg /h /type reduced: mantiene el Inicio rápido y reduce hiberfil.sys a la mitad, pero desactiva la hibernación completa."
+],
+[
+"powercfg /h off: apaga o hiberfil.sys inteiro. Desativa a hibernação e a Inicialização Rápida.",
+"powercfg /h off: deletes hiberfil.sys entirely. Disables hibernation and Fast Startup.",
+"powercfg /h off: borra hiberfil.sys por completo. Desactiva la hibernación y el Inicio rápido."
+],
+[
+"pasta do Windows",
+"Windows folder",
+"carpeta de Windows"
+],
+[
+"programas instalados",
+"installed programs",
+"programas instalados"
+],
+[
+"dados compartilhados de programas",
+"shared program data",
+"datos compartidos de programas"
+],
+[
+"dependências Node.js (npm install recria)",
+"Node.js dependencies (npm install recreates them)",
+"dependencias de Node.js (npm install las recrea)"
+],
+[
+"ambiente Python virtual (recriável com pip)",
+"Python virtual environment (recreatable with pip)",
+"entorno virtual de Python (se recrea con pip)"
+],
+[
+"ambientes de teste tox",
+"tox test environments",
+"entornos de prueba de tox"
+],
+[
+"build do Rust/Java (cargo build recria)",
+"Rust/Java build (cargo build recreates it)",
+"build de Rust/Java (cargo build lo recrea)"
+],
+[
+"build do Next.js",
+"Next.js build",
+"build de Next.js"
+],
+[
+"cache do Gradle do projeto",
+"project Gradle cache",
+"caché de Gradle del proyecto"
+],
+[
+"Atenção: o snapshot mais antigo foi feito antes de uma correção na contagem. Arquivos com vários nomes (hard links, como os do Edge, do Edge WebView e do Conda) eram somados mais de uma vez fora da pasta do Windows, então parte da diferença nas pastas é só a correção, não espaço que mudou de verdade. O espaço usado do disco é medido pelo Windows e não é afetado.",
+"Note: the oldest snapshot was taken before a counting fix. Files with several names (hard links, such as those of Edge, Edge WebView and Conda) were counted more than once outside the Windows folder, so part of the difference in folders is just the fix, not space that really changed. The disk's used space is measured by Windows and is not affected.",
+"Atención: la instantánea más antigua se hizo antes de una corrección en el conteo. Los archivos con varios nombres (hard links, como los de Edge, Edge WebView y Conda) se sumaban más de una vez fuera de la carpeta de Windows, así que parte de la diferencia en las carpetas es solo la corrección, no espacio que cambió de verdad. El espacio usado del disco lo mide Windows y no se ve afectado."
+],
+[
+"Vídeos",
+"Videos",
+"Vídeos"
+],
+[
+"Imagens",
+"Images",
+"Imágenes"
+],
+[
+"Áudio",
+"Audio",
+"Audio"
+],
+[
+"Documentos",
+"Documents",
+"Documentos"
+],
+[
+"Instaladores e compactados",
+"Installers and archives",
+"Instaladores y comprimidos"
+],
+[
+"Discos virtuais",
+"Virtual disks",
+"Discos virtuales"
+],
+[
+"Programas e bibliotecas",
+"Programs and libraries",
+"Programas y bibliotecas"
+],
+[
+"Código-fonte",
+"Source code",
+"Código fuente"
+],
+[
+"Bancos de dados e logs",
+"Databases and logs",
+"Bases de datos y logs"
+],
+[
+"Modelos de IA",
+"AI models",
+"Modelos de IA"
+],
+[
+"Jogos (pacotes)",
+"Games (packages)",
+"Juegos (paquetes)"
+],
+[
+"Outros",
+"Other",
+"Otros"
+],
+[
+"Sem extensão",
+"No extension",
+"Sin extensión"
+],
+[
+"Aplicativo em tela cheia",
+"Full-screen app",
+"Aplicación en pantalla completa"
+],
+[
+"Jogo em tela cheia",
+"Full-screen game",
+"Juego en pantalla completa"
+],
+[
+"Modo de apresentação",
+"Presentation mode",
+"Modo de presentación"
+],
+[
+"Sistema (Windows)",
+"System (Windows)",
+"Sistema (Windows)"
+],
+[
+"Jogos",
+"Games",
+"Juegos"
+],
+[
+"Seus arquivos",
+"Your files",
+"Tus archivos"
+],
+[
+"Dados de aplicativos",
+"App data",
+"Datos de aplicaciones"
+],
+[
+"Caches e temporários",
+"Caches and temporary files",
+"Cachés y temporales"
+],
+[
+"Desenvolvimento",
+"Development",
+"Desarrollo"
+],
+[
+"Máquinas virtuais / WSL / Docker",
+"Virtual machines / WSL / Docker",
+"Máquinas virtuales / WSL / Docker"
+],
+[
+"Ocultos do sistema",
+"Hidden system files",
+"Ocultos del sistema"
+],
+[
+"Seus dados: só você pode decidir",
+"Your data: only you can decide",
+"Tus datos: solo tú puedes decidir"
+],
+[
+"Seguro de limpar: é recriado automaticamente",
+"Safe to clean: recreated automatically",
+"Seguro de limpiar: se recrea automáticamente"
+],
+[
+"Limpe pela ferramenta indicada, não apagando à mão",
+"Clean with the indicated tool, not by deleting by hand",
+"Limpia con la herramienta indicada, no borrando a mano"
+],
+[
+"Cuidado: entenda antes de mexer",
+"Careful: understand it before touching it",
+"Cuidado: entiéndelo antes de tocarlo"
+],
+[
+"Não mexa: necessário para o Windows",
+"Don't touch: needed by Windows",
+"No tocar: necesario para Windows"
+],
+[
+"Windows",
+"Windows",
+"Windows"
+],
+[
+"Arquivos do sistema operacional. Nunca apague nada manualmente aqui.",
+"Operating system files. Never delete anything here by hand.",
+"Archivos del sistema operativo. Nunca borres nada aquí a mano."
+],
+[
+"Repositório de componentes (WinSxS)",
+"Component store (WinSxS)",
+"Almacén de componentes (WinSxS)"
+],
+[
+"Versões de componentes do Windows usadas em atualizações e reparos. Muitos arquivos são 'hard links' compartilhados com System32 (o DiskLens conta cada um só uma vez, por isso o número é menor que o do Explorer). Reduza com Limpeza de Disco → 'Limpeza de atualizações do Windows' ou 'DISM /Online /Cleanup-Image /StartComponentCleanup'.",
+"Versions of Windows components used for updates and repairs. Many files are 'hard links' shared with System32 (DiskLens counts each only once, which is why the number is lower than Explorer's). Shrink it with Disk Cleanup → 'Windows Update Cleanup' or 'DISM /Online /Cleanup-Image /StartComponentCleanup'.",
+"Versiones de componentes de Windows usadas en actualizaciones y reparaciones. Muchos archivos son 'hard links' compartidos con System32 (DiskLens cuenta cada uno una sola vez, por eso la cifra es menor que la del Explorador). Redúcelo con el Liberador de espacio en disco → 'Limpieza de actualizaciones de Windows' o 'DISM /Online /Cleanup-Image /StartComponentCleanup'."
+],
+[
+"Cache do Windows Update",
+"Windows Update cache",
+"Caché de Windows Update"
+],
+[
+"Downloads das atualizações. Cresce a cada atualização mensal, mesmo sem você instalar nada. Limpe com Limpeza de Disco (como administrador) → 'Limpeza do Windows Update'.",
+"Update downloads. Grows with every monthly update, even if you install nothing. Clean it with Disk Cleanup (as administrator) → 'Windows Update Cleanup'.",
+"Descargas de las actualizaciones. Crece con cada actualización mensual, aunque no instales nada. Límpiala con el Liberador de espacio en disco (como administrador) → 'Limpieza de Windows Update'."
+],
+[
+"Temporários do sistema",
+"System temporary files",
+"Temporales del sistema"
+],
+[
+"Arquivos temporários do Windows e de instaladores. Configurações → Armazenamento → Arquivos temporários limpa com segurança.",
+"Temporary files from Windows and installers. Settings → Storage → Temporary files cleans them safely.",
+"Archivos temporales de Windows y de instaladores. Configuración → Almacenamiento → Archivos temporales los limpia con seguridad."
+],
+[
+"Cache do Windows Installer",
+"Windows Installer cache",
+"Caché de Windows Installer"
+],
+[
+"Cópias dos instaladores .msi/.msp necessárias para reparar e desinstalar programas. Apagar manualmente quebra desinstalações.",
+"Copies of the .msi/.msp installers needed to repair and uninstall programs. Deleting them by hand breaks uninstalls.",
+"Copias de los instaladores .msi/.msp necesarias para reparar y desinstalar programas. Borrarlas a mano rompe las desinstalaciones."
+],
+[
+"Logs do Windows",
+"Windows logs",
+"Logs de Windows"
+],
+[
+"Registros do sistema (CBS, DISM, etc.). Às vezes crescem muito por causa de erros repetidos.",
+"System logs (CBS, DISM, etc.). Sometimes they grow a lot because of repeated errors.",
+"Registros del sistema (CBS, DISM, etc.). A veces crecen mucho por errores repetidos."
+],
+[
+"Relatórios de falha do kernel",
+"Kernel crash reports",
+"Informes de fallos del kernel"
+],
+[
+"Dumps criados quando um driver (geralmente de vídeo) trava. Podem ter vários GB e surgir 'do nada'. Seguros de apagar.",
+"Dumps created when a driver (usually the graphics driver) hangs. They can be several GB and appear 'out of nowhere'. Safe to delete.",
+"Volcados creados cuando un controlador (normalmente el de vídeo) se cuelga. Pueden ocupar varios GB y aparecer 'de la nada'. Seguros de borrar."
+],
+[
+"Minidumps de tela azul",
+"Blue screen minidumps",
+"Minivolcados de pantalla azul"
+],
+[
+"Registros de travamentos do sistema. Seguros de apagar.",
+"Records of system crashes. Safe to delete.",
+"Registros de bloqueos del sistema. Seguros de borrar."
+],
+[
+"Repositório de drivers",
+"Driver store",
+"Almacén de controladores"
+],
+[
+"Cópia de todos os drivers já instalados. Versões antigas de drivers de vídeo acumulam (cerca de 1 GB cada). Remova versões antigas com 'pnputil' ou ferramentas específicas, com cuidado.",
+"A copy of every driver ever installed. Old graphics driver versions pile up (about 1 GB each). Remove old versions with 'pnputil' or dedicated tools, carefully.",
+"Copia de todos los controladores instalados alguna vez. Las versiones antiguas de controladores de vídeo se acumulan (cerca de 1 GB cada una). Elimina versiones antiguas con 'pnputil' o herramientas específicas, con cuidado."
+],
+[
+"Otimização de Entrega",
+"Delivery Optimization",
+"Optimización de distribución"
+],
+[
+"Cache de atualizações compartilhadas entre PCs. Limpe em Configurações → Armazenamento → Arquivos temporários → 'Arquivos de Otimização de Entrega'.",
+"Cache of updates shared between PCs. Clean it in Settings → Storage → Temporary files → 'Delivery Optimization Files'.",
+"Caché de actualizaciones compartidas entre PC. Límpiala en Configuración → Almacenamiento → Archivos temporales → 'Archivos de optimización de distribución'."
+],
+[
+"Instalação anterior do Windows",
+"Previous Windows installation",
+"Instalación anterior de Windows"
+],
+[
+"Cópia da versão anterior do Windows após uma grande atualização (10 a 30 GB). É removida sozinha depois de alguns dias, ou em Configurações → Armazenamento → Arquivos temporários → 'Instalações anteriores do Windows'.",
+"A copy of the previous Windows version after a major update (10 to 30 GB). It is removed by itself after some days, or in Settings → Storage → Temporary files → 'Previous Windows installation(s)'.",
+"Copia de la versión anterior de Windows tras una gran actualización (10 a 30 GB). Se elimina sola después de unos días, o en Configuración → Almacenamiento → Archivos temporales → 'Instalaciones anteriores de Windows'."
+],
+[
+"Arquivos de atualização do Windows",
+"Windows upgrade files",
+"Archivos de actualización de Windows"
+],
+[
+"Arquivos temporários de uma atualização de versão do Windows. Limpe pela Limpeza de Disco.",
+"Temporary files from a Windows version upgrade. Clean them with Disk Cleanup.",
+"Archivos temporales de una actualización de versión de Windows. Límpialos con el Liberador de espacio en disco."
+],
+[
+"Resto de uma atualização de versão do Windows já concluída.",
+"Leftover from a Windows version upgrade that has already finished.",
+"Restos de una actualización de versión de Windows ya terminada."
+],
+[
+"Arquivos excluídos (de todos os usuários). Esvazie a Lixeira para liberar o espaço.",
+"Deleted files (from all users). Empty the Recycle Bin to free the space.",
+"Archivos eliminados (de todos los usuarios). Vacía la Papelera para liberar el espacio."
+],
+[
+"Pontos de restauração e cópias de sombra",
+"Restore points and shadow copies",
+"Puntos de restauración e instantáneas"
+],
+[
+"Pasta protegida da Restauração do Sistema. O Windows não deixa ler o conteúdo nem como administrador, então esse espaço normalmente aparece em 'Não contabilizado'. Ajuste o limite em Painel de Controle → Sistema → Proteção do Sistema → Configurar.",
+"Protected System Restore folder. Windows does not let anyone read its contents, not even an administrator, so this space usually shows up under 'Not accounted for'. Adjust the limit in Control Panel → System → System Protection → Configure.",
+"Carpeta protegida de Restaurar sistema. Windows no deja leer su contenido ni como administrador, así que este espacio suele aparecer en 'No contabilizado'. Ajusta el límite en Panel de control → Sistema → Protección del sistema → Configurar."
+],
+[
+"Ambiente de recuperação",
+"Recovery environment",
+"Entorno de recuperación"
+],
+[
+"Imagem de recuperação do Windows usada para reparos de inicialização.",
+"Windows recovery image used for startup repairs.",
+"Imagen de recuperación de Windows usada para reparar el inicio."
+],
+[
+"Desinstale pelo Configurações → Aplicativos. Apagar a pasta deixa restos no sistema.",
+"Uninstall through Settings → Apps. Deleting the folder leaves leftovers in the system.",
+"Desinstala desde Configuración → Aplicaciones. Borrar la carpeta deja restos en el sistema."
+],
+[
+"Programas instalados (32 bits)",
+"Installed programs (32-bit)",
+"Programas instalados (32 bits)"
+],
+[
+"Apps da Microsoft Store",
+"Microsoft Store apps",
+"Aplicaciones de Microsoft Store"
+],
+[
+"Aplicativos da Store e jogos do Xbox app. Desinstale pelo Configurações → Aplicativos.",
+"Store apps and Xbox app games. Uninstall through Settings → Apps.",
+"Aplicaciones de la Store y juegos de la app Xbox. Desinstala desde Configuración → Aplicaciones."
+],
+[
+"Visual Studio",
+"Visual Studio",
+"Visual Studio"
+],
+[
+"Remova componentes que não usa pelo Visual Studio Installer.",
+"Remove components you don't use with the Visual Studio Installer.",
+"Elimina los componentes que no usas con el Visual Studio Installer."
+],
+[
+"Windows SDK",
+"Windows SDK",
+"Windows SDK"
+],
+[
+"Kits de desenvolvimento do Windows. Desinstale versões antigas pelo Configurações → Aplicativos.",
+"Windows development kits. Uninstall old versions through Settings → Apps.",
+"Kits de desarrollo de Windows. Desinstala las versiones antiguas desde Configuración → Aplicaciones."
+],
+[
+"Docker Desktop (programa)",
+"Docker Desktop (program)",
+"Docker Desktop (programa)"
+],
+[
+"Programa do Docker Desktop.",
+"The Docker Desktop program.",
+"Programa de Docker Desktop."
+],
+[
+"Steam",
+"Steam",
+"Steam"
+],
+[
+"Cliente e biblioteca da Steam.",
+"Steam client and library.",
+"Cliente y biblioteca de Steam."
+],
+[
+"Jogos da Steam",
+"Steam games",
+"Juegos de Steam"
+],
+[
+"Jogos instalados. Desinstale pela Steam.",
+"Installed games. Uninstall through Steam.",
+"Juegos instalados. Desinstala desde Steam."
+],
+[
+"Cache de shaders da Steam",
+"Steam shader cache",
+"Caché de shaders de Steam"
+],
+[
+"Shaders pré-compilados. Seguro de apagar, mas os jogos vão recompilá-los.",
+"Precompiled shaders. Safe to delete, but games will recompile them.",
+"Shaders precompilados. Seguro de borrar, pero los juegos los volverán a compilar."
+],
+[
+"Downloads da Steam em andamento",
+"Steam downloads in progress",
+"Descargas de Steam en curso"
+],
+[
+"Atualizações de jogos baixando ou pausadas. Podem ocupar muitos GB temporariamente.",
+"Game updates downloading or paused. They can temporarily take many GB.",
+"Actualizaciones de juegos descargándose o en pausa. Pueden ocupar muchos GB temporalmente."
+],
+[
+"Mods da Steam Workshop",
+"Steam Workshop mods",
+"Mods de Steam Workshop"
+],
+[
+"Conteúdo de mods assinados.",
+"Content of subscribed mods.",
+"Contenido de los mods suscritos."
+],
+[
+"Biblioteca da Steam",
+"Steam library",
+"Biblioteca de Steam"
+],
+[
+"Jogos da Epic",
+"Epic games",
+"Juegos de Epic"
+],
+[
+"Desinstale pelo Epic Games Launcher.",
+"Uninstall through the Epic Games Launcher.",
+"Desinstala desde Epic Games Launcher."
+],
+[
+"Jogos da EA",
+"EA games",
+"Juegos de EA"
+],
+[
+"Desinstale pelo EA app.",
+"Uninstall through the EA app.",
+"Desinstala desde la EA app."
+],
+[
+"Ubisoft Connect",
+"Ubisoft Connect",
+"Ubisoft Connect"
+],
+[
+"Desinstale pelo Ubisoft Connect.",
+"Uninstall through Ubisoft Connect.",
+"Desinstala desde Ubisoft Connect."
+],
+[
+"GOG Galaxy",
+"GOG Galaxy",
+"GOG Galaxy"
+],
+[
+"Desinstale pelo GOG Galaxy.",
+"Uninstall through GOG Galaxy.",
+"Desinstala desde GOG Galaxy."
+],
+[
+"Jogos do Xbox app",
+"Xbox app games",
+"Juegos de la app Xbox"
+],
+[
+"Desinstale pelo Xbox app.",
+"Uninstall through the Xbox app.",
+"Desinstala desde la app Xbox."
+],
+[
+"Jogos da Riot",
+"Riot games",
+"Juegos de Riot"
+],
+[
+"Desinstale pelo cliente da Riot.",
+"Uninstall through the Riot client.",
+"Desinstala desde el cliente de Riot."
+],
+[
+"Pasta de jogos.",
+"Games folder.",
+"Carpeta de juegos."
+],
+[
+"Dados de programas (todos os usuários)",
+"Program data (all users)",
+"Datos de programas (todos los usuarios)"
+],
+[
+"Configurações e dados compartilhados de programas. Não apague sem saber de qual programa é.",
+"Settings and shared data of programs. Don't delete it without knowing which program it belongs to.",
+"Configuración y datos compartidos de programas. No lo borres sin saber de qué programa es."
+],
+[
+"Cache de instaladores",
+"Installer cache",
+"Caché de instaladores"
+],
+[
+"Instaladores guardados (Visual Studio, .NET, C++ Redistributable) para reparar ou desinstalar depois. Não apague manualmente.",
+"Installers kept (Visual Studio, .NET, C++ Redistributable) to repair or uninstall later. Don't delete them by hand.",
+"Instaladores guardados (Visual Studio, .NET, C++ Redistributable) para reparar o desinstalar después. No los borres a mano."
+],
+[
+"Relatórios de erro do Windows",
+"Windows Error Reporting",
+"Informes de errores de Windows"
+],
+[
+"Relatórios de travamento de programas. Seguros de apagar (Limpeza de Disco → Relatórios de Erros).",
+"Program crash reports. Safe to delete (Disk Cleanup → Error Reports).",
+"Informes de bloqueos de programas. Seguros de borrar (Liberador de espacio en disco → Informes de errores)."
+],
+[
+"Índice de pesquisa do Windows",
+"Windows Search index",
+"Índice de búsqueda de Windows"
+],
+[
+"Banco de dados da pesquisa (Windows.edb). Pode chegar a vários GB. Para reduzir, reconstrua o índice em Opções de Indexação → Avançado.",
+"The search database (Windows.edb). It can reach several GB. To shrink it, rebuild the index in Indexing Options → Advanced.",
+"Base de datos de la búsqueda (Windows.edb). Puede llegar a varios GB. Para reducirla, reconstruye el índice en Opciones de indización → Opciones avanzadas."
+],
+[
+"Microsoft Defender",
+"Microsoft Defender",
+"Microsoft Defender"
+],
+[
+"Definições do antivírus e histórico de verificações.",
+"Antivirus definitions and scan history.",
+"Definiciones del antivirus e historial de análisis."
+],
+[
+"Discos do Hyper-V",
+"Hyper-V disks",
+"Discos de Hyper-V"
+],
+[
+"Discos virtuais de máquinas Hyper-V.",
+"Virtual disks of Hyper-V machines.",
+"Discos virtuales de máquinas Hyper-V."
+],
+[
+"Downloads de drivers NVIDIA",
+"NVIDIA driver downloads",
+"Descargas de controladores NVIDIA"
+],
+[
+"Instaladores de drivers baixados pelo GeForce Experience / NVIDIA App.",
+"Driver installers downloaded by GeForce Experience / NVIDIA App.",
+"Instaladores de controladores descargados por GeForce Experience / NVIDIA App."
+],
+[
+"Dados do Docker",
+"Docker data",
+"Datos de Docker"
+],
+[
+"Imagens e containers do Docker. Limpe com 'docker system prune'.",
+"Docker images and containers. Clean with 'docker system prune'.",
+"Imágenes y contenedores de Docker. Limpia con 'docker system prune'."
+],
+[
+"Chocolatey",
+"Chocolatey",
+"Chocolatey"
+],
+[
+"Pacotes instalados pelo Chocolatey.",
+"Packages installed by Chocolatey.",
+"Paquetes instalados por Chocolatey."
+],
+[
+"Perfis de usuários",
+"User profiles",
+"Perfiles de usuario"
+],
+[
+"Pastas pessoais de cada conta do computador.",
+"Personal folders of each account on the computer.",
+"Carpetas personales de cada cuenta del equipo."
+],
+[
+"Perfil do usuário",
+"User profile",
+"Perfil de usuario"
+],
+[
+"Pasta pessoal de uma conta.",
+"An account's personal folder.",
+"Carpeta personal de una cuenta."
+],
+[
+"Pasta pública",
+"Public folder",
+"Carpeta pública"
+],
+[
+"Arquivos compartilhados entre os usuários.",
+"Files shared between users.",
+"Archivos compartidos entre los usuarios."
+],
+[
+"Downloads",
+"Downloads",
+"Descargas"
+],
+[
+"Costuma acumular instaladores, ISOs e arquivos esquecidos. Bom lugar para começar a limpar.",
+"Tends to pile up installers, ISOs and forgotten files. A good place to start cleaning.",
+"Suele acumular instaladores, ISO y archivos olvidados. Buen lugar para empezar a limpiar."
+],
+[
+"Seus documentos. Alguns jogos e programas também salvam dados aqui.",
+"Your documents. Some games and programs also save data here.",
+"Tus documentos. Algunos juegos y programas también guardan datos aquí."
+],
+[
+"Área de trabalho",
+"Desktop",
+"Escritorio"
+],
+[
+"Arquivos da sua área de trabalho.",
+"Files on your desktop.",
+"Archivos de tu escritorio."
+],
+[
+"Suas imagens e capturas de tela.",
+"Your pictures and screenshots.",
+"Tus imágenes y capturas de pantalla."
+],
+[
+"Seus vídeos. Gravações de jogos (Xbox Game Bar, NVIDIA) costumam ir para cá e crescem rápido.",
+"Your videos. Game recordings (Xbox Game Bar, NVIDIA) usually go here and grow fast.",
+"Tus vídeos. Las grabaciones de juegos (Xbox Game Bar, NVIDIA) suelen ir aquí y crecen rápido."
+],
+[
+"Músicas",
+"Music",
+"Música"
+],
+[
+"Suas músicas.",
+"Your music.",
+"Tu música."
+],
+[
+"OneDrive",
+"OneDrive",
+"OneDrive"
+],
+[
+"Arquivos sincronizados. Arquivos 'somente online' não ocupam espaço (o DiskLens já os conta como zero). Para liberar espaço: botão direito → 'Liberar espaço'.",
+"Synced files. 'Online-only' files take no space (DiskLens already counts them as zero). To free space: right-click → 'Free up space'.",
+"Archivos sincronizados. Los archivos 'solo en línea' no ocupan espacio (DiskLens ya los cuenta como cero). Para liberar espacio: clic derecho → 'Liberar espacio'."
+],
+[
+"Máquinas virtuais (VMware)",
+"Virtual machines (VMware)",
+"Máquinas virtuales (VMware)"
+],
+[
+"Discos de máquinas virtuais.",
+"Virtual machine disks.",
+"Discos de máquinas virtuales."
+],
+[
+"Máquinas virtuais (VirtualBox)",
+"Virtual machines (VirtualBox)",
+"Máquinas virtuales (VirtualBox)"
+],
+[
+"Dados de aplicativos (AppData)",
+"App data (AppData)",
+"Datos de aplicaciones (AppData)"
+],
+[
+"Configurações, caches e dados de programas deste usuário. Pasta oculta, onde mora boa parte do crescimento 'misterioso'.",
+"Settings, caches and program data for this user. A hidden folder, home to much of the 'mysterious' growth.",
+"Configuración, cachés y datos de programas de este usuario. Carpeta oculta, donde vive buena parte del crecimiento 'misterioso'."
+],
+[
+"Temporários do usuário",
+"User temporary files",
+"Temporales del usuario"
+],
+[
+"Arquivos temporários de programas e instaladores. Seguros de apagar (os que estiverem em uso serão ignorados). Configurações → Armazenamento → Arquivos temporários.",
+"Temporary files from programs and installers. Safe to delete (files in use are skipped). Settings → Storage → Temporary files.",
+"Archivos temporales de programas e instaladores. Seguros de borrar (los que estén en uso se omiten). Configuración → Almacenamiento → Archivos temporales."
+],
+[
+"Dumps de travamentos de programas",
+"Program crash dumps",
+"Volcados de bloqueos de programas"
+],
+[
+"Gerados quando programas travam. Seguros de apagar.",
+"Created when programs crash. Safe to delete.",
+"Se generan cuando los programas se bloquean. Seguros de borrar."
+],
+[
+"Relatórios de erro",
+"Error reports",
+"Informes de errores"
+],
+[
+"Relatórios de travamentos de programas.",
+"Program crash reports.",
+"Informes de bloqueos de programas."
+],
+[
+"Cache de internet do Windows",
+"Windows internet cache",
+"Caché de internet de Windows"
+],
+[
+"Cache de componentes web do Windows/Office.",
+"Cache of Windows/Office web components.",
+"Caché de componentes web de Windows/Office."
+],
+[
+"Cache de miniaturas",
+"Thumbnail cache",
+"Caché de miniaturas"
+],
+[
+"Miniaturas de imagens e vídeos. Recriadas automaticamente.",
+"Thumbnails of images and videos. Recreated automatically.",
+"Miniaturas de imágenes y vídeos. Se recrean automáticamente."
+],
+[
+"Dados do Outlook",
+"Outlook data",
+"Datos de Outlook"
+],
+[
+"Cópia local dos e-mails (.ost). Reduza diminuindo o período de e-mails mantidos offline nas configurações da conta no Outlook.",
+"Local copy of your e-mail (.ost). Shrink it by reducing how much mail is kept offline in the Outlook account settings.",
+"Copia local del correo (.ost). Redúcela acortando el periodo de correo sin conexión en la configuración de la cuenta de Outlook."
+],
+[
+"OneDrive (programa)",
+"OneDrive (program)",
+"OneDrive (programa)"
+],
+[
+"Programa do OneDrive.",
+"The OneDrive program.",
+"Programa de OneDrive."
+],
+[
+"Programas instalados por usuário",
+"Per-user installed programs",
+"Programas instalados por usuario"
+],
+[
+"Programas que se instalam só para você (VS Code, Discord, Python etc.). Desinstale pelo Configurações → Aplicativos.",
+"Programs that install just for you (VS Code, Discord, Python etc.). Uninstall through Settings → Apps.",
+"Programas que se instalan solo para ti (VS Code, Discord, Python, etc.). Desinstala desde Configuración → Aplicaciones."
+],
+[
+"Dados de apps da Store",
+"Store app data",
+"Datos de aplicaciones de la Store"
+],
+[
+"Dados de aplicativos da Microsoft Store.",
+"Data of Microsoft Store apps.",
+"Datos de aplicaciones de Microsoft Store."
+],
+[
+"WSL (Ubuntu)",
+"WSL (Ubuntu)",
+"WSL (Ubuntu)"
+],
+[
+"Disco virtual do Linux no Windows (ext4.vhdx). Ele cresce e não encolhe sozinho, mesmo depois de apagar arquivos dentro do Linux. Compacte com 'wsl --manage <distro> --set-sparse true' ou Optimize-VHD.",
+"Virtual disk of Linux on Windows (ext4.vhdx). It grows and never shrinks by itself, even after deleting files inside Linux. Compact it with 'wsl --manage <distro> --set-sparse true' or Optimize-VHD.",
+"Disco virtual de Linux en Windows (ext4.vhdx). Crece y no se reduce solo, aunque borres archivos dentro de Linux. Compáctalo con 'wsl --manage <distro> --set-sparse true' u Optimize-VHD."
+],
+[
+"Docker Desktop",
+"Docker Desktop",
+"Docker Desktop"
+],
+[
+"Imagens, containers e volumes do Docker (docker_data.vhdx). Libere com 'docker system prune -a' e depois compacte o disco.",
+"Docker images, containers and volumes (docker_data.vhdx). Free space with 'docker system prune -a' and then compact the disk.",
+"Imágenes, contenedores y volúmenes de Docker (docker_data.vhdx). Libera espacio con 'docker system prune -a' y luego compacta el disco."
+],
+[
+"Cache do Chrome",
+"Chrome cache",
+"Caché de Chrome"
+],
+[
+"Cache de páginas do Chrome. Recriado automaticamente.",
+"Chrome page cache. Recreated automatically.",
+"Caché de páginas de Chrome. Se recrea automáticamente."
+],
+[
+"Cache de scripts do Chrome",
+"Chrome script cache",
+"Caché de scripts de Chrome"
+],
+[
+"Recriado automaticamente.",
+"Recreated automatically.",
+"Se recrea automáticamente."
+],
+[
+"Service Workers do Chrome",
+"Chrome Service Workers",
+"Service Workers de Chrome"
+],
+[
+"Cache offline de sites. Pode crescer muito sem aviso.",
+"Offline cache of websites. Can grow a lot without warning.",
+"Caché sin conexión de sitios web. Puede crecer mucho sin aviso."
+],
+[
+"Cache do Edge",
+"Edge cache",
+"Caché de Edge"
+],
+[
+"Cache de páginas do Edge. Recriado automaticamente.",
+"Edge page cache. Recreated automatically.",
+"Caché de páginas de Edge. Se recrea automáticamente."
+],
+[
+"Cache de scripts do Edge",
+"Edge script cache",
+"Caché de scripts de Edge"
+],
+[
+"Service Workers do Edge",
+"Edge Service Workers",
+"Service Workers de Edge"
+],
+[
+"Cache offline de sites.",
+"Offline cache of websites.",
+"Caché sin conexión de sitios web."
+],
+[
+"Cache do Firefox",
+"Firefox cache",
+"Caché de Firefox"
+],
+[
+"Cache do Discord",
+"Discord cache",
+"Caché de Discord"
+],
+[
+"Cache do Spotify",
+"Spotify cache",
+"Caché de Spotify"
+],
+[
+"Músicas em cache. Limite o tamanho nas configurações do Spotify.",
+"Cached music. Limit its size in Spotify's settings.",
+"Música en caché. Limita el tamaño en la configuración de Spotify."
+],
+[
+"Microsoft Teams (clássico)",
+"Microsoft Teams (classic)",
+"Microsoft Teams (clásico)"
+],
+[
+"Dados e cache do Teams.",
+"Teams data and cache.",
+"Datos y caché de Teams."
+],
+[
+"Cache de shaders NVIDIA (DirectX)",
+"NVIDIA shader cache (DirectX)",
+"Caché de shaders NVIDIA (DirectX)"
+],
+[
+"Shaders compilados de jogos. Recriado automaticamente.",
+"Compiled game shaders. Recreated automatically.",
+"Shaders compilados de juegos. Se recrean automáticamente."
+],
+[
+"Cache de shaders NVIDIA (OpenGL)",
+"NVIDIA shader cache (OpenGL)",
+"Caché de shaders NVIDIA (OpenGL)"
+],
+[
+"Cache de shaders AMD",
+"AMD shader cache",
+"Caché de shaders AMD"
+],
+[
+"Cache de shaders DirectX",
+"DirectX shader cache",
+"Caché de shaders DirectX"
+],
+[
+"Cache do pip",
+"pip cache",
+"Caché de pip"
+],
+[
+"Pacotes Python baixados. Limpe com 'pip cache purge'.",
+"Downloaded Python packages. Clean with 'pip cache purge'.",
+"Paquetes de Python descargados. Limpia con 'pip cache purge'."
+],
+[
+"Cache do uv",
+"uv cache",
+"Caché de uv"
+],
+[
+"Limpe com 'uv cache clean'.",
+"Clean with 'uv cache clean'.",
+"Limpia con 'uv cache clean'."
+],
+[
+"Cache do Poetry",
+"Poetry cache",
+"Caché de Poetry"
+],
+[
+"Limpe com 'poetry cache clear --all .'.",
+"Clean with 'poetry cache clear --all .'.",
+"Limpia con 'poetry cache clear --all .'."
+],
+[
+"Cache do npm",
+"npm cache",
+"Caché de npm"
+],
+[
+"Limpe com 'npm cache clean --force'.",
+"Clean with 'npm cache clean --force'.",
+"Limpia con 'npm cache clean --force'."
+],
+[
+"Pacotes globais do npm",
+"Global npm packages",
+"Paquetes globales de npm"
+],
+[
+"Pacotes instalados com 'npm install -g'.",
+"Packages installed with 'npm install -g'.",
+"Paquetes instalados con 'npm install -g'."
+],
+[
+"Cache do Yarn",
+"Yarn cache",
+"Caché de Yarn"
+],
+[
+"Limpe com 'yarn cache clean'.",
+"Clean with 'yarn cache clean'.",
+"Limpia con 'yarn cache clean'."
+],
+[
+"Store do pnpm",
+"pnpm store",
+"Store de pnpm"
+],
+[
+"Limpe com 'pnpm store prune'.",
+"Clean with 'pnpm store prune'.",
+"Limpia con 'pnpm store prune'."
+],
+[
+"Caches da JetBrains",
+"JetBrains caches",
+"Cachés de JetBrains"
+],
+[
+"Índices e caches de IDEs JetBrains. Versões antigas podem ser apagadas.",
+"Indexes and caches of JetBrains IDEs. Old versions can be deleted.",
+"Índices y cachés de los IDE de JetBrains. Las versiones antiguas se pueden borrar."
+],
+[
+"Android SDK",
+"Android SDK",
+"Android SDK"
+],
+[
+"Gerencie pelo SDK Manager do Android Studio.",
+"Manage it with Android Studio's SDK Manager.",
+"Gestiónalo con el SDK Manager de Android Studio."
+],
+[
+"Cache do VS Code",
+"VS Code cache",
+"Caché de VS Code"
+],
+[
+"Dados de workspaces do VS Code",
+"VS Code workspace data",
+"Datos de workspaces de VS Code"
+],
+[
+"Estado por projeto. Pastas de projetos antigos podem ser apagadas.",
+"Per-project state. Folders of old projects can be deleted.",
+"Estado por proyecto. Las carpetas de proyectos antiguos se pueden borrar."
+],
+[
+"Extensões do VS Code",
+"VS Code extensions",
+"Extensiones de VS Code"
+],
+[
+"Gerencie pelo painel de extensões.",
+"Manage them in the extensions panel.",
+"Gestiónalas en el panel de extensiones."
+],
+[
+"Pacotes NuGet",
+"NuGet packages",
+"Paquetes NuGet"
+],
+[
+"Limpe com 'dotnet nuget locals all --clear'.",
+"Clean with 'dotnet nuget locals all --clear'.",
+"Limpia con 'dotnet nuget locals all --clear'."
+],
+[
+"Cache do Gradle",
+"Gradle cache",
+"Caché de Gradle"
+],
+[
+"Dependências baixadas pelo Gradle.",
+"Dependencies downloaded by Gradle.",
+"Dependencias descargadas por Gradle."
+],
+[
+"Repositório Maven",
+"Maven repository",
+"Repositorio de Maven"
+],
+[
+"Dependências baixadas pelo Maven.",
+"Dependencies downloaded by Maven.",
+"Dependencias descargadas por Maven."
+],
+[
+"Rust (cargo)",
+"Rust (cargo)",
+"Rust (cargo)"
+],
+[
+"Pacotes e binários do Rust.",
+"Rust packages and binaries.",
+"Paquetes y binarios de Rust."
+],
+[
+"Rust (toolchains)",
+"Rust (toolchains)",
+"Rust (toolchains)"
+],
+[
+"Gerencie com 'rustup toolchain list/uninstall'.",
+"Manage with 'rustup toolchain list/uninstall'.",
+"Gestiona con 'rustup toolchain list/uninstall'."
+],
+[
+"Emuladores Android",
+"Android emulators",
+"Emuladores de Android"
+],
+[
+"Imagens de emuladores (AVDs). Remova pelo Device Manager do Android Studio.",
+"Emulator images (AVDs). Remove them through Android Studio's Device Manager.",
+"Imágenes de emuladores (AVD). Elimínalas desde el Device Manager de Android Studio."
+],
+[
+"Anaconda",
+"Anaconda",
+"Anaconda"
+],
+[
+"Limpe pacotes com 'conda clean --all'.",
+"Clean packages with 'conda clean --all'.",
+"Limpia paquetes con 'conda clean --all'."
+],
+[
+"Miniconda",
+"Miniconda",
+"Miniconda"
+],
+[
+"Ambientes conda",
+"Conda environments",
+"Entornos de conda"
+],
+[
+"Ambientes e pacotes do conda.",
+"Conda environments and packages.",
+"Entornos y paquetes de conda."
+],
+[
+"Caches de ferramentas (~/.cache)",
+"Tool caches (~/.cache)",
+"Cachés de herramientas (~/.cache)"
+],
+[
+"Usado por várias ferramentas. Modelos de IA baixados podem ocupar dezenas de GB aqui.",
+"Used by many tools. Downloaded AI models can take tens of GB here.",
+"Lo usan varias herramientas. Los modelos de IA descargados pueden ocupar decenas de GB aquí."
+],
+[
+"Modelos Hugging Face",
+"Hugging Face models",
+"Modelos de Hugging Face"
+],
+[
+"Modelos de IA baixados. Apague os que não usa mais.",
+"Downloaded AI models. Delete the ones you no longer use.",
+"Modelos de IA descargados. Borra los que ya no uses."
+],
+[
+"Modelos Ollama",
+"Ollama models",
+"Modelos de Ollama"
+],
+[
+"Remova com 'ollama rm <modelo>'.",
+"Remove with 'ollama rm <modelo>'.",
+"Elimina con 'ollama rm <modelo>'."
+],
+[
+"Atalhos de apps da Store",
+"Store app aliases",
+"Alias de aplicaciones de la Store"
+],
+[
+"Atalhos de execução de apps.",
+"App execution aliases.",
+"Alias de ejecución de aplicaciones."
+],
+[
+"Arquivo de paginação (memória virtual)",
+"Page file (virtual memory)",
+"Archivo de paginación (memoria virtual)"
+],
+[
+"Memória virtual do Windows. O tamanho é gerenciado pelo sistema e varia com o uso de memória: pode crescer vários GB depois de abrir jogos ou programas pesados, e é uma causa comum do espaço que 'some'. Ajuste em Sistema → Configurações avançadas → Desempenho → Memória virtual.",
+"Windows virtual memory. Its size is managed by the system and varies with memory use: it can grow several GB after opening games or heavy programs, and it is a common cause of space that 'disappears'. Adjust it in System → Advanced system settings → Performance → Virtual memory.",
+"Memoria virtual de Windows. El tamaño lo gestiona el sistema y varía con el uso de memoria: puede crecer varios GB tras abrir juegos o programas pesados, y es una causa común del espacio que 'desaparece'. Ajústalo en Sistema → Configuración avanzada del sistema → Rendimiento → Memoria virtual."
+],
+[
+"Arquivo de hibernação",
+"Hibernation file",
+"Archivo de hibernación"
+],
+[
+"Usado pela hibernação e pela Inicialização Rápida (cerca de 40% da RAM). Desative com 'powercfg /h off' no Prompt como administrador (você perde a hibernação).",
+"Used by hibernation and Fast Startup (about 40% of RAM). Disable it with 'powercfg /h off' in an administrator Command Prompt (you lose hibernation).",
+"Lo usan la hibernación y el Inicio rápido (cerca del 40% de la RAM). Desactívalo con 'powercfg /h off' en un Símbolo del sistema como administrador (pierdes la hibernación)."
+],
+[
+"Swap de apps modernos",
+"Modern app swap",
+"Swap de aplicaciones modernas"
+],
+[
+"Arquivo de troca gerenciado pelo Windows.",
+"Swap file managed by Windows.",
+"Archivo de intercambio gestionado por Windows."
+],
+[
+"Dump de memória (tela azul)",
+"Memory dump (blue screen)",
+"Volcado de memoria (pantalla azul)"
+],
+[
+"Criado após uma tela azul. Pode ter o tamanho da RAM. Seguro de apagar.",
+"Created after a blue screen. Can be as large as your RAM. Safe to delete.",
+"Se crea tras una pantalla azul. Puede tener el tamaño de la RAM. Seguro de borrar."
+],
+[
+"Disco virtual",
+"Virtual disk",
+"Disco virtual"
+],
+[
+"Disco de máquina virtual (WSL, Docker, Hyper-V, VirtualBox, VMware). Ele mantém o tamanho máximo que já atingiu, mesmo depois de apagar arquivos dentro da VM. É preciso compactá-lo.",
+"Virtual machine disk (WSL, Docker, Hyper-V, VirtualBox, VMware). It keeps the largest size it ever reached, even after deleting files inside the VM. It has to be compacted.",
+"Disco de máquina virtual (WSL, Docker, Hyper-V, VirtualBox, VMware). Mantiene el tamaño máximo que alcanzó, aunque borres archivos dentro de la VM. Hay que compactarlo."
+],
+[
+"Dump de falha",
+"Crash dump",
+"Volcado de fallo"
+],
+[
+"Registro de um travamento. Seguro de apagar.",
+"Record of a crash. Safe to delete.",
+"Registro de un bloqueo. Seguro de borrar."
+],
+[
+"Cache de e-mail do Outlook",
+"Outlook mail cache",
+"Caché de correo de Outlook"
+],
+[
+"Cópia local da caixa de correio. Reduza o período de sincronização no Outlook.",
+"Local copy of the mailbox. Shorten the sync period in Outlook.",
+"Copia local del buzón. Reduce el periodo de sincronización en Outlook."
+]
+]

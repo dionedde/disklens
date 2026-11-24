@@ -9,6 +9,7 @@ import time
 from collections import deque
 
 from . import winapi
+from .i18n import tr
 
 
 class LoadGuard(threading.Thread):
@@ -90,9 +91,9 @@ class LoadGuard(threading.Thread):
             if busy_ui:
                 reason = busy_ui
             elif len(recent) >= 3 and (avg3 > self.cpu_limit or over >= 2):
-                reason = f"Processador ocupado ({avg3:.0f}% em uso por outros programas)"
+                reason = tr("Processador ocupado ({pct}% em uso por outros programas)", pct=f"{avg3:.0f}")
             elif mem >= self.mem_limit:
-                reason = f"Memória quase cheia ({mem}%)"
+                reason = tr("Memória quase cheia ({pct}%)", pct=mem)
 
             if reason:
                 self._pause(reason)

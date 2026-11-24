@@ -51,7 +51,7 @@ class McpTest(unittest.TestCase):
         self.assertFalse(any("delete" in t or "apagar" in t for t in tools))   # no direct deletion tool
         r = self.rpc("tools/call", {"name": "get_disk_overview", "arguments": {}})
         self.assertFalse(r["result"]["isError"])
-        self.assertIn("erro", json.loads(r["result"]["content"][0]["text"]))   # empty data dir -> asks for a scan
+        self.assertIn("error", json.loads(r["result"]["content"][0]["text"]))   # empty data dir -> asks for a scan
         self.assertIn("error", self.rpc("no/such/method"))
 
     def test_proposals_are_validated(self):
@@ -68,8 +68,8 @@ class McpTest(unittest.TestCase):
         ]}
         r = self.rpc("tools/call", {"name": "propose_cleanup", "arguments": args})
         out = json.loads(r["result"]["content"][0]["text"])
-        self.assertEqual(out["aceitos"], 0)
-        self.assertEqual(len(out["recusados"]), 6)
+        self.assertEqual(out["accepted"], 0)
+        self.assertEqual(len(out["refused"]), 6)
         self.assertTrue(tmpfile or True)
 
 

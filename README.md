@@ -1,344 +1,359 @@
 <p align="center">
-  <img src="docs/icon.png" width="120" alt="Ícone do DiskLens: uma lupa sobre um gráfico de pizza do disco">
+  <img src="docs/icon.png" width="120" alt="DiskLens icon: a magnifying glass over a pie chart of the disk">
 </p>
 
 <h1 align="center">DiskLens</h1>
 
 <p align="center">
-  <b>Entenda o que ocupa o seu disco no Windows, e por que o espaço livre some.</b><br>
-  Do macro (categorias) ao micro (arquivo a arquivo), com linha do tempo, limpeza segura e assistente de IA.
+  <b>Understand what fills your Windows disk, and why free space disappears.</b><br>
+  From the big picture (categories) down to single files, with a timeline, safe cleanup and an AI assistant.
+</p>
+
+<p align="center">
+  <b>English</b> · <a href="README.pt-BR.md">Português</a> · <a href="README.es.md">Español</a>
 </p>
 
 <p align="center">
   <img alt="Windows 10/11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6">
   <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-3776AB">
-  <img alt="Ambiente ~20 MB" src="https://img.shields.io/badge/ambiente-~20%20MB-success">
-  <img alt="Licença Apache 2.0" src="https://img.shields.io/badge/licen%C3%A7a-Apache%202.0-blue">
+  <img alt="Environment ~20 MB" src="https://img.shields.io/badge/environment-~20%20MB-success">
+  <img alt="Languages: EN, PT, ES" src="https://img.shields.io/badge/languages-EN%20%7C%20PT%20%7C%20ES-informational">
+  <img alt="Apache 2.0 license" src="https://img.shields.io/badge/license-Apache%202.0-blue">
 </p>
 
-![Visão geral do DiskLens](docs/screenshots/01-visao-geral.png)
+![DiskLens overview](docs/screenshots/01-overview.png)
 
 ---
 
-## Por que o DiskLens existe
+## Why DiskLens exists
 
-Um dia o disco tem 20 GB livres. Alguns dias depois, tem 10 GB, e você não instalou nada. As ferramentas do Windows mostram *quanto* está ocupado, mas não **o quê**, nem **quando** mudou.
+One day your disk has 20 GB free. A few days later it has 10 GB, and you didn't install anything. Windows tools show *how much* is used, but not **what**, nor **when** it changed.
 
-O DiskLens responde a três perguntas:
+DiskLens answers three questions:
 
-1. **O que ocupa o disco agora?** Cada pasta e cada arquivo, agrupados em categorias que fazem sentido (sistema, programas, caches, máquinas virtuais, seus arquivos…), cada uma com uma explicação em português e com o nível de segurança para limpar.
-2. **O que mudou, e quando?** Ele mede o disco a cada 15 minutos, faz um retrato completo por dia e lê o journal do NTFS. Assim mostra **qual arquivo** cresceu, em **qual intervalo de 15 minutos**.
-3. **O que dá para apagar sem quebrar nada?** Uma aba de limpeza separa o que é seguro (caches e temporários), o que só você pode decidir (arquivos pessoais, que vão para a Lixeira) e o que só sai pelo desinstalador oficial. Um assistente de IA, de qualquer provedor, ajuda a decidir.
+1. **What is on the disk right now?** Every folder and file, grouped into categories that make sense (system, programs, caches, virtual machines, your files…), each with a plain-language explanation and how safe it is to clean.
+2. **What changed, and when?** It measures the disk every 15 minutes, takes a full snapshot once a day and reads the NTFS change journal. So it shows **which file** grew, in **which 15-minute window**.
+3. **What can I delete without breaking anything?** A cleanup tab separates what is safe (caches and temporary files), what only you can decide (personal files, which go to the Recycle Bin) and what must go through the official uninstaller. An AI assistant, from any provider, helps you decide.
 
-Ele também mostra o espaço que **nenhuma pasta mostra**: pontos de restauração, armazenamento reservado do Windows, metadados do NTFS, pagefile e hiberfil.
-
----
-
-## Índice
-
-- [Funcionalidades](#funcionalidades)
-  - [Visão geral e espaço oculto](#visão-geral-e-espaço-oculto)
-  - [Liberar espaço](#liberar-espaço)
-  - [Explorar pastas](#explorar-pastas)
-  - [Maiores arquivos e tipos de arquivo](#maiores-arquivos-e-tipos-de-arquivo)
-  - [Linha do tempo](#linha-do-tempo)
-  - [Arquivo a arquivo (journal do NTFS)](#arquivo-a-arquivo-journal-do-ntfs)
-  - [Assistente de IA (qualquer provedor)](#assistente-de-ia-qualquer-provedor)
-  - [Servidor MCP](#servidor-mcp-usar-a-partir-de-outros-apps-de-ia)
-  - [Ícone na bandeja](#ícone-na-bandeja)
-- [Instalação](#instalação)
-- [Como usar](#como-usar)
-- [Segurança: o que o DiskLens nunca faz](#segurança-o-que-o-disklens-nunca-faz)
-- [Não atrapalha o uso do PC](#não-atrapalha-o-uso-do-pc)
-- [Privacidade](#privacidade)
-- [Como funciona por dentro](#como-funciona-por-dentro)
-- [Testes](#testes)
-- [Perguntas frequentes](#perguntas-frequentes)
+It also shows the space that **no folder shows**: restore points, Windows reserved storage, NTFS metadata, pagefile and hiberfil.
 
 ---
 
-## Funcionalidades
+## Contents
 
-### Visão geral e espaço oculto
+- [Features](#features)
+  - [Overview and hidden space](#overview-and-hidden-space)
+  - [Free up space](#free-up-space)
+  - [Explore folders](#explore-folders)
+  - [Largest files and file types](#largest-files-and-file-types)
+  - [Timeline](#timeline)
+  - [File by file (NTFS journal)](#file-by-file-ntfs-journal)
+  - [AI assistant (any provider)](#ai-assistant-any-provider)
+  - [MCP server](#mcp-server-use-it-from-other-ai-apps)
+  - [Tray icon](#tray-icon)
+  - [Languages](#languages)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+- [Safety: what DiskLens never does](#safety-what-disklens-never-does)
+- [It stays out of your way](#it-stays-out-of-your-way)
+- [Privacy](#privacy)
+- [How it works inside](#how-it-works-inside)
+- [Tests](#tests)
+- [FAQ](#faq)
 
-A barra do disco mostra cada categoria com sua cor. Logo abaixo, o card **"Espaço que nenhuma pasta mostra"** explica a diferença entre o que o Windows diz estar em uso e a soma de todos os arquivos legíveis:
+---
 
-| Item | Como é medido |
+## Features
+
+### Overview and hidden space
+
+The disk bar shows each category in its own color. Right below it, the **"Space no folder shows"** card explains the gap between what Windows says is in use and the sum of every readable file:
+
+| Item | How it is measured |
 |---|---|
-| Pontos de restauração (cópias de sombra) | WMI `Win32_ShadowStorage` e `Get-ComputerRestorePoint` |
-| Armazenamento reservado do Windows | registro `ReserveManager` |
-| Metadados do NTFS (`$MFT`, journal, `$LogFile`) | `FSCTL_GET_NTFS_VOLUME_DATA` e `FSCTL_QUERY_USN_JOURNAL` |
-| Pastas protegidas | lidas como administrador com `SeBackupPrivilege` (somente leitura) |
-| pagefile.sys / hiberfil.sys | WMI `Win32_PageFileUsage` e configuração de energia |
+| Restore points (shadow copies) | WMI `Win32_ShadowStorage` and `Get-ComputerRestorePoint` |
+| Windows reserved storage | `ReserveManager` registry key |
+| NTFS metadata (`$MFT`, journal, `$LogFile`) | `FSCTL_GET_NTFS_VOLUME_DATA` and `FSCTL_QUERY_USN_JOURNAL` |
+| Protected folders | read as administrator with `SeBackupPrivilege` (read-only) |
+| pagefile.sys / hiberfil.sys | WMI `Win32_PageFileUsage` and power settings |
 
-Cada item diz se o valor foi **medido** ou **estimado**, explica o que é e diz o que dá para fazer a respeito. Também aparecem dicas para o disco (por exemplo: "o pagefile ocupa 15,9 GB, mas o maior uso desde que o PC foi ligado foi 2,6 GB").
+Each item says whether its value was **measured** or **estimated**, what it is and what you can do about it. Tips for the drive show up too (for example: "pagefile.sys takes 15.9 GB, but the peak use since the PC was turned on was 4.01 GB").
 
-### Liberar espaço
+### Free up space
 
-![Aba Liberar espaço](docs/screenshots/02-liberar-espaco.png)
+![Free up space tab](docs/screenshots/02-free-up-space.png)
 
-A aba feita para **agir** sem precisar entender os detalhes das outras:
+The tab built for **acting**, without needing to understand the details of the other tabs:
 
-| Seção | O que mostra | Como apaga |
+| Section | What it shows | How it deletes |
 |---|---|---|
-| **Limpeza segura** | caches e temporários: shaders de GPU, Spotify, npm, pip, uv, navegadores, dumps de travamento, Temp… | definitivamente. São recriados sozinhos, e arquivos em uso são pulados |
-| **Ferramentas do Windows** | cache do Windows Update, limpeza de componentes (DISM), Otimização de Entrega, pontos de restauração antigos, hibernação, esvaziar a Lixeira | pelas ferramentas oficiais do Windows |
-| **Para revisar** | instaladores antigos em Downloads, arquivos grandes parados há muito tempo, prováveis duplicados, builds e dependências de projetos parados | **para a Lixeira** (dá para desfazer) |
-| **Programas instalados** | todos os programas, com tamanho medido, disco e datas; dependências (runtimes, drivers) marcadas | pelo **desinstalador oficial** do programa |
-| **Pastas desconhecidas** | pastas grandes que nenhuma regra conhece | botão "Perguntar à IA" |
+| **Safe cleanup** | caches and temporary files: GPU shaders, Spotify, npm, pip, uv, browsers, crash dumps, Temp… | permanently. They are recreated automatically, and files in use are skipped |
+| **Windows tools** | Windows Update cache, component cleanup (DISM), Delivery Optimization, old restore points, hibernation, emptying the Recycle Bin | through the official Windows tools |
+| **To review** | old installers in Downloads, large files untouched for a long time, likely duplicates, builds and dependencies of idle projects | **to the Recycle Bin** (can be undone) |
+| **Installed programs** | every program, with measured size, drive and dates; dependencies (runtimes, drivers) are flagged | through the program's **official uninstaller** |
+| **Large unknown folders** | big folders that no rule knows | an "Ask AI" button |
 
-Antes de executar, um resumo agrupado pede confirmação. Depois, o resultado deixa claro quanto foi liberado de verdade e quanto **foi para a Lixeira**. Esse espaço só volta quando a Lixeira for esvaziada, e há um botão para isso ali mesmo. Assim você nunca fica sem entender por que apagou arquivos e o espaço livre não mudou.
+Before running, a grouped summary asks for confirmation. Afterwards, the result makes clear how much was really freed and how much **went to the Recycle Bin**. That space only comes back once the Recycle Bin is emptied, and there is a button for that right there. So you are never left wondering why you deleted files and free space didn't change.
 
-### Explorar pastas
+### Explore folders
 
-![Explorar pastas com treemap](docs/screenshots/03-explorar.png)
+![Explore folders with a treemap](docs/screenshots/03-explore.png)
 
-- **Treemap** ou **Sunburst**, com drill-down: clique numa pasta para entrar nela. O caminho no topo permite voltar.
-- **Cor por categoria** ou **cor por idade** (última semana, último mês, últimos 3 meses…), para ver o que é novo.
-- O painel **"O que é isso?"** explica a pasta, diz a categoria e o nível de segurança para limpar ("Seguro apagar", "Use a ferramenta", "Cuidado: entenda antes de mexer", "Não mexa").
-- Botões **Abrir no Explorer**, **Maiores arquivos aqui dentro**, **Perguntar à IA o que é** e **Mandar para a Lixeira** (com as mesmas proteções da aba de limpeza).
+- **Treemap** or **Sunburst**, with drill-down: click a folder to enter it. The path at the top takes you back.
+- **Color by category** or **color by age** (last week, last month, last 3 months…), to see what is new.
+- The **"What is this?"** panel explains the folder and gives its category and how safe it is to clean ("Safe to clean", "Clean with the indicated tool", "Careful: understand it before touching it", "Don't touch").
+- **Open in Explorer**, **Largest files in here**, **Ask AI what it is** and **Send to Recycle Bin** buttons (with the same protections as the cleanup tab).
 
-![Sunburst colorido por idade](docs/screenshots/12-sunburst-idade.png)
+![Sunburst colored by age](docs/screenshots/12-sunburst-age.png)
 
-A base de conhecimento (`rules.json`) tem mais de 110 regras para pastas conhecidas do Windows, de programas, de jogos e de ferramentas de desenvolvimento.
+The knowledge base (`rules.json`) has more than 110 rules for well-known folders of Windows, programs, games and development tools.
 
-### Maiores arquivos e tipos de arquivo
+### Largest files and file types
 
-![Maiores arquivos](docs/screenshots/04-maiores-arquivos.png)
+![Largest files](docs/screenshots/04-largest-files.png)
 
-Busca por nome, extensão, categoria, tamanho mínimo e pasta. Cada linha abre o arquivo selecionado no Explorer.
+Search by name, extension, category, minimum size and folder. Each row opens the file, selected, in Explorer.
 
-![Tipos de arquivo](docs/screenshots/05-tipos.png)
+![File types](docs/screenshots/05-file-types.png)
 
-Espaço por família de arquivos (programas, instaladores, discos virtuais, modelos de IA, imagens…) e por extensão. Arquivos especiais como `pagefile.sys` e `hiberfil.sys` aparecem separados.
+Space by file family (programs, installers, virtual disks, AI models, images…) and by extension. Special files such as `pagefile.sys` and `hiberfil.sys` are shown separately.
 
-### Linha do tempo
+### Timeline
 
-![Linha do tempo](docs/screenshots/06-linha-do-tempo.png)
+![Timeline](docs/screenshots/06-timeline.png)
 
-Ative a **coleta automática**: uma tarefa no Agendador de Tarefas do Windows que roda a cada 15 minutos, **mesmo com o DiskLens fechado**.
+Turn on **automatic collection**: a Windows Task Scheduler task that runs every 15 minutes, **even with DiskLens closed**.
 
-1. **Medição** (cerca de 2 s): espaço usado e livre de cada disco, pagefile, hiberfil e pontos de restauração.
-2. **Eventos do Windows**: atualizações, programas instalados e removidos, pontos de restauração, travamentos.
-3. **Retrato completo** (snapshot) uma vez por dia, só quando o computador estiver livre (veja [Não atrapalha o uso do PC](#não-atrapalha-o-uso-do-pc)).
+1. **Measurement** (about 2 s): used and free space of each drive, pagefile, hiberfil and restore points.
+2. **Windows events**: updates, programs installed and removed, restore points, crashes.
+3. **Full snapshot** once a day, only when the computer is idle (see [It stays out of your way](#it-stays-out-of-your-way)).
 
-O gráfico empilha o uso por categoria, com a linha das medições de 15 minutos, o pagefile e os eventos. Os botões 24 horas, 7 dias, 30 dias, 90 dias e 1 ano escolhem o período, e Ctrl + roda do mouse dá zoom.
+The chart stacks usage by category, with the line of 15-minute measurements, the pagefile and the events. The 24 hours, 7 days, 30 days, 90 days and 1 year buttons pick the period, and Ctrl + mouse wheel zooms.
 
-**Comparar dois momentos.** Escolha dois snapshots, ou clique num ponto do gráfico, e o DiskLens explica a mudança:
+**Compare two moments.** Pick two snapshots, or click a point on the chart, and DiskLens explains the change:
 
-![Comparar dois momentos](docs/screenshots/07-comparar.png)
+![Compare two moments](docs/screenshots/07-compare.png)
 
-- um **resumo em texto** ("O espaço usado diminuiu 1,2 GB. Principais responsáveis: …");
-- a variação por categoria e nas áreas ocultas;
-- **as pastas mais específicas que explicam a mudança**, sem somar a mesma coisa duas vezes;
-- os arquivos de 10 MB ou mais que surgiram ou cresceram;
-- os eventos do Windows no período e os maiores saltos entre medições.
+- a **text summary** ("Used space shrank by 1.2 GB. Main causes: …");
+- the change by category and in the hidden areas;
+- **the most specific folders that explain the change**, without counting the same thing twice;
+- files of 10 MB or more that appeared or grew;
+- Windows events in the period and the biggest jumps between measurements.
 
-### Arquivo a arquivo (journal do NTFS)
+### File by file (NTFS journal)
 
-![Arquivo a arquivo](docs/screenshots/08-arquivo-a-arquivo.png)
+![File by file](docs/screenshots/08-file-by-file.png)
 
-O NTFS registra cada arquivo criado, aumentado, diminuído ou apagado. A cada execução, o agente lê os registros novos, abre cada arquivo alterado pelo ID do NTFS e guarda a diferença de tamanho. O card mostra:
+NTFS records every file created, grown, shrunk or deleted. On each run, the agent reads the new records, opens each changed file by its NTFS ID and stores the size difference. The card shows:
 
-- quanto cresceu e quanto foi liberado na última hora, 24 horas, 7 ou 30 dias;
-- **quando** o espaço foi consumido, a cada 15 minutos (clique numa barra para filtrar aquele intervalo);
-- os arquivos que mais cresceram, as pastas com mais mudança e o espaço liberado;
-- os arquivos que **ocuparam espaço temporariamente**: criados e apagados no período, como instaladores e atualizações. Esse é justamente o tipo de coisa que faz o espaço livre "piscar".
+- how much grew and how much was freed in the last hour, 24 hours, 7 or 30 days;
+- **when** space was consumed, every 15 minutes (click a bar to filter that window);
+- the files that grew the most, the folders with the most change and the space freed;
+- the files that **took up space temporarily**: created and deleted within the period, such as installers and updates. That is exactly the kind of thing that makes free space "blink".
 
-Ler o journal exige administrador. A tarefa agendada já roda assim, sem pedir nada no dia a dia.
+Reading the journal requires administrator rights. The scheduled task already runs that way, without asking for anything day to day.
 
-### Assistente de IA (qualquer provedor)
+### AI assistant (any provider)
 
-![Configuração do assistente de IA](docs/screenshots/09-ia-config.png)
+![AI assistant settings](docs/screenshots/09-ai-settings.png)
 
-Em **Liberar espaço → Assistente de IA → Configurar**, escolha o provedor:
+In **Free up space → AI assistant → Set up**, pick a provider:
 
-| Provedor | Observação |
+| Provider | Note |
 |---|---|
-| OpenAI | API `/chat/completions` |
-| Google Gemini | endpoint compatível com OpenAI |
+| OpenAI | `/chat/completions` API |
+| Google Gemini | OpenAI-compatible endpoint |
 | DeepSeek | `api.deepseek.com` |
-| Anthropic (Claude) | API `/messages` |
-| Ollama | **local**: nada sai do computador |
-| Personalizado | qualquer serviço compatível com a API da OpenAI |
+| Anthropic (Claude) | `/messages` API |
+| Ollama | **local**: nothing leaves your computer |
+| Custom | any service compatible with the OpenAI API |
 
-O botão "Buscar modelos" lista os modelos da sua conta. A IA olha os candidatos, os programas e as pastas desconhecidas e recomenda **apagar / desinstalar / manter / revisar**, sempre com o motivo:
+The "Fetch models" button lists the models on your account. The AI looks at the candidates, the programs and the unknown folders and recommends **delete / uninstall / keep / review**, always with a reason:
 
-- só pode recomendar itens que o DiskLens listou: ids inventados são descartados;
-- **nunca apaga nada sozinha**: você confirma antes de qualquer ação;
-- a chave de API fica criptografada pelo Windows (DPAPI), e só o seu usuário consegue lê-la.
+- it can only recommend items DiskLens listed: made-up ids are discarded;
+- **it never deletes anything by itself**: you confirm before any action;
+- the API key is encrypted by Windows (DPAPI), and only your user account can read it;
+- it answers in the language you picked for DiskLens.
 
-### Servidor MCP (usar a partir de outros apps de IA)
+### MCP server (use it from other AI apps)
 
-![Configuração do MCP](docs/screenshots/10-mcp.png)
+![MCP setup](docs/screenshots/10-mcp.png)
 
-O DiskLens inclui um servidor [MCP](https://modelcontextprotocol.io) (Model Context Protocol), feito só com a biblioteca padrão do Python. Com ele, você conversa com a IA no app de sua preferência (app do Claude, Cursor, VS Code, Gemini CLI e outros):
+DiskLens includes an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, built only with the Python standard library. With it, you chat with the AI in the app you prefer (the Claude app, Cursor, VS Code, Gemini CLI and others):
 
-> "O que posso apagar para liberar 10 GB?"
+> "What can I delete to free 10 GB?"
 
-| Ferramenta | O que faz |
+| Tool | What it does |
 |---|---|
-| `get_disk_overview` | uso por categoria, espaço oculto e Lixeira |
-| `list_cleanup_candidates` | caches seguros, ferramentas, itens para revisar, programas e pastas desconhecidas |
-| `get_folder_details` | tamanho, explicação, subpastas e maiores arquivos de uma pasta |
-| `search_files` | busca por nome, extensão, idade, tamanho ou pasta |
-| `get_recent_changes` | o que cresceu nas últimas N horas, arquivo a arquivo |
-| `propose_cleanup` | cria uma **proposta**, já validada, que aparece na aba Liberar espaço para você confirmar |
+| `get_disk_overview` | usage by category, hidden space and Recycle Bin |
+| `list_cleanup_candidates` | safe caches, tools, items to review, programs and unknown folders |
+| `get_folder_details` | size, explanation, subfolders and largest files of a folder |
+| `search_files` | search by name, extension, age, size or folder |
+| `get_recent_changes` | what grew in the last N hours, file by file |
+| `propose_cleanup` | creates a validated **proposal** that shows up in the Free up space tab for you to confirm |
 
-**Não existe ferramenta que apague.** A configuração pronta para copiar fica em **Liberar espaço → Usar em outro app de IA (MCP)**.
+**There is no tool that deletes.** The ready-to-copy configuration is in **Free up space → Use in another AI app (MCP)**.
 
-### Ícone na bandeja
+### Tray icon
 
-<img src="docs/icon-azul.png" width="48" alt="ícone azul"> <img src="docs/icon-laranja.png" width="48" alt="ícone laranja"> <img src="docs/icon-vermelho.png" width="48" alt="ícone vermelho">
+<img src="docs/icon-azul.png" width="48" alt="blue icon"> <img src="docs/icon-laranja.png" width="48" alt="orange icon"> <img src="docs/icon-vermelho.png" width="48" alt="red icon">
 
-Opcional e **desligado por padrão**: liga em **Linha do tempo → Ligar ícone na bandeja**. O ícone é uma lupa sobre um gráfico de pizza do disco do sistema. A fatia mostra o espaço usado: **azul**, **laranja** acima de 85% e **vermelha** acima de 95%.
+Optional and **off by default**: turn it on in **Timeline → Turn on tray icon**. The icon is a magnifying glass over a pie chart of the system drive. The slice shows used space: **blue**, **orange** above 85% and **red** above 95%.
 
-- **Clique:** abre o painel. **Botão direito:** espaço livre de cada disco, estado da coleta, "Medir agora", "Iniciar com o Windows" e "Sair".
-- Fechar o painel deixa o ícone na bandeja. O ícone é um processo leve (cerca de 20 MB), e a janela, que usa o WebView2, só fica aberta quando você quer.
-- "Iniciar com o Windows" não precisa de administrador.
+- **Click:** opens the panel. **Right-click:** free space of each drive, collection status, "Measure now", "Start with Windows" and "Quit".
+- Closing the panel leaves the icon in the tray. The icon is a light process (about 20 MB), and the window, which uses WebView2, is open only when you want it.
+- "Start with Windows" does not need administrator rights.
 
-### Tema escuro
+### Languages
 
-Segue o tema do Windows automaticamente.
+DiskLens speaks **English, Portuguese and Spanish**. It follows the Windows display language by default; change it with the 🌐 selector at the top of the window. Everything is translated: the interface, folder explanations, tray menu, cleanup messages and the AI's answers.
 
-![Tema escuro](docs/screenshots/11-escuro.png)
+### Dark theme
+
+Follows the Windows theme automatically.
+
+![Dark theme](docs/screenshots/11-dark.png)
 
 ---
 
-## Instalação
+## Installation
 
-**Requisitos:** Windows 10 ou 11 e **Python 3.12 ou mais novo** ([python.org](https://www.python.org/downloads/)). A janela usa o Edge WebView2, que já vem no Windows.
+**Requirements:** Windows 10 or 11 and **Python 3.12 or newer** ([python.org](https://www.python.org/downloads/)). The window uses Edge WebView2, which already ships with Windows.
 
-1. Instale o Python marcando **"Add python.exe to PATH"**.
-2. Baixe o projeto ([Code → Download ZIP](https://github.com/dionedde/disklens/archive/refs/heads/main.zip)) ou clone:
+1. Install Python, checking **"Add python.exe to PATH"**.
+2. Download the project ([Code → Download ZIP](https://github.com/dionedde/disklens/archive/refs/heads/main.zip)) or clone it:
    ```bash
    git clone https://github.com/dionedde/disklens.git
    ```
-3. Dê dois cliques em **`Instalar.bat`**. Ele cria o ambiente `.venv` (cerca de 20 MB) e instala a única dependência, o `pywebview`.
+3. Double-click **`Instalar.bat`**. It creates the `.venv` environment (about 20 MB) and installs the only dependency, `pywebview`.
 
-Não há compilador nem nada pesado: o scanner, o agente, a IA e o MCP usam só a biblioteca padrão do Python.
+No compiler or anything heavy: the scanner, the agent, the AI and the MCP server use only the Python standard library.
 
-Na primeira execução, o `config.json` é criado e escolhe onde guardar os dados: por padrão, `X:\DiskLens\data` no disco **não-sistema** com mais espaço livre (para não encher o C:), ou `data\` dentro do projeto.
+On first run, `config.json` is created and picks where to keep the data: by default `X:\DiskLens\data` on the **non-system** drive with the most free space (so it doesn't fill C:), or `data\` inside the project.
 
-## Como usar
+## How to use
 
-| Para… | Faça |
+| To… | Do |
 |---|---|
-| Abrir | dois cliques em **`DiskLens.bat`** |
-| Ver tudo, inclusive pastas protegidas (**recomendado**) | **`DiskLens (administrador).bat`** |
-| Primeiro scan | botão **Escanear C: agora**: cerca de 1 minuto para ~740 mil arquivos |
-| Liberar espaço já | aba **Liberar espaço**, confira os itens marcados, **Revisar e confirmar** |
-| Descobrir por que o espaço sumiu | aba **Linha do tempo**, **Ativar coleta automática**. Depois de alguns dias, use **Comparar** e o card **Arquivo a arquivo** |
-| Saber o que é uma pasta | aba **Explorar**, clique nela e leia "O que é isso?", ou use **Perguntar à IA o que é** |
-| Usar a IA | **Liberar espaço → Assistente de IA → Configurar** |
-| Usar no app do Claude, Cursor etc. | **Liberar espaço → Usar em outro app de IA (MCP)** e copie a configuração |
+| Open it | double-click **`DiskLens.bat`** |
+| See everything, including protected folders (**recommended**) | **`DiskLens (administrador).bat`** |
+| First scan | **Scan C: now** button: about 1 minute for ~740 thousand files |
+| Free space right away | **Free up space** tab, check the selected items, **Review and confirm** |
+| Find out why space disappeared | **Timeline** tab, **Turn on automatic collection**. After a few days, use **Compare** and the **File by file** card |
+| Learn what a folder is | **Explore folders** tab, click it and read "What is this?", or use **Ask AI what it is** |
+| Use the AI | **Free up space → AI assistant → Set up** |
+| Use it from the Claude app, Cursor etc. | **Free up space → Use in another AI app (MCP)** and copy the configuration |
+| Change the language | 🌐 selector at the top |
 
-Só abre um painel por vez: abrir de novo traz a janela existente para a frente.
+Only one panel opens at a time: opening it again brings the existing window to the front.
 
-Para desativar a coleta automática, use o botão **Desativar** na Linha do tempo (ou `schtasks /Delete /TN "DiskLens\Agente" /F` como administrador).
-
----
-
-## Segurança: o que o DiskLens nunca faz
-
-As proteções (`cleaner.protection_reason`) são checadas **ao listar, ao propor e de novo logo antes de executar**. Elas valem para a interface, para a IA e para o MCP:
-
-- nunca apaga a raiz do disco, `Windows`, `Arquivos de Programas`, `ProgramData`, pastas de programas instalados (lidas do registro), o Python e os dados do próprio DiskLens, pagefile/hiberfil, nem pastas do perfil inteiras;
-- ao esvaziar um cache, **nunca segue junctions ou links** para fora dele;
-- áreas marcadas "use a ferramenta" (WinSxS, Windows Update…) só são limpas pela ferramenta oficial;
-- arquivos pessoais vão **para a Lixeira**, nunca são apagados direto;
-- programas só saem pelo **desinstalador oficial**;
-- tudo fica registrado no histórico (`cleanup_log`).
-
-Um pedido para apagar algo protegido é recusado **mesmo vindo direto pela API local**, e a API só aceita chamadas com um token gerado a cada execução.
-
-## Não atrapalha o uso do PC
-
-O scan roda em processo separado, com a **prioridade mínima** de CPU, disco e memória (`PROCESS_MODE_BACKGROUND_BEGIN`), e **pausa sozinho** quando:
-
-- um jogo ou app está em **tela cheia**;
-- outros programas usam **mais de 60% da CPU** de forma constante;
-- a memória passa de **90%**.
-
-Ele retoma depois de 30 s de calma. O snapshot automático também é **adiado** nesses casos e quando o notebook está na bateria, com novas tentativas em 30 min, 1 h, 2 h e no máximo 4 h. Os limites são configuráveis na própria aba.
-
-## Privacidade
-
-- Tudo fica no seu computador. O DiskLens não tem servidor, conta, nem telemetria.
-- A interface é servida em `127.0.0.1`, protegida por token.
-- A IA só é usada se você configurar. Nesse caso, ela recebe **caminhos, nomes e tamanhos** de pastas e arquivos e os nomes dos programas, **nunca o conteúdo dos arquivos**. Um aviso pede o seu consentimento antes do primeiro uso. Com o Ollama, nada sai do computador.
+To turn off automatic collection, use the **Turn off** button in the Timeline (or `schtasks /Delete /TN "DiskLens\Agente" /F` as administrator).
 
 ---
 
-## Como funciona por dentro
+## Safety: what DiskLens never does
+
+The protections (`cleaner.protection_reason`) are checked **when listing, when proposing and again right before running**. They apply to the interface, the AI and MCP:
+
+- it never deletes the drive root, `Windows`, `Program Files`, `ProgramData`, folders of installed programs (read from the registry), Python and DiskLens's own data, pagefile/hiberfil, or whole profile folders;
+- when emptying a cache, it **never follows junctions or links** out of it;
+- areas marked "use the tool" (WinSxS, Windows Update…) are only cleaned by the official tool;
+- personal files go **to the Recycle Bin**, never deleted directly;
+- programs are only removed by their **official uninstaller**;
+- everything is recorded in the history (`cleanup_log`).
+
+A request to delete something protected is refused **even when it comes straight through the local API**, and the API only accepts calls carrying a token generated on each run.
+
+## It stays out of your way
+
+The scan runs in a separate process at the **lowest** CPU, disk and memory priority (`PROCESS_MODE_BACKGROUND_BEGIN`), and **pauses by itself** when:
+
+- a game or app is in **full screen**;
+- other programs keep the **CPU above 60%**;
+- memory goes over **90%**.
+
+It resumes after 30 s of calm. The automatic snapshot is also **postponed** in those cases and when the laptop is on battery, retrying after 30 min, 1 h, 2 h and at most 4 h. The limits can be set in the Timeline tab.
+
+## Privacy
+
+- Everything stays on your computer. DiskLens has no server, no account and no telemetry.
+- The interface is served on `127.0.0.1`, protected by a token.
+- The AI is used only if you set it up. In that case it receives **paths, names and sizes** of folders and files and the names of programs, **never file contents**. A notice asks for your consent before the first use. With Ollama, nothing leaves your computer.
+
+---
+
+## How it works inside
 
 ```
 disklens/
-  scanner.py     varredura multithread (os.scandir + ctypes): tamanho real em disco (clusters,
-                 compactados, esparsos, WOF), hard links contados uma vez, OneDrive/placeholders = 0
-  loadguard.py   pausa e retomada conforme a carga do PC
-  probes.py      mede o espaço oculto e concilia com o scan
-  agent.py       coleta a cada 15 min: medições, eventos, journal, snapshot com verificação de carga
-  tasks.py       registra/remove a tarefa no Agendador de Tarefas
-  usn.py         lê o journal do NTFS (FSCTL_READ_USN_JOURNAL) e mede cada arquivo alterado
-  diff.py        compara dois snapshots e explica o que mudou, sem sobreposição
-  rules.json     base de conhecimento: pasta -> categoria, explicação, segurança
-  cleaner.py     proteções, esvaziar caches, Lixeira (SHFileOperation), ferramentas do Windows
-  candidates.py  candidatos à limpeza e programas instalados (registro do Windows)
-  proposals.py   propostas da IA/MCP e execução das ações confirmadas
-  ai.py          assistente multi-provedor (só biblioteca padrão; chave com DPAPI)
-  mcp_server.py  servidor MCP stdio (entrada: disklens_mcp.py)
-  server.py      API local (127.0.0.1, com token)
-  app.py         janela nativa (pywebview / Edge WebView2)
-  tray.py        ícone na bandeja (ctypes / Win32)
-  instance.py    instância única, painel e "Iniciar com o Windows"
-  icon.py        desenha o ícone em código (ICO/PNG, sem imagens nem Pillow)
-  web/           interface (HTML/CSS/JS + ECharts local)
+  scanner.py     multithreaded scan (os.scandir + ctypes): real size on disk (clusters,
+                 compressed, sparse, WOF), hard links counted once, OneDrive placeholders = 0
+  loadguard.py   pauses and resumes according to the PC's load
+  probes.py      measures the hidden space and reconciles it with the scan
+  agent.py       collection every 15 min: measurements, events, journal, snapshot with load checks
+  tasks.py       registers/removes the Task Scheduler task
+  usn.py         reads the NTFS journal (FSCTL_READ_USN_JOURNAL) and measures each changed file
+  diff.py        compares two snapshots and explains what changed, without overlap
+  rules.json     knowledge base: folder -> category, explanation, safety
+  cleaner.py     protections, emptying caches, Recycle Bin (SHFileOperation), Windows tools
+  candidates.py  cleanup candidates and installed programs (Windows registry)
+  proposals.py   AI/MCP proposals and running the confirmed actions
+  ai.py          multi-provider assistant (standard library only; key stored with DPAPI)
+  mcp_server.py  stdio MCP server (entry point: disklens_mcp.py)
+  server.py      local API (127.0.0.1, with token)
+  app.py         native window (pywebview / Edge WebView2)
+  tray.py        tray icon (ctypes / Win32)
+  instance.py    single instance, panel and "Start with Windows"
+  icon.py        draws the icon in code (ICO/PNG, no images or Pillow)
+  i18n.py        languages (catalog in locales.json)
+  web/           interface (HTML/CSS/JS + local ECharts)
 ```
 
-**Dados** (em `data_dir`):
+**Data** (in `data_dir`):
 
-- `index.db`: snapshots, medições, eventos e histórico de limpeza.
-- `snap_<id>.db`: um snapshot. O mais recente guarda todos os arquivos; os anteriores guardam as pastas e os arquivos de 10 MB ou mais. Depois de 90 dias, fica um snapshot por semana.
-- `usn.db`: as mudanças lidas do journal.
+- `index.db`: snapshots, measurements, events and cleanup history.
+- `snap_<id>.db`: one snapshot. The latest keeps every file; older ones keep folders and files of 10 MB or more. After 90 days, one snapshot per week is kept.
+- `usn.db`: changes read from the journal.
 
-**Detalhes de medição:**
+**Measurement details:**
 
-- O tamanho de cada arquivo é o **espaço alocado no disco**, arredondado ao cluster. Arquivos compactados, esparsos e WOF são medidos com `GetCompressedFileSizeW`, e arquivos da nuvem (OneDrive) contam como 0.
-- Arquivos com **hard links** (WinSxS ↔ System32, Edge ↔ EdgeWebView, pacotes do Conda…) são contados uma vez só.
-- Junctions e links simbólicos nunca são seguidos.
+- Each file's size is the **space allocated on disk**, rounded to the cluster. Compressed, sparse and WOF files are measured with `GetCompressedFileSizeW`, and cloud files (OneDrive) count as 0.
+- Files with **hard links** (WinSxS ↔ System32, Edge ↔ EdgeWebView, Conda packages…) are counted only once.
+- Junctions and symbolic links are never followed.
 
-## Testes
+**Translations:** the source strings are Portuguese, and `disklens/locales.json` maps each one to English and Spanish. `python tools/i18n_keys.py` lists every translatable string and reports anything missing; a test fails if the catalog is incomplete.
 
-Os testes não precisam de administrador. Eles usam pastas descartáveis, um journal simulado e um servidor de IA falso, então nenhum serviço real é chamado:
+## Tests
+
+Tests don't need administrator rights. They use throwaway folders, a simulated journal and a fake AI server, so no real service is called:
 
 ```bash
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-Há também um autoteste real do journal, que exige administrador: `python -m disklens.usn saida.json`.
+There is also a real journal self-test, which requires administrator rights: `python -m disklens.usn output.json`.
 
-## Perguntas frequentes
+## FAQ
 
-**Preciso deixar o DiskLens aberto para a coleta funcionar?**
-Não. Quem roda a coleta é o Agendador de Tarefas do Windows. O ícone na bandeja é opcional.
+**Do I need to keep DiskLens open for collection to work?**
+No. Windows Task Scheduler runs the collection. The tray icon is optional.
 
-**Por que "Liberar espaço" mostra menos do que eu esperava?**
-Ela só lista o que pode ser apagado sem afetar seus programas ou o Windows. Arquivos pessoais aparecem em "Para revisar", e o resto é decisão sua, que a IA pode ajudar a tomar.
+**Why does "Free up space" show less than I expected?**
+It only lists what can be deleted without affecting your programs or Windows. Personal files appear under "To review", and the rest is your call, which the AI can help with.
 
-**Apaguei arquivos e o espaço livre não mudou. E agora?**
-Arquivos pessoais vão para a Lixeira. O DiskLens avisa e oferece o botão **Esvaziar a Lixeira**.
+**I deleted files and free space didn't change. Now what?**
+Personal files go to the Recycle Bin. DiskLens tells you and offers an **Empty the Recycle Bin** button.
 
-**O scan conta mais ou menos espaço do que o Windows mostra.**
-A diferença é explicada no card "Espaço que nenhuma pasta mostra". Sem administrador, algumas pastas protegidas ficam sem leitura e entram em "Não identificado".
+**The scan counts more or less space than Windows shows.**
+The difference is explained in the "Space no folder shows" card. Without administrator rights, some protected folders can't be read and land in "Unidentified".
 
-**Funciona em outros discos?**
-Sim: escolha o disco no topo. A coleta automática pode incluir outros discos nas configurações.
+**Does it work on other drives?**
+Yes: pick the drive at the top. Automatic collection can include other drives in its settings.
 
 ---
 
-## Licença
+## License
 
-Distribuído sob a licença [Apache 2.0](LICENSE).
+Distributed under the [Apache 2.0](LICENSE) license.
 
-<sub>As capturas de tela usam dados reais de um PC, com o nome do usuário e de pastas pessoais trocados por nomes genéricos.</sub>
+<sub>The screenshots use real data from a PC, with the user name and personal folder names replaced by generic ones.</sub>

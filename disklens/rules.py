@@ -8,6 +8,7 @@ import json
 import re
 
 from .config import PKG_DIR
+from .i18n import tr
 
 RULES_FILE = PKG_DIR / "rules.json"
 
@@ -29,7 +30,6 @@ class Rules:
         if data is None:
             data = json.loads(RULES_FILE.read_text(encoding="utf-8"))
         self.data = data
-        self.categories = data["categories"]
         self.rules = []          # index -> rule dict (dirs first, then files)
         self._by_len = {}        # segment count -> [(idx, compiled regex)]
         self._names = {}
@@ -47,6 +47,15 @@ class Rules:
                 self._names[n.lower()] = idx
             for e in r.get("exts", []):
                 self._exts[e.lower()] = idx
+
+    @property
+    def categories(self):
+        """Category id -> {label (translated), color}."""
+        return {k: dict(v, label=tr(v["label"])) for k, v in self.data["categories"].items()}
+
+    @property
+    def safety(self):
+        return {k: tr(v) for k, v in self.data.get("safety", {}).items()}
 
     @property
     def named_files(self):
@@ -79,7 +88,7 @@ class Rules:
         if idx is None or idx < 0:
             return None
         r = self.rules[idx]
-        return {"label": r["label"], "desc": r.get("desc", ""), "safety": r.get("safety", ""),
+        return {"label": tr(r["label"]), "desc": tr(r.get("desc", "")), "safety": r.get("safety", ""),
                 "cat": r["cat"]}
 
 
@@ -101,6 +110,7 @@ EXT_TO_FAMILY = {e: fam for fam, exts in EXT_FAMILIES.items() for e in exts.spli
 
 
 def family(ext):
+    """Translated family name of an extension (a "#name" pseudo-extension is a named file)."""
     if ext.startswith("#"):
-        return "Dumps e temporários" if ext.endswith(".dmp") else "Memória virtual e hibernação"
-    return EXT_TO_FAMILY.get(ext, "Outros" if ext else "Sem extensão")
+        return tr("Dumps e temporários") if ext.endswith(".dmp") else tr("Memória virtual e hibernação")
+    return tr(EXT_TO_FAMILY.get(ext, "Outros" if ext else "Sem extensão"))

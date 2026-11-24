@@ -21,6 +21,7 @@ import time
 import traceback
 
 from . import db, winapi
+from .i18n import tr
 from .config import data_dir, load as load_config
 
 DAY = 86400
@@ -175,7 +176,7 @@ def on_battery():
 def machine_free(cfg, seconds=60, interval=5):
     """Watch the PC for `seconds`. Returns (True, None) or (False, reason)."""
     if on_battery():
-        return False, "Notebook funcionando na bateria"
+        return False, tr("Notebook funcionando na bateria")
     limit = cfg["cpu_limit"]
     samples = []
     prev = winapi.system_times()
@@ -193,12 +194,12 @@ def machine_free(cfg, seconds=60, interval=5):
             samples.append(busy / total * 100)
     mem = winapi.memory_load()
     if mem >= cfg["mem_limit"]:
-        return False, f"Memória quase cheia ({mem}%)"
+        return False, tr("Memória quase cheia ({pct}%)", pct=mem)
     if samples:
         avg = sum(samples) / len(samples)
         over = sum(1 for s in samples if s > limit) / len(samples)
         if avg > limit or over >= 0.5:
-            return False, f"Processador ocupado ({avg:.0f}% em média por {seconds}s)"
+            return False, tr("Processador ocupado ({pct}% em média por {seconds}s)", pct=f"{avg:.0f}", seconds=seconds)
     return True, None
 
 
