@@ -52,6 +52,7 @@ También muestra el espacio que **ninguna carpeta muestra**: puntos de restaurac
 - [Cómo funciona por dentro](#cómo-funciona-por-dentro)
 - [Pruebas](#pruebas)
 - [Preguntas frecuentes](#preguntas-frecuentes)
+- [Apoya el proyecto](#apoya-el-proyecto)
 
 ---
 
@@ -249,6 +250,15 @@ Los archivos personales van a la Papelera. DiskLens te avisa y ofrece el botón 
 
 **El escaneo cuenta más o menos espacio que Windows.**
 La diferencia se explica en la tarjeta "Espacio que ninguna carpeta muestra". Sin administrador, algunas carpetas protegidas no se pueden leer.
+
+---
+
+## Apoya el proyecto
+
+DiskLens es gratuito, sin anuncios y de código abierto. Si te ayudó a recuperar espacio, puedes apoyar su desarrollo:
+
+- **[GitHub Sponsors](https://github.com/sponsors/dionedde)**: con tarjeta, desde cualquier país, una vez o cada mes. GitHub no se queda con nada.
+- **Pix** (Brasil, cualquier importe): [abre la página de Pix](https://nubank.com.br/cobrar/vvdk8/6b05a2e8-7101-4702-bfc5-e8e9fb8f7861) o usa el botón **♥ Apoyar** en la parte superior de la app, que muestra el código QR.
 
 ---
 

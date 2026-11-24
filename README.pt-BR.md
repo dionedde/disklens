@@ -60,6 +60,7 @@ Ele também mostra o espaço que **nenhuma pasta mostra**: pontos de restauraç�
 - [Como funciona por dentro](#como-funciona-por-dentro)
 - [Testes](#testes)
 - [Perguntas frequentes](#perguntas-frequentes)
+- [Apoie o projeto](#apoie-o-projeto)
 
 ---
 
@@ -349,6 +350,17 @@ A diferença é explicada no card "Espaço que nenhuma pasta mostra". Sem admini
 
 **Funciona em outros discos?**
 Sim: escolha o disco no topo. A coleta automática pode incluir outros discos nas configurações.
+
+---
+
+## Apoie o projeto
+
+O DiskLens é gratuito, sem anúncios e de código aberto. Se ele ajudou você a recuperar espaço, você pode apoiar o desenvolvimento:
+
+<p><img src="docs/pix-qr.svg" width="180" alt="QR Code Pix para apoiar o DiskLens com qualquer valor"></p>
+
+- **Pix com qualquer valor:** leia o QR Code acima no app do seu banco ou [abra a página do Pix](https://nubank.com.br/cobrar/vvdk8/6b05a2e8-7101-4702-bfc5-e8e9fb8f7861). O mesmo QR Code fica no botão **♥ Apoiar**, no topo do app.
+- **[GitHub Sponsors](https://github.com/sponsors/dionedde)**: com cartão, uma vez ou todo mês. O GitHub não fica com nenhuma parte.
 
 ---
 

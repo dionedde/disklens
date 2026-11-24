@@ -550,6 +550,18 @@ def api_i18n(q, body):
     return {"lang": code, "locale": i18n.LOCALES[code], "langs": i18n.LANGS, "table": i18n.table(code)}
 
 
+def api_support(q, body):
+    from . import support
+    return dict(support.info(), qr_svg=support.qr_svg())
+
+
+def api_open_link(q, body):
+    from . import support
+    if not support.open_link(str(body.get("key") or "")):
+        raise ApiError(400, tr("link desconhecido"))
+    return {"ok": True}
+
+
 def api_settings(q, body):
     cfg = load_config()
     if "lang" in body:
@@ -591,6 +603,8 @@ ROUTES = {
     ("GET", "/api/agent"): api_agent_status,
     ("POST", "/api/settings"): api_settings,
     ("GET", "/api/i18n"): api_i18n,
+    ("GET", "/api/support"): api_support,
+    ("POST", "/api/open_link"): api_open_link,
 
     ("POST", "/api/tray"): api_tray,
     ("GET", "/api/state"): api_state,

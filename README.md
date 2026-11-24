@@ -60,6 +60,7 @@ It also shows the space that **no folder shows**: restore points, Windows reserv
 - [How it works inside](#how-it-works-inside)
 - [Tests](#tests)
 - [FAQ](#faq)
+- [Support the project](#support-the-project)
 
 ---
 
@@ -349,6 +350,15 @@ The difference is explained in the "Space no folder shows" card. Without adminis
 
 **Does it work on other drives?**
 Yes: pick the drive at the top. Automatic collection can include other drives in its settings.
+
+---
+
+## Support the project
+
+DiskLens is free, ad-free and open source. If it helped you get space back, you can support its development:
+
+- **[GitHub Sponsors](https://github.com/sponsors/dionedde)**: by card, from any country, once or monthly. GitHub takes no cut.
+- **Pix** (Brazil, any amount): [open the Pix page](https://nubank.com.br/cobrar/vvdk8/6b05a2e8-7101-4702-bfc5-e8e9fb8f7861), or use the **♥ Support** button at the top of the app, which shows the QR Code.
 
 ---
 

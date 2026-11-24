@@ -1426,6 +1426,35 @@ async function mcpModal() {
   $('#mcpClose').onclick = closeModal;
 }
 
+async function supportModal() {
+  let s;
+  try { s = await api('support'); } catch (e) { return toast(e.message); }
+  const pt = I18N.lang === 'pt';
+  const pix = `<div class="sup-card">
+      <h3>${pt ? t('Apoie via Pix com qualquer valor') : t('Mora no Brasil? Apoie via Pix com qualquer valor')}</h3>
+      <div class="sup-qr" title="Pix">${s.qr_svg}</div>
+      <p class="muted small">${t('Abra o app do seu banco, escolha Pix → Ler QR Code e digite o valor que quiser.')}</p>
+      <div class="actions"><button class="btn" id="pixCopy">${t('Copiar código Pix')}</button><button class="btn" id="pixOpen">${t('Abrir página do Pix')}</button></div>
+      ${pt ? '' : `<p class="muted small">${t('O Pix só funciona com contas de bancos brasileiros.')}</p>`}
+    </div>`;
+  const gh = `<div class="sup-card">
+      <h3>${t('Apoie pelo GitHub Sponsors')}</h3>
+      <p>${t('Com cartão de crédito, de qualquer país, uma vez ou todo mês. O GitHub não fica com nenhuma parte: o valor vai inteiro para o desenvolvedor.')}</p>
+      <div class="actions"><button class="btn primary" id="ghOpen">${t('Abrir o GitHub Sponsors')}</button></div>
+    </div>`;
+  showModal(`<h2><span class="heart">♥</span> ${t('Apoie o DiskLens')}</h2>
+    <p>${t('O DiskLens é gratuito, sem anúncios e de código aberto. Se ele ajudou você a recuperar espaço, considere apoiar o desenvolvimento.')}</p>
+    <div class="sup-grid">${pt ? pix + gh : gh + pix}</div>
+    <div class="actions"><button class="btn" id="supClose">${t('Fechar')}</button></div>`, true);
+  const open = key => api('open_link', { key }).catch(e => toast(e.message));
+  $('#pixCopy').onclick = () => navigator.clipboard.writeText(s.pix_code).then(
+    () => toast(t('Código Pix copiado. Cole no app do seu banco em Pix → Copia e cola.')),
+    () => toast(t('Selecione o texto e copie com Ctrl+C.')));
+  $('#pixOpen').onclick = () => open('pix');
+  $('#ghOpen').onclick = () => open('sponsors');
+  $('#supClose').onclick = closeModal;
+}
+
 /* ------------------------------------------------------------------ boot */
 async function loadI18n() {
   try { Object.assign(I18N, await api('i18n')); } catch { /* keep Portuguese */ }
@@ -1440,6 +1469,7 @@ async function loadI18n() {
 
 function bindUI() {
   document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
+  $('#supportBtn').onclick = supportModal;
   $('#volSel').onchange = async e => { S.volume = e.target.value; S.snap = null; S.dir = 1; await refreshState(true); render(); };
   $('#snapSel').onchange = e => { S.snap = snapsForVolume().find(s => s.id === +e.target.value); S.dir = 1; render(); };
   window.addEventListener('resize', () => { [S.chart, S.chart2, S.chart3].forEach(c => c && c.resize()); });
